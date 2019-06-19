@@ -1,6 +1,6 @@
 body {
     background: #ffffff;
-    color: #008744;
+    color: #00562b;
     margin: 20px;
 }
 
@@ -9,19 +9,24 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
-h {
-    color: #008744;
+h1 {
+    color: #0047bc;
+}
+
+h2{
+    color: #910a00;
 }
 
 p, label {
-    color: #0057e7;
+    color: #0067bc;
 }
 
 a:link {
   position: relative;
   opacity: 0.95;
-  color: #d62d20;
+  color: #0047bc;
   text-decoration: underline;
+  font-size: 25px;
 }
 
 a:hover {
@@ -32,7 +37,7 @@ a:hover {
 button {
    background: #eeeeee;
    opacity: 0.95;
-   color: #ffa700;
+   color: #ff4a000;
    padding: 3px;
    border-radius: 0px;
    border: 1px solid currentColor;
