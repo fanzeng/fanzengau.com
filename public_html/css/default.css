@@ -136,10 +136,6 @@ tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
-img {
-  padding: 5px;
-  margin: 5px;
-}
 .docktop_bg {
     position: fixed;
     top: 0;

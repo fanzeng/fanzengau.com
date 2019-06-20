@@ -32,3 +32,26 @@ div:content {
 	margin: 0px;
 	top: 80px;
 }
+
+
+img.icon_skills {
+  width: 32px;
+  height 32px;
+  padding: 0px;
+  margin: 2px;
+}
+
+img.icon_skills_wide {
+  width: 64px;
+  height: 32px;
+  padding: 0px;
+  margin: 2px;
+}
+
+img.img_project {
+  width: 128px;
+  height: 128px;
+  box-shadow: 5px 5px 5px #aaaaaa;
+  padding: 0px;
+  border: 0px;
+}
