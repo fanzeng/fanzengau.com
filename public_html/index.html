@@ -20,7 +20,10 @@
 	<script type="text/javascript" src="vendor/scripts/jquery.min.js"></script>
 </head>
 <body>
-
+<!-- code for facebook sharing -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3"></script>
+<!-- code for facebook sharing -->
 <div class="docktop_bg" id="docktop_bg">
 	<div class="docktop_fg" id="docktop_fg">
 	<span id="fanzeng">fanzeng</span><span id="au">au</span><span id="dotcom">.com</span>
@@ -32,14 +35,17 @@
   		<li class="menu_horizontal_item"><a href="#skills">Skills</a></li>
   		<li class="menu_horizontal_item"><a href="#projects">Projects</a></li>
   		<li class="menu_horizontal_item"><a href="#contact">Contact</a></li>
+  		<li class="menu_horizontal_item"><a href="#share">Share</a></li>
 	</ul>
 </div>
 <div style="height: 80px"></div>
 <div id="content">
 	<div class="column_uneven_8_2_right">
-		<a href="https://www.linkedin.com/in/fan-zeng-06692916/"><img src="resource/icon/original/icon_linkedin.png" height="32" width="32" alt="LinkedIn"></a><br>
-		<a href="https://github.com/fanzeng"><img src="resource/icon/resized/icon_github.png" height="32" width="32" alt="Github"></a><br>
-		<a href="#contact">Ask me a question</a><br>
+		<div class="section">
+			<a href="https://www.linkedin.com/in/fanzengau/"><img src="resource/icon/original/icon_linkedin.png" height="32" width="32" alt="LinkedIn"></a><br>
+			<a href="https://github.com/fanzeng"><img src="resource/icon/resized/icon_github.png" height="32" width="32" alt="Github"></a><br>
+			<!-- <a href="#contact">Ask me a question</a><br> -->
+		</div>
 	</div>
 	<div class="column_uneven_8_2_left">
 		<div class="section" id="about">
@@ -58,33 +64,33 @@
 			<table>
 				<tr>
 		    		<th>Programing languages</th>
-		    		<td><img src="resource/icon/original/icon_cpp.png" height="64" width="64" alt="">C++</td>
-		    		<td><img src="resource/icon/original/icon_python.png" height="64" width="64" alt="">Python</td>
+		    		<td><img src="resource/icon/original/icon_cpp.png" height="64" width="64" alt="C++">C++</td>
+		    		<td><img src="resource/icon/original/icon_python.png" height="64" width="64" alt="Python">Python</td>
 		    		<td><a href="https://www.oracle.com/java/"><img _fcksavedurl="https://www.oracle.com/java/"><img _fcksavedurl="https://www.oracle.com/java/"><img src="resource/icon/resized/icon_i-code-java.png" alt="I Code Java" border="0" width="100" height="117" /></a>Java</td>
-		    		<td><img src="resource/icon/original/icon_html.png" height="64" width="64" alt="">HTML</td>
-		    		<td><img src="resource/icon/original/icon_css.png" height="64" width="64" alt="">CSS</td>
-		    		<td><img src="resource/icon/original/icon_js.png" height="64" width="64" alt="">JavaScript</td>
-		    		<td><img src="resource/icon/original/icon_php.svg" height="64" width="64" alt="">PHP</td>
-		    		<td><img src="resource/icon/original/icon_sql.png" height="64" width="64" alt="">SQL</td>
-		    		<td><img src="resource/icon/original/icon_bash.svg" height="64" width="128" alt="">bash</td>
+		    		<td><img src="resource/icon/original/icon_html.png" height="64" width="64" alt="HTML">HTML</td>
+		    		<td><img src="resource/icon/original/icon_css.png" height="64" width="64" alt="CSS">CSS</td>
+		    		<td><img src="resource/icon/original/icon_js.png" height="64" width="64" alt="JavaScript">JavaScript</td>
+		    		<td><img src="resource/icon/original/icon_php.svg" height="64" width="64" alt="PHP">PHP</td>
+		    		<td><img src="resource/icon/original/icon_sql.png" height="64" width="64" alt="SQL">SQL</td>
+		    		<td><img src="resource/icon/original/icon_bash.svg" height="64" width="128" alt="bash">bash</td>
 		  		</tr>
 				<tr>
 		    		<th>Tools</th>
-		    		<td><img src="resource/icon/original/icon_git.png" height="64" width="64" alt="">Git</td>
-		    		<td><img src="resource/icon/original/icon_docker.png" height="64" width="64" alt="">Docker</td>
-		    		<td><img src="resource/icon/original/icon_singularity.png" height="64" width="64" alt="">Singularity</td>
-		    		<td><img src="resource/icon/original/icon_ros.svg" height="64" width="128" alt="">ROS</td>
-		    		<td><img src="resource/icon/original/icon_tensorflow.png" height="64" width="64" alt="">Tensorflow</td>
+		    		<td><img src="resource/icon/original/icon_git.png" height="64" width="64" alt="Git">Git</td>
+		    		<td><img src="resource/icon/original/icon_docker.png" height="64" width="64" alt="Docker">Docker</td>
+		    		<td><img src="resource/icon/original/icon_singularity.png" height="64" width="64" alt="Singularity">Singularity</td>
+		    		<td><img src="resource/icon/original/icon_ros.svg" height="64" width="128" alt="ROS">ROS</td>
+		    		<td><img src="resource/icon/original/icon_tensorflow.png" height="64" width="64" alt="Tensorflow">Tensorflow</td>
 		  		</tr>
 				<tr>
 		    		<th>Web</th>
-		       		<td><img src="resource/icon/original/icon_nodejs.svg" height="64" width="64" alt="">NodeJS</td>
-			  		<td><img src="resource/icon/original/icon_angular.png" height="64" width="64" alt="">AngularJS</td>
-		    		<td><img src="resource/icon/original/icon_django.svg" height="64" width="128" alt="">Django</td>
+		       		<td><img src="resource/icon/original/icon_nodejs.svg" height="64" width="64" alt="NodeJS">NodeJS</td>
+			  		<td><img src="resource/icon/original/icon_angular.png" height="64" width="64" alt="AngularJS">AngularJS</td>
+		    		<td><img src="resource/icon/original/icon_django.svg" height="64" width="128" alt="Django">Django</td>
 		  		</tr>
 		  		<tr>
 		    		<th>Computer Vision</th>
-		       		<td><img src="resource/icon/original/icon_opencv.svg" height="64" width="64" alt="">OpenCV</td>
+		       		<td><img src="resource/icon/original/icon_opencv.svg" height="64" width="64" alt="OpenCV">OpenCV</td>
 		  		</tr>
 			</table>
 		</div>
@@ -166,6 +172,35 @@
 			<p>
 				My gmail address is my full name plus the two letters that represent gold and Australia, no special chars, all lower case.
 			</p>
+		</div>
+		<div class="section" id="share">
+			<h1>
+				Share
+			</h1>
+			<p>
+				Please share my website with your network. Thank you!	
+			</p>
+			<table>
+				<tr>
+					<td>
+						<span class="share" id="share_twitter">
+							<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20this%20out:%20A%20talented%20software%20engineer%20in%20Australia.%20Visit%20https://fanzengau.com" data-size="large">
+								<img src="resource/icon/resized/icon_twitter-share.svg" height="48" width="48" alt="twitter">
+							</a>
+						</span>
+					</td>
+					<td>
+						<span class="fb-share-button" data-href="https://fanzengau.com" data-layout="box_count" data-size="small">
+							<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffanzengau.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">share on facebook</a>
+						</span>
+					</td>
+					<td>
+						<!-- <script src="scripts/share_linkedin.js"></script> -->
+						<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.linkedin.com/in/fanzengau/&source=LinkedIn"><img id="share_linkedin" src="resource/icon/original/icon_linkedin.png" height="48" width="48" alt="share on LinkedIn"></a>
+						<span></span>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div class="foot">
 			<p>All rights reserved. fanzengau.com</p>

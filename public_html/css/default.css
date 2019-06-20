@@ -10,7 +10,6 @@ html {
 }
 
 div {
-  margin: 5px;
 }
 
 div.section {
@@ -80,7 +79,6 @@ button {
    color: #ff4a00;
    padding: 3px;
    border-radius: 0px;
-   border: 1px solid currentColor;
 }
 
 button:hover {
@@ -107,7 +105,7 @@ button:hover {
 .column_uneven_8_2_right {
     position: relative;
     float: right;
-    width: 200px;
+    width: 20%;
 }
 
 .hidden {
@@ -118,8 +116,13 @@ table, th, td {
     border-collapse: collapse;
 }
 
+
 th, td {
     padding: 5px;
+}
+
+th {
+  background-color: #adceff;
 }
 
 td:hover {
@@ -188,6 +191,5 @@ li.menu_horizontal_item a {
 
 #content {
   top: 300px;
-  width: 1500px;
+  width: 100%;
 }
-
