@@ -100,7 +100,6 @@ button:hover {
 
 .column_uneven_8_2_left {
     position: relative;
-    overflow: auto;
     float: left;
     width: 80%;
 }
@@ -187,10 +186,8 @@ li.menu_horizontal_item a {
   text-decoration: none;
 }
 
-
 #content {
-  position: fixed;
-  top: 100px;
+  top: 300px;
   width: 1500px;
 }
 
