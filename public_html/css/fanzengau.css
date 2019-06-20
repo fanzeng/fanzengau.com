@@ -1,0 +1,35 @@
+#docktop_bg {
+  height: 60px;
+  background-color: #4455fe;
+  box-shadow: 1px, 1px, 1px;
+}
+
+
+#docktop_fg {
+  height: 50px;
+  top: 20px;
+  line-height: 30px;
+  text-align: left;
+  font-size: 25px;
+  font-family: "Open Sans", sans-serif;
+  margin-left: 50px;
+  background-color: #4455fe
+  /*background-color: #f5f5dc;*/
+  color: #ff4a00;
+}
+
+#fanzeng {
+	color:#ffffff;
+}
+#au {
+	color:#ffd700;
+}
+#dotcom {
+	color: #ffffff;
+}
+
+div:content {
+	position: fixed;
+	margin: 0px;
+	top: 80px;
+}
