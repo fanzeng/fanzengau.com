@@ -35,6 +35,11 @@ h1 {
     margin: 5px;
 }
 
+a.section {
+  position: relative;
+  padding-top: 100px;
+}
+
 h2{
     color: #910a00;
     margin: 5px;
@@ -47,8 +52,8 @@ p, label {
 }
 
 a {
-  padding: 5px;
-  margin: 5px;
+  padding: 0px;
+  margin: 0px;
 }
 
 a:link {
