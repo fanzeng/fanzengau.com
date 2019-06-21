@@ -33,6 +33,11 @@ div:content {
 	top: 80px;
 }
 
+h1.section {
+  position: relative;
+  padding-top: 100px;
+}
+
 
 img.icon_skills {
   width: 32px;
