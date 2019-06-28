@@ -1,6 +1,7 @@
 #docktop_bg {
   height: 60px;
   background-color: #4455fe;
+  background-image: linear-gradient(145deg, #4455fe 0%, #22aeca 50%, #2da9df 75%);
   box-shadow: 1px, 1px, 1px;
 }
 
@@ -27,31 +28,78 @@
 	color: #ffffff;
 }
 
-div:content {
-	position: fixed;
-	margin: 0px;
-	top: 80px;
+div.tryit_content {
+  display: inline-block;
+  padding: 15px;
+  margin: 10px;
+  border: 2px solid #023f23;
+  border-radius: 5px;
 }
 
-/*h1.section {
-  position: relative;
-  display: block;
-  padding-top: 100px;
-  background-color: transparent;
-  margin-top: -100px;
-}*/
+div.project_item {
+  background-image: url("../resource/image/background/paper_white_2.jpg");
+  padding: 15px;
+  box-shadow: 5px 5px 5px #aaaaaa;
+}
 
+span.platform_tool {
+  display:inline-block;
+  background-color: #cccccc;
+  color: rgba(0,0,0,0.5);
+  border: groove 5px #666666;
+}
+
+span.moreinfo_span_outer {
+  display: inline-block;
+  background-color: #0027ea;
+  color: #eeeeee;
+  text-align: center;
+  font-size: x-large;
+  width: 120px;
+  margin: 3px;
+  padding: 8px;
+  padding-right: 20px;
+  position: relative;
+  transition: 0.25s;
+}
+
+span.moreinfo_span_inner {
+  display: inline-block;
+  position: relative;
+  transition: 0.25s;
+}
+
+span.moreinfo_span_outer:hover span.moreinfo_span_inner {
+  padding-right: 25px;
+}
+
+span.moreinfo_span_inner:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+span.moreinfo_span_outer:hover span.moreinfo_span_inner:after {
+  opacity: 1;
+  right: 0;
+}
 
 a.intra_page_link {
-    display: block;
-    position: relative;
-    top: -100px;
-    visibility: hidden;
+  display: block;
+  position: relative;
+  top: -100px;
+}
+
+#project_table {
+  margin: auto;
 }
 
 img.icon_skills {
   width: 32px;
-  height 32px;
+  height: 32px;
   padding: 0px;
   margin: 2px;
 }
@@ -70,3 +118,20 @@ img.img_project {
   padding: 0px;
   border: 0px;
 }
+
+li.project_item {
+  list-style-type: none;
+  padding-right: 30px;
+  padding-bottom: 30px;
+
+}
+
+.engraved {
+    background-color: #444444;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
+ }
+

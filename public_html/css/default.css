@@ -35,7 +35,7 @@ h1 {
     margin: 5px;
 }
 
-h2{
+h2 {
     color: #910a00;
     margin: 5px;
 }
@@ -47,8 +47,8 @@ p, label {
 }
 
 a {
-  padding: 0px;
-  margin: 0px;
+  padding: 5px;
+  margin: 5px;
 }
 
 a:link {
@@ -107,6 +107,33 @@ button:hover {
     float: right;
     width: 20%;
 }
+
+.column_uneven_2_6_3_left {
+    position: fixed;
+    float: left;
+    width: 14%;
+}
+
+.column_uneven_2_6_3_left_invisible {
+    visibility: hidden;
+    position: relative;
+    float: left;
+    width: 16%;
+}
+
+.column_uneven_2_6_3_center {
+    position: relative;
+    float: left;
+    width: 60%;
+}
+
+.column_uneven_2_6_3_right {
+    position: fixed;
+    right: 0;
+    float: right;
+    width: 24%;
+}
+
 
 .hidden {
     display: none;
@@ -169,7 +196,6 @@ tr:nth-child(odd) {
 }
 
 li {
-  padding: 5px;
   box-shadow: 5px, 5px, 5px;
 }
 
@@ -181,7 +207,7 @@ li.menu_horizontal_item a {
   display: block;
   color: #ffffff;
   text-align: center;
-  padding: 4px 16px;
+  padding: 8px 16px 2px 16px;
   text-decoration: none;
 }
 
