@@ -59,6 +59,12 @@ a:link {
   font-size: 20px;
 }
 
+/*horizontal centered anchor tag*/
+a.center_h { 
+  display: flex;
+  justify-content: center;
+}
+
 a:hover {
   opacity: 1;
   color: #0087dc;
