@@ -17,16 +17,24 @@ div.section {
   margin: 5px;
   border-radius: 4px;
   box-shadow: 2px 2px 2px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 div.section:hover {
   opacity: 1;
-  transform: scale(1.002);
+  transform: scale(1.000);
 }
 
 div.foot{
   font-size: small;
+}
+
+/*horizontal centered anchor tag*/
+div.center_h { 
+  display: flex;
+  flex-flow: row || wrap;
+  justify-content: center;
+  align-items: baseline;
 }
 
 h1 {
@@ -53,16 +61,10 @@ a {
 
 a:link {
   position: relative;
-  opacity: 0.8;
+  opacity: 0.9;
   color: #0047bc;
   text-decoration: underline;
   font-size: 20px;
-}
-
-/*horizontal centered anchor tag*/
-a.center_h { 
-  display: flex;
-  justify-content: center;
 }
 
 a:hover {
@@ -163,10 +165,10 @@ td:hover {
 }
 
 tr:nth-child(even) {
-    background-color: #edfeff;
+    /*background-color: #edfeff;*/
 }
 tr:nth-child(odd) {
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
 }
 
 .docktop_bg {
