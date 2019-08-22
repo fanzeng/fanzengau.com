@@ -1,0 +1,13 @@
+.share_on_social_media td {
+	width: 68px;
+	height: 68px;
+	vertical-align: bottom;
+}
+
+.fb-share-button {
+  transform: scale(0.6715,0.8276)
+}
+
+.share_on_social_media td.fb {
+	vertical-align: center;
+}

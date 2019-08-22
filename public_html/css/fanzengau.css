@@ -127,11 +127,14 @@ li.project_item {
 }
 
 .engraved {
-    background-color: #444444;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
- }
+  background-color: #444444;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
+}
 
+.fb-share-button {
+  transform: scale(0.6715,0.8276)
+}
