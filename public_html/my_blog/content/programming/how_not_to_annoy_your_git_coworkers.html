@@ -1,0 +1,42 @@
+How (not) to annoy your git coworkers
+Merging. The dreadful terms for new drivers, and yes, git-using programmers. Working in a big team is hard, but there are some rules of thumb for keeping everyone happy, as I humbly summarize below. Feel free to use them the other way around of course if you enjoy the feeling of being smashed on the head by a keyboard.
+Basically, everything boils down to: Make your fellow programmers nice and cozy by reducing as much as possible the need for them to adapt to your changes. If a merge conflict can be avoided, you should try and avoid it.
+Do's
+<li>
+	<h3>
+		Make good use of commit messages
+	</h3>
+		Compulsory commit messages may seem annoying, but it is a bless when you are in a big team and everyone is actively making changes to your code base. There already plenty of tutorials on how to form nice commit messages and avoid stating the obvious. Here I just want to highlight the point that when you've changed something taken by everyone else as granted, please tell them about it in the commit message. Even you will thank yourself three months later. For example, if you changed an important path that everyone has been using, or if you renamed a public function / interface / file that people have been using in their codes, as soon as they pull your commit, everyone's code is going to break. It is a manner to let them know this in advance and provide them instructions on how to fix it. In fact it is suggested to tidy up codes and combine redundant stuff from time to time, it's just that when you do so, finish up with adequate announcements. A habit to have is whenever you are changing some code, think about how it's going to impact others, is it going to affect only yourself, or is it going to require everyone to update their setups? If the latter is true, a good commit message example could be "Heads up: If you pull this commit, please set the following environment variable ...".
+</li>
+
+Don'ts
+<li>
+	<h3>
+		Don't break master.
+	</h3>
+	Master should always compile. Unit tests on master should always pass. Period. Don't do experiments on master, do it in your own branch.
+</li>
+
+
+<li>
+	<h3>
+		Don't hard code your paths.
+	</h3>
+	Your platform, your username might not suit everyone.
+	Don't require your peer coders to change your customed paths every time they pull your stuff. Use config files, command line variables, use "path.join()" so that slashes tilt in the correct way.
+	Don't merge into master a unit test that requires a local file on your computer. When you develop, write code as if it's going to be tested in a different environment, say a docker container. If you're on Linux, think about whether some one can run it on Windows or MAC, and vice versa.
+</li>
+
+<li>
+	<h3>
+		Don't unnecessarily introduce dependencies.
+	</h3>
+
+	If you find a cool library that you'd like to use, think about whether it can be added without much pain, for example, can it be installed in a local directory or run within a sand box. It might be as easy for you to install something as it being a complete nightmare for other people. Some may already be using other stuff that's in conflict with your new toy, some may not have root previleges to install at all. When you try out a new version of a library, it might run just seamlessly, but the guy sitting next to you may not be as lucky.
+</li>
+<li>
+	Don't change behavior of things that others may be using. If you really have to, don't do it too often, only do it when absolute necessary. And you should be responsible for fixing everything you break. Keep in mind whenver you make major changes there is high chance you're breaking every else's (probably already broken) code.
+</li>
+<li>
+	Don't wipe git history. Git is invented to prevent accidental loss of work.
+</li>

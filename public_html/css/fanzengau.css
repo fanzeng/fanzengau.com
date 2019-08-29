@@ -87,7 +87,7 @@ span.moreinfo_span_outer:hover span.moreinfo_span_inner:after {
   right: 0;
 }
 
-a.intra_page_link {
+.intra_page_link {
   display: block;
   position: relative;
   top: -100px;
@@ -135,6 +135,6 @@ li.project_item {
   text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
 }
 
-.fb-share-button {
-  transform: scale(0.6715,0.8276)
+pre.prettyprint {
 }
+

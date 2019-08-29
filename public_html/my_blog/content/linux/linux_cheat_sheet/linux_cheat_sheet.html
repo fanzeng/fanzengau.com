@@ -1,0 +1,14 @@
+<div>Summarised for and tested on Ubuntu 16.04</div>
+
+<h3>add a user</h3>
+<pre>adduser fzeng</pre>
+<p>Don't use useradd, it's deprecated.</p>
+
+<h3>Add the newly created user to sudo group</h3>
+<pre>usermod -aG sudo fzeng</pre>
+
+<h3>Become a normal user from root</h3>
+<pre>su - fzeng</pre>
+
+<h3>Delete the user</h3>
+<pre>userdel fzeng</pre>

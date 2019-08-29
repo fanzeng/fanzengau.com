@@ -1,6 +1,7 @@
-$(document).ready(function() {
+window.onload = function() {
 	// load included html files
-    $("div.share_on_social_media").load("include/share_on_social_media.html"); 
+    $("div.share_on_social_media").load("/include/share_on_social_media.html"); 
+    $("div.my_blog").load("/include/my_blog_index.html"); 
 
     // hide side column for mobile devices
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) { // mobile device
@@ -17,4 +18,4 @@ $(document).ready(function() {
 		console.log($(this).nextAll("div:first"));
 		$(this).nextAll("div:first").slideDown(300);
 	});
-})
+};

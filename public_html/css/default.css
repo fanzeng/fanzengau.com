@@ -15,6 +15,7 @@ div {
 div.section {
   background-color: #fffffa;
   margin: 5px;
+  padding: 5px;
   border-radius: 4px;
   box-shadow: 2px 2px 2px;
   opacity: 0.9;
