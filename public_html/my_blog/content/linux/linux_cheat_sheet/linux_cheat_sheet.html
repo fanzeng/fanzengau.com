@@ -1,14 +1,79 @@
-<div>Summarised for and tested on Ubuntu 16.04</div>
+<!DOCTYPE html>
+<!--
+  Special syntaxes:
+  $$blah blah$$
+    Mathjax for latex math formulae.
+  \(blah blah\)
+    Mathjax for latex inline math expressions.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Linux cheat sheet</title>
+  <link rel="stylesheet" type="text/css" href="/css/default.css">
+  <link rel="stylesheet" type="text/css" href="/css/fanzengau.css">
+  <link rel="stylesheet" type="text/css" href="/css/share_on_social_media.css">
+  <link rel="stylesheet" type="text/css" href="/css/atelier-dune-light.css">
+  <script type="text/javascript" src="/vendor/scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/index.js"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+<div id="main_frame_header"></div>
+<div id="content">
+    <script type="text/javascript" src="/scripts/index.js"></script>
 
-<h3>add a user</h3>
-<pre>adduser fzeng</pre>
-<p>Don't use useradd, it's deprecated.</p>
+  <div id="side_panels"></div>
+  <div class="column_uneven_2_6_3_center">
+    <div class="section">
+    	<h2>Linux cheat sheet</h2>
+		<p>Summarised for and tested on Ubuntu 16.04, YMMV</p>
+	</div>
+	<div class="section">
+		<h2>Users</h2>
 
-<h3>Add the newly created user to sudo group</h3>
-<pre>usermod -aG sudo fzeng</pre>
+		<h3>add a user</h3>
+		<pre>adduser fzeng</pre>
+		<p>Don't use useradd, it's deprecated.</p>
 
-<h3>Become a normal user from root</h3>
-<pre>su - fzeng</pre>
+		<h3>Add the newly created user to sudo group</h3>
+		<pre>usermod -aG sudo fzeng</pre>
 
-<h3>Delete the user</h3>
-<pre>userdel fzeng</pre>
+		<h3>Become a normal user from root</h3>
+		<pre>su - fzeng</pre>
+
+		<h3>Delete the user</h3>
+		<pre>userdel fzeng</pre>
+	</div>
+
+	<div class="section">
+		<h2>Files</h2>
+		<h3>zip a directory</h3>
+		<pre>zip -r result.zip dir_to_zip</pre>
+		<p>Not to be confused with <pre>gzip -r</pre>, it will traverse recursively all sub-directories and create a zip for every file.</p>
+		<p>If you have accidentally executed that, just run <pre>gunzip -r</pre> to reverse it. </p>
+	</div>
+
+	<div class="section">
+		<h3>create a symbolic link</h3>
+		<pre>ln -s the_file_the_symbolic_link_should_point_to the_symbolic_link_itself</pre>
+	</div>
+
+
+    <div id="center_column_footer"></div>
+  </div>
+  <script> 
+  $(function(){
+    $("#main_frame_header").load("/include/main_frame_header.html"); 
+    $("#side_panels").load("/include/side_panels.html");
+    $("#center_column_footer").load("/include/center_column_footer.html"); 
+  });
+  </script> 
+</div>
+
+</body>
+</html>
