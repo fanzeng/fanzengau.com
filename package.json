@@ -1,22 +1,31 @@
 {
   "name": "fanzengau",
   "version": "1.0.0",
-  "description": "",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "netlify-lambda": "^0.4.0",
     "serverless-http": "^1.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "scripts": {
-
-    "start:server": "netlify-lambda serve functions/hello.js",
-    "build:server": "netlify-lambda build functions",
+    "start:local": "npx nodemon server-local.js",
     "start:lambda": "netlify-lambda serve express",
     "build:lambda": "netlify-lambda build express",
     "prod": "npm run build:lambda;"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanzeng/fanzengau.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fanzeng/fanzengau.com/issues"
+  },
+  "homepage": "https://github.com/fanzeng/fanzengau.com#readme",
+  "description": ""
 }
