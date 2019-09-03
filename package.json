@@ -1,0 +1,19 @@
+{
+  "name": "fanzengau",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "netlify-lambda": "^1.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+
+    "start:server": "netlify-lambda serve functions/hello.js",
+    "build:server": "netlify-lambda build functions",
+    "start:lambda": "netlify-lambda serve express",
+    "build:lambda": "netlify-lambda build express",
+    "prod": "npm run build:lambda;"
+  },
+  "author": "",
+  "license": "ISC"
+}
