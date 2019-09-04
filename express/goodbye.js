@@ -88,7 +88,7 @@ function myblogCallback(req, res) {
 }
 
 
-function indexCallback(req, res) {
+async function indexCallback(req, res) {
 	// const indexFile = path.join(currentDir+'/../public/include/portfolio.html');
 		res.writeHead(200, {
 			'Content-Type': 'text/html'
@@ -97,12 +97,15 @@ function indexCallback(req, res) {
 			console.log(dataString);
 
 		console.log(siteHeader);
-		let pageString = siteHeader.getSiteHeader() + '<div class="column_uneven_2_6_3_center">' + dataString ;
+		let sitejeader = await siteHeader.getInclude('site_header');
+		let portfolio = await siteHeader.getInclude('portfolio');
+		let sidePanels = await siteHeader.getInclude('side_panels')
+		let pageString = sitejeader + sidePanels + portfolio + '<div class="column_uneven_2_6_3_center">' + dataString ;
 		res.write(pageString);
 		res.end();
 }
 
-// app.use('/.netlify/functions/hello/resource/', express.static(currentDir + '/../public/resource/'));
+app.use('/.netlify/functions/goodbye/resource/', express.static('/public/resource/'));
 // app.use('/.netlify/functions/hello/css/', express.static(currentDir + '/../public/css/'));
 // app.use('/.netlify/functions/hello/include/', express.static(currentDir + '/../public/include/'));
 // app.use('/.netlify/functions/hello/vendor/', express.static(currentDir + '/../public/vendor/'));

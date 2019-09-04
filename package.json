@@ -6,7 +6,7 @@
     "express": "^4.16.3",
     "netlify-lambda": "^0.4.0",
     "serverless-http": "^1.6.0",
-    "site-header": "file:site-header"
+    "site-include": "file:site-include"
   },
   "devDependencies": {
     "html-includes": "^4.2.0",

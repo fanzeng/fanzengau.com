@@ -9,33 +9,32 @@ const fs = require("fs");
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
+const siteInclude = require('site-include');
+
 
 const router = express.Router();
-const currentDir = './public';
-const directoryPath = './';//currentDir;//+'/../public/include/side_panels.html';
-
 
 router.get('/', (req, res) => {
-	console.log('from get slash, pwd is ' + currentDir);
-fs.readdir(directoryPath, function (err, files) {
-    if (err) {
-        return console.log(err);
-    } 
-    console.log('all files in current dir: ')
-    files.forEach(function (file) {
-        console.log(file); 
-    });
-});
+	fs.readdir(directoryPath, function (err, files) {
+	    if (err) {
+	        return console.log(err);
+	    } 
+	    console.log('all files in current dir: ')
+	    files.forEach(function (file) {
+	        console.log(file); 
+	    });
+	});
 
-fs.readdir('../', function (err, files) {
-    if (err) {
-        return console.log(err);
-    } 
-    console.log('all files in parent dir: ')
-    files.forEach(function (file) {
-        console.log(file); 
-    });
-});
+	fs.readdir('../', function (err, files) {
+	    if (err) {
+	        return console.log(err);
+	    } 
+	    console.log('all files in parent dir: ')
+	    files.forEach(function (file) {
+	        console.log(file); 
+	    });
+	});
+
 	res.writeHead(200, {
 		'Content-Type': 'text/html'
 	});
@@ -45,7 +44,7 @@ fs.readdir('../', function (err, files) {
 
 router.get('/myblog', myblogCallback);
 
-router.get('/index.html', indexCallback);
+router.get('/index', indexCallback);
 
 // router.get('/myblog/content/:topic/:blogTitle/:blogFileName', (req, res) => {
 //    res.sendFile(path.join(currentDir+'/../myblog/content/' + req.params['topic'] + '/' + req.params['blogTitle'] + '/' + req.params['blogFileName']));
@@ -90,21 +89,24 @@ function myblogCallback(req, res) {
 }
 
 
-function indexCallback(req, res) {
+async function indexCallback(req, res) {
 	// const indexFile = path.join(currentDir+'/../public/include/portfolio.html');
-	const indexFile = 'index.html';
-	readFile(indexFile, 'utf-8').then((data) => {
-		let dataString = data.toString('utf8');
+		console.log('in indexCallback');
 		res.writeHead(200, {
 			'Content-Type': 'text/html'
 		});
-			console.log(dataString);
-
-		let pageString = siteHeader + mainFrameHeader + mainFrameContent + sidePanels + '<div class="column_uneven_2_6_3_center">' + dataString + siteFooter;
+		let siteHeader = await siteInclude.getInclude('site_header');
+		let mainFrameHeader = await siteInclude.getInclude('main_frame_header');
+		let mainFrameContent = await siteInclude.getInclude('main_frame_content');
+		let portfolio = await siteInclude.getInclude('portfolio');
+		let sidePanels = await siteInclude.getInclude('side_panels')
+		let siteFooter = await siteInclude.getInclude('site_footer')
+		let pageString = siteHeader + mainFrameHeader + mainFrameContent + sidePanels + '<div class="column_uneven_2_6_3_center">' + portfolio + siteFooter;
 		res.write(pageString);
 		res.end();
-	});
 }
+// app.use('/.netlify/functions/hello/resource/', express.static('/public/resource/'));
+// app.use('/.netlify/functions/hello/css/', express.static('/public/css/'));
 
 // app.use('/.netlify/functions/hello/resource/', express.static(currentDir + '/../public/resource/'));
 // app.use('/.netlify/functions/hello/css/', express.static(currentDir + '/../public/css/'));
