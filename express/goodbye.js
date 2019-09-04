@@ -9,7 +9,7 @@ const fs = require("fs");
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
-
+const siteHeader = require('site-header');
 const router = express.Router();
 const currentDir = './public';
 const directoryPath = './';//currentDir;//+'/../public/include/side_panels.html';
@@ -39,13 +39,13 @@ fs.readdir('../', function (err, files) {
 	res.writeHead(200, {
 		'Content-Type': 'text/html'
 	});
-	res.write('<h1>hello from express</h1>');
+	res.write('<h1>goodbye from express</h1>');
 	res.end();
 });
 
 router.get('/myblog', myblogCallback);
 
-router.get('/index.html', indexCallback);
+router.get('/index', indexCallback);
 
 // router.get('/myblog/content/:topic/:blogTitle/:blogFileName', (req, res) => {
 //    res.sendFile(path.join(currentDir+'/../myblog/content/' + req.params['topic'] + '/' + req.params['blogTitle'] + '/' + req.params['blogFileName']));
@@ -77,7 +77,6 @@ router.get('/index.html', indexCallback);
 
 
 function myblogCallback(req, res) {
-	readFile(path.join(currentDir+'/../myblog/myblog.html'), 'utf-8').then((data) => {
 		console.log(data);
 		let dataString = data.toString('utf8');
 		res.writeHead(200, {
@@ -86,24 +85,21 @@ function myblogCallback(req, res) {
 		let pageString = siteHeader + mainFrameHeader + mainFrameContent + sidePanels + '<div class="column_uneven_2_6_3_center">' + dataString + siteFooter;
 		res.write(pageString);
 		res.end();
-	});
 }
 
 
 function indexCallback(req, res) {
 	// const indexFile = path.join(currentDir+'/../public/include/portfolio.html');
-	const indexFile = 'index.html';
-	readFile(indexFile, 'utf-8').then((data) => {
-		let dataString = data.toString('utf8');
 		res.writeHead(200, {
 			'Content-Type': 'text/html'
 		});
+		let dataString = 'abc';
 			console.log(dataString);
 
-		let pageString = siteHeader + mainFrameHeader + mainFrameContent + sidePanels + '<div class="column_uneven_2_6_3_center">' + dataString + siteFooter;
+		console.log(siteHeader);
+		let pageString = siteHeader.getSiteHeader() + '<div class="column_uneven_2_6_3_center">' + dataString ;
 		res.write(pageString);
 		res.end();
-	});
 }
 
 // app.use('/.netlify/functions/hello/resource/', express.static(currentDir + '/../public/resource/'));
@@ -113,7 +109,7 @@ function indexCallback(req, res) {
 // app.use('/.netlify/functions/hello/scripts/', express.static(currentDir + '/../public/scripts/'));
 
 app.use(bodyParser.json());
-app.use('/.netlify/functions/hello', router);
+app.use('/.netlify/functions/goodbye', router);
 app.use(function(req, res, next) {
   return res.status(404).send({ message: 'Route: '+ req.url + ' Not found.' });
 });

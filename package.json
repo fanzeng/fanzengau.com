@@ -5,20 +5,22 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "netlify-lambda": "^0.4.0",
-    "serverless-http": "^1.6.0"
+    "serverless-http": "^1.6.0",
+    "site-header": "file:site-header"
   },
   "devDependencies": {
+    "html-includes": "^4.2.0",
     "nodemon": "^1.19.1"
   },
   "scripts": {
+    "compile": "html-includes --src public --dest functions",
     "start:local": "npx nodemon server-local.js",
     "start:lambda": "netlify-lambda serve express",
-    "build:lambda": "netlify-lambda build express",
+    "build:lambda": "netlify-lambda build express && npm run compile",
     "prod": "npm run build:lambda;"
   },
   "author": "",
   "license": "ISC",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fanzeng/fanzengau.com.git"
