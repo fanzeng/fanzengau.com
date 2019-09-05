@@ -56,7 +56,8 @@ async function blogContentCallback(req, res) {
 	let mf = await getSiteMainFrame();
 	let blogContent = await siteInclude.getInclude(pathBlogHTML, blogFileName);
 	// console.log('blogContent is: ' + blogContent);
-	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + '<div class="column_uneven_2_6_3_center">' + blogContent + mf.siteFooter;
+	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + 
+		'<div class="column_uneven_2_6_3_center">' + blogContent + mf.siteFooter;
 	res.write(pageString);
 	res.end();
 
@@ -69,7 +70,9 @@ async function myblogCallback(req, res) {
 	});
 	let mf = await getSiteMainFrame();
 
-	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + '<div class="column_uneven_2_6_3_center">' + mf.myBlogIndex + mf.siteFooter;
+	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + 
+		'<div class="column_uneven_2_6_3_center">' + '<div class="section">'
+		 + mf.myBlogIndex + '</div>' + mf.siteFooter;
 	res.write(pageString);
 	res.end();
 }
@@ -83,13 +86,14 @@ async function indexCallback(req, res) {
 	let mf = await getSiteMainFrame();
 	let portfolio = await siteInclude.getInclude(pathInclude, 'portfolio.html');
 
-	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + '<div class="column_uneven_2_6_3_center">' + portfolio + mf.siteFooter;
+	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + 
+		'<div class="column_uneven_2_6_3_center">' + portfolio + mf.siteFooter;
 	res.write(pageString);
 	res.end();
 }
 
 app.use(bodyParser.json());
-app.use('/.netlify/functions/hello', router);
+app.use('/.netlify/functions/server', router);
 app.use(function(req, res, next) {
   return res.status(404).send({ message: 'Route: '+ req.url + ' Not found.' });
 });
