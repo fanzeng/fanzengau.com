@@ -1,5 +1,6 @@
 
 const https = require('https');
+const path = require('path');
 
 // var options = {
 //     host: 'https://epicbeaver.netlify.com',
@@ -20,23 +21,23 @@ const https = require('https');
 // });
 // request.end();
 
-async function getInclude(name) {
-	var options = {
+async function getInclude(path_, name_) {
+	let options = {
 	  host: 'epicbeaver.netlify.com',
 	  port: 443,
-	  path: '/public/include/' + name + '.html'
+	  path: path.join(path_, name_)
 	};
-
-	let content = ''
+	console.log('start to get url: ' + path.join(path_, name_));
+	let content = '';
 	await new Promise((resolve, reject) => {
-		var req = https.request(options, function(res) {
+		let req = https.request(options, function(res) {
 		    res.setEncoding("utf8");
 		    res.on("data", function (chunk) {
 		        content += chunk;
 		    });
 
 		    res.on("end", function () {
-		    	// console.log(' ' + content);
+		    	// console.log('getInclude recieved the following content: ' + content);
 		    	resolve(content);
 		    });
 		    req.on('error', function(err) {
