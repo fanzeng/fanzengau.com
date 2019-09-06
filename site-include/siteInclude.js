@@ -1,36 +1,37 @@
-
 const https = require('https');
+const http = require('http');
 const path = require('path');
+const os = require("os");
 
-// var options = {
-//     host: 'https://epicbeaver.netlify.com',
-//     path: '/public/include/side_panels.html'
-// }
 
-// let sidePanel = ''
-// const request = https.request(options, function (res) {
-//     res.on('data', function (chunk) {
-//         sidePanel += chunk;
-//     });
-//     res.on('end', function () {
-//         console.log(sidePanel);
-//     });
-// });
-// request.on('error', function (e) {
-//     console.log(e.message);
-// });
-// request.end();
+async function getInclude(hostName, path_, name_) {
 
-async function getInclude(path_, name_) {
+	let portNumber;
+	let httpToUse;
+
+	if (hostName == 'localhost') {
+		portNumber = 3000;
+		httpToUse = http;
+	} else {
+		portNumber = 443;
+		httpToUse = https;
+	}
 	let options = {
-	  host: 'epicbeaver.netlify.com',
-	  port: 443,
-	  path: path.join(path_, name_)
+	  host: hostName,
+	  port: portNumber,
+	  path: path.join(path_, name_) || ' '
 	};
-	console.log('start to get url: ' + path.join(path_, name_));
+	console.log(
+		'start to get url: ' +
+		options.host +
+		':' + options.port + 
+		options.path
+		
+	);
+
 	let content = '';
 	await new Promise((resolve, reject) => {
-		let req = https.request(options, function(res) {
+		let req = httpToUse.request(options, function(res) {
 		    res.setEncoding("utf8");
 		    res.on("data", function (chunk) {
 		        content += chunk;
