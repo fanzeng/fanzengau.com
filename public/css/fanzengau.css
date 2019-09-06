@@ -18,14 +18,21 @@
   color: #ff4a00;
 }
 
+#a_fanzengau_banner {
+    text-decoration: none !important;
+}
+
 #fanzeng {
 	color:#ffffff;
+  font-size: 25px;
 }
 #au {
 	color:#ffd700;
+  font-size: 25px;
 }
 #dotcom {
 	color: #ffffff;
+  font-size: 25px;
 }
 
 div.tryit_content {

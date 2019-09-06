@@ -2,3 +2,7 @@
   functions = "./functions"
   command = "npm run build:lambda"
   publish = "."
+
+ [[redirects]]
+  from = "/"
+  to = "/.netlify/functions/server/"
