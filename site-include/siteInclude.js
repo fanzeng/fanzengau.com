@@ -41,11 +41,12 @@ async function getInclude(hostName, path_, name_) {
 		    	// console.log('getInclude recieved the following content: ' + content);
 		    	resolve(content);
 		    });
-		    req.on('error', function(err) {
+		    res.on('error', function(err) {
 				console.log(error);
 				reject(error);
 			});
 		});
+		
 		req.end();
 	});
 	return content;
