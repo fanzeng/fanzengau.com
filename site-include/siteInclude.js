@@ -1,7 +1,19 @@
 const https = require('https');
 const http = require('http');
 const path = require('path');
-const os = require("os");
+const os = require('os');
+const fs = require('fs');
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
+
+async function getStaticLocalFile(includePath, fileName) {
+	let dataString = "";
+	readFile(path.join(__dirname, includePath, fileName), 'utf-8').then((data) => {
+		dataString = data.toString('utf8');
+		console.log("In getStaticLocalFile: dataString: " + dataString);
+	});
+}
+
 
 
 async function getInclude(hostName, path_, name_) {
@@ -53,40 +65,6 @@ async function getInclude(hostName, path_, name_) {
 }
 
 
-// https.get(options, function(res) {
-//   console.log("Got response: " + res.statusCode);
-// }).on('error', function(e) {
-//   console.log("Got error: " + e.message);
-// });
-
-
-// https.get('https://epicbeaver.netlify.com/public/include/side_panels.html', (res) => {
-
-
-
-// const getSiteHeader = async function() { 
-// 	let header = '';
-// 	return getInclude('site_header');
-
-// };
-
-// const getPortfolio = function() { 
-// 	let portfolio = '';
-// 	getInclude('portfolio').then( res => {
-// 		portfolio = res;
-// 		console.log('portfolio = ' + portfolio);
-// 		return portfolio;
-// 	});
-// };
-
-// const getSidePanel = function() { 
-// 	let sidePanels = '';
-// 	getInclude('side_panels').then( res => {
-// 		sidePanels = res;
-// 		console.log('side_panels = ' + sidePanels);
-// 		return sidePanels;
-// 	});
-// };
 
 exports.getInclude = getInclude;
 // exports.getSiteHeader = getSiteHeader;
