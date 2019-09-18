@@ -1,3 +1,15 @@
+/*
+Usage:
+(0)
+siteInclude.getStaticLocalFile( 'absolute/path/from/site/root/without/initial/slash',
+								'avoid_rsync_disaster.html')
+	.then(
+		data => { console.log('data=', data) }
+	);
+(1)
+let siteHeader = await siteInclude.getInclude(hostName, pathInclude, 'site_header.html');
+*/
+
 const https = require('https');
 const http = require('http');
 const path = require('path');
@@ -6,15 +18,17 @@ const fs = require('fs');
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
 
-async function getStaticLocalFile(includePath, fileName) {
+async function getStaticLocalFile(absPath, fileName) {
 	let dataString = "";
-	readFile(path.join(__dirname, includePath, fileName), 'utf-8').then((data) => {
+	try {
+		const data = await readFile(path.join(absPath, fileName), 'utf-8');
 		dataString = data.toString('utf8');
-		console.log("In getStaticLocalFile: dataString: " + dataString);
-	});
+		console.log("In getStaticLocalFile: dataString=", dataString);
+		return dataString;
+	} catch (err) {
+		console.log("In getStaticLocalFile: ",  err);
+	}
 }
-
-
 
 async function getInclude(hostName, path_, name_) {
 
@@ -48,7 +62,6 @@ async function getInclude(hostName, path_, name_) {
 		    res.on("data", function (chunk) {
 		        content += chunk;
 		    });
-
 		    res.on("end", function () {
 		    	// console.log('getInclude recieved the following content: ' + content);
 		    	resolve(content);
@@ -58,15 +71,10 @@ async function getInclude(hostName, path_, name_) {
 				reject(error);
 			});
 		});
-		
 		req.end();
 	});
 	return content;
 }
 
-
-
 exports.getInclude = getInclude;
-// exports.getSiteHeader = getSiteHeader;
-// exports.getPortfolio = getPortfolio;
-// exports.getSidePanel = getSidePanel;
+exports.getStaticLocalFile = getStaticLocalFile;

@@ -34,7 +34,7 @@
 		<p>Summarised for and tested on Ubuntu 16.04, YMMV</p>
 	</div>
 	<div class="section">
-		<h2>Users</h2>
+		<h2>Admin</h2>
 
 		<h3>add a user</h3>
 		<pre class="prettyprint linenums">adduser fzeng</pre>
@@ -48,7 +48,16 @@
 
 		<h3>Delete the user</h3>
 		<pre class="prettyprint linenums">userdel fzeng</pre>
-	</div>
+
+    <h3>View ssh login history</h3>
+    <pre class="prettyprint linenums">/var/log/auth.log</pre>
+
+    <h3>Install mysql</h3>
+    <pre class="prettyprint linenums">sudo apt-get install mysql-server</pre>
+
+    <h3>Find what process is using a port</h3>
+    <pre class="prettyprint linenums"></pre>lsof -i :portNumber</pre>
+  </div>
 
 	<div class="section">
 		<h2>Files</h2>
