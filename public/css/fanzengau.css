@@ -14,7 +14,7 @@
   font-size: 25px;
   font-family: "Open Sans", sans-serif;
   margin-left: 50px;
-  background-color: #4455fe
+  background-color: #4455fe;
   color: #ff4a00;
 }
 
@@ -143,5 +143,6 @@ li.project_item {
 }
 
 pre.prettyprint {
+
 }
 
