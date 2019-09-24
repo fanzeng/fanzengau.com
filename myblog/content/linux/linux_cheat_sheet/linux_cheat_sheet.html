@@ -6,35 +6,17 @@
   \(blah blah\)
     Mathjax for latex inline math expressions.
 -->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Linux cheat sheet</title>
-  <link rel="stylesheet" type="text/css" href="/css/default.css">
-  <link rel="stylesheet" type="text/css" href="/css/fanzengau.css">
-  <link rel="stylesheet" type="text/css" href="/css/share_on_social_media.css">
-  <link rel="stylesheet" type="text/css" href="/css/atelier-dune-light.css">
-  <script type="text/javascript" src="/vendor/scripts/jquery.min.js"></script>
-  <script type="text/javascript" src="/scripts/index.js"></script>
+
   <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
   </script>
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-</head>
-<body>
-<div id="main_frame_header"></div>
-<div id="content">
-    <script type="text/javascript" src="/scripts/index.js"></script>
-
-  <div id="side_panels"></div>
-  <div class="column_uneven_2_6_3_center">
     <div class="section">
     	<h2>Linux cheat sheet</h2>
 		<p>Summarised for and tested on Ubuntu 16.04, YMMV</p>
 	</div>
 	<div class="section">
-		<h2>Users</h2>
+		<h2>Admin</h2>
 
 		<h3>add a user</h3>
 		<pre class="prettyprint linenums">adduser fzeng</pre>
@@ -48,7 +30,16 @@
 
 		<h3>Delete the user</h3>
 		<pre class="prettyprint linenums">userdel fzeng</pre>
-	</div>
+
+    <h3>View ssh login history</h3>
+    <pre class="prettyprint linenums">/var/log/auth.log</pre>
+
+    <h3>Install mysql</h3>
+    <pre class="prettyprint linenums">sudo apt-get install mysql-server</pre>
+
+    <h3>Find what process is using a port</h3>
+    <pre class="prettyprint linenums"></pre>lsof -i :portNumber</pre>
+  </div>
 
 	<div class="section">
 		<h2>Files</h2>

@@ -1,8 +1,34 @@
+/*
+Usage:
+(0)
+siteInclude.getStaticLocalFile( 'absolute/path/from/site/root/without/initial/slash',
+								'avoid_rsync_disaster.html')
+	.then(
+		data => { console.log('data=', data) }
+	);
+(1)
+let siteHeader = await siteInclude.getInclude(hostName, pathInclude, 'site_header.html');
+*/
+
 const https = require('https');
 const http = require('http');
 const path = require('path');
-const os = require("os");
+const os = require('os');
+const fs = require('fs');
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
 
+async function getStaticLocalFile(absPath, fileName) {
+	let dataString = "";
+	try {
+		const data = await readFile(path.join(absPath, fileName), 'utf-8');
+		dataString = data.toString('utf8');
+		console.log("In getStaticLocalFile: dataString=", dataString);
+		return dataString;
+	} catch (err) {
+		console.log("In getStaticLocalFile: ",  err);
+	}
+}
 
 async function getInclude(hostName, path_, name_) {
 
@@ -36,7 +62,6 @@ async function getInclude(hostName, path_, name_) {
 		    res.on("data", function (chunk) {
 		        content += chunk;
 		    });
-
 		    res.on("end", function () {
 		    	// console.log('getInclude recieved the following content: ' + content);
 		    	resolve(content);
@@ -46,49 +71,10 @@ async function getInclude(hostName, path_, name_) {
 				reject(error);
 			});
 		});
-		
 		req.end();
 	});
 	return content;
 }
 
-
-// https.get(options, function(res) {
-//   console.log("Got response: " + res.statusCode);
-// }).on('error', function(e) {
-//   console.log("Got error: " + e.message);
-// });
-
-
-// https.get('https://epicbeaver.netlify.com/public/include/side_panels.html', (res) => {
-
-
-
-// const getSiteHeader = async function() { 
-// 	let header = '';
-// 	return getInclude('site_header');
-
-// };
-
-// const getPortfolio = function() { 
-// 	let portfolio = '';
-// 	getInclude('portfolio').then( res => {
-// 		portfolio = res;
-// 		console.log('portfolio = ' + portfolio);
-// 		return portfolio;
-// 	});
-// };
-
-// const getSidePanel = function() { 
-// 	let sidePanels = '';
-// 	getInclude('side_panels').then( res => {
-// 		sidePanels = res;
-// 		console.log('side_panels = ' + sidePanels);
-// 		return sidePanels;
-// 	});
-// };
-
 exports.getInclude = getInclude;
-// exports.getSiteHeader = getSiteHeader;
-// exports.getPortfolio = getPortfolio;
-// exports.getSidePanel = getSidePanel;
+exports.getStaticLocalFile = getStaticLocalFile;
