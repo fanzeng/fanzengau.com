@@ -10,4 +10,8 @@
 		<p>The most important take-away lesson: Always, always do a dry run (with "-n") whenever you have "--delete" in your rsync command. Only remove the "-n" for the actual run. If anything else has also been changed, do another dry run.</p>
 
 		<p>When backing up large file systems, a cautious dev-op will monitor the rsync process at least for a few initial seconds, and be ready to "Ctrl-C" if something does not seem right, before leaving for lunch.</p>
+
+		<p>Also, whenever you issue destructive commands like "rm -rf", double check which computer you're on and which directory you are in. </p>
+		
+		<p>More often than you'd expect, people accidentaly delete the good copies when their intension was to delete the messed-up ones.</p>
 	</div>
