@@ -23,6 +23,12 @@ router.get('/index', indexCallback);
 
 router.get('/myblog/content/:topic/:blogTitle/:blogFileName',  blogContentCallback);
 
+// note:
+// the hostname is set to the hostname of the dev branch
+// therefore if the master branch is updated directly without
+// updating the dev branch, the changes maynot be reflected
+// unless you change the hostname to that of the master branch
+// or, update the dev branch to sync in the changes in master.
 
 function getHostName(req) {
 	let hostName = req.hostname;
@@ -31,6 +37,7 @@ function getHostName(req) {
 	}
 	return hostName;
 }
+
 async function getSiteMainFrame(req) {
 	let hostName = getHostName(req);
 	console.log(hostName);
