@@ -1,0 +1,156 @@
+==================================================
+
+
+==================================================
+creating rsync test directories
+initial directory tree:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+3 directories, 5 files
+no slash in src and no slash in dst
+sending incremental file list
+src/
+src/a.txt
+src/b.txt
+
+sent 181 bytes  received 58 bytes  478.00 bytes/sec
+total size is 0  speedup is 0.00
+directory tree after sync:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   │   └── src
+│   │       ├── a.txt
+│   │       └── b.txt
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+4 directories, 7 files
+==================================================
+
+
+==================================================
+creating rsync test directories
+initial directory tree:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+3 directories, 5 files
+slash in src and no slash in dst
+sending incremental file list
+a.txt
+b.txt
+
+sent 165 bytes  received 54 bytes  438.00 bytes/sec
+total size is 0  speedup is 0.00
+directory tree after sync:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   │   ├── a.txt
+│   │   └── b.txt
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+3 directories, 7 files
+==================================================
+
+
+==================================================
+creating rsync test directories
+initial directory tree:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+3 directories, 5 files
+no slash in src and slash in dst
+sending incremental file list
+src/
+src/a.txt
+src/b.txt
+
+sent 181 bytes  received 58 bytes  478.00 bytes/sec
+total size is 0  speedup is 0.00
+directory tree after sync:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   │   └── src
+│   │       ├── a.txt
+│   │       └── b.txt
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+4 directories, 7 files
+==================================================
+
+
+==================================================
+creating rsync test directories
+initial directory tree:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+3 directories, 5 files
+slash in src and dst
+sending incremental file list
+a.txt
+b.txt
+
+sent 165 bytes  received 54 bytes  438.00 bytes/sec
+total size is 0  speedup is 0.00
+directory tree after sync:
+.
+├── run_me.sh
+├── run_me.txt
+├── test_rsync_dir
+│   ├── dst
+│   │   ├── a.txt
+│   │   └── b.txt
+│   └── src
+│       ├── a.txt
+│       └── b.txt
+└── test_rsync.sh
+
+3 directories, 7 files
