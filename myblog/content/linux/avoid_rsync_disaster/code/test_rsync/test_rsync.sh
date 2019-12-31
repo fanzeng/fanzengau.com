@@ -12,6 +12,7 @@ function init {
 	mkdir -p $dst
 	touch $src/a.txt
 	touch $src/b.txt
+	touch $dst/c.txt
 	echo 'initial directory tree:'
 	tree
 }
@@ -40,3 +41,8 @@ rsync -av $src/ $dst/ && \
 echo 'directory tree after sync:'
 tree
 
+init && \
+echo 'slash in src and --delete specified' && \
+rsync -av --delete $src/ $dst/ && \
+echo 'directory tree after sync:'
+tree

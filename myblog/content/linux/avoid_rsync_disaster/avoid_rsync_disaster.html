@@ -31,52 +31,55 @@
 
 		<h3>The most important take-away lesson:</h3>
 		<p>
-			Always do a dry run (with "-n") whenever you have "--delete" in your rsync command. 
-			Only remove the "-n" for the actual run. If anything has been changed, better do another dry run.
+			Please always do a dry run (with "-n") first if "--delete" is specified in the rsync command. 
+			Remove only the "-n" for the actual run. If anything has been changed, better do another dry run.
 		</p>
 
 		<h3>Wait and make sure there are no surprises</h3>
 		<p>
 			When backing up large file systems, 
-			a cautious dev-op will monitor the rsync process at least for a few initial seconds, 
-			and be ready to "Ctrl-C" if something does not seem right, before leaving for lunch.
-			For instance, if he sees in the output terminal that it's deleting stuff that are supposed to
-			be left alone.
+			a cautious dev-op would monitor the rsync process at least for a few initial seconds/minutes, 
+			and be ready to "Ctrl-C" if something does not look right, before leaving for lunch.
+			For instance, if he sees in the output terminal that stuff supposed to
+			be left alone are being smashed, he can abort immediately to minimize the loss.
 		</p>
 
 		<h3>Double check where you are before rm -rf</h3>
 		<p>
 			As a side note, whenever you issue destructive commands like "rm -rf",
-			double check which computer you're on and which directory you are in. 
+			please double check which computer you're on and which directory you are in. 
 			More often than you'd expect, 
-			people accidentaly delete the good copies when their intension was to delete the messed-up ones.
+			people accidentaly delete the good copies when their intension is to delete the messed-up ones instead.
 		</p>
 		<h3>To slash or not to slash</h3>
 		<p>
-			It turns out that, in rsync, trailing slashes does matter. So if you're not careful with it,
-			especially when combined with the usage of "--delete", you can end up deleting stuff
-			in the destination. Because rsync find in destination files that doesn't exist in the source,
-			and believe they should be deleted since you've specified "--delete". And it's just doing its
+			It turns out that, in rsync, trailing slashes do matter. So if we're not careful with it,
+			especially when combined with the usage of "--delete", we can end up deleting stuff
+			in the destination. If rsync finds in destination files that don't exist in the source,
+			it will believe they should be deleted since you've specified "--delete". And it's just doing its
 			job of making sure the destination look exactly the same as the source, no more, no less, 
 			as is specified.
 		</p>
 		<p>
 			So here comes the question, how to avoid such mistakes. One safe solution is to create a temp 
-			directory at the destination, in this way we can be sure nothing is in the destination directory
-			therefore we have nothing to lose. The downside is we may need to move things out of the temp
-			directory which could take time if it's big.
+			directory at the destination and supply it as the destination argument, in this way we can be sure 
+			nothing is in the destination directory and we have nothing to lose. The downside is 
+			we may need to move things out of this temp directory afterwards, which could take time if what 
+			we are syncing is big.
 		</p>
 		<p>
-			If we want to do it in one go, we need to understand how the source and destination arguments
+			If we want to sync into the desired location in one go, 
+			we need to understand how the source and destination arguments
 			passed to rsync are interpreted. Below is a little test script I wrote to compare the four
 			combinations of with/without a trailing slash at the end of source/destination arguments.
-			The test directory contains a src directory inside which there are two black files a.txt and 
-			b.txt, and an empty dst directory. The four variants of rsync commands are issued to sync
-			src to dst.
+			Everything happens in a test directory, which contains a src directory and a dst directory.
+			Inside src there are two blank files a.txt and b.txt. 
+			Inside dst there is a blank file c.txt.
+			The four variants of rsync commands are issued to sync src to dst.
 		</p>
 		<p>
-			The test directory is reset after each test of rsync. The before vs. after directory tree structure
-			are printed out for examination.
+			The test directory is reset to its inital status after each test of rsync.
+			The before vs. after tree structure of the test directory are printed out for examination.
 		</p>
 		<div>
 			<p>test_rsync.sh</p>
@@ -95,7 +98,8 @@
 			whereas it doesn't matter at the end of dst.
 			When there is no slash at the end of src, rsync will place the entire src folder under the dst directory.
 			When there is a trailing slash at the end of src, rsync will sync the contents of src and place them
-			under the dst directory.
+			under the dst directory. The former case is where files in the destination directory can be deleted
+			if "--delete" flag is specified to rsync.
 		</p>
 	</div>
 
