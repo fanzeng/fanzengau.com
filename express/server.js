@@ -23,6 +23,14 @@ router.get('/index', indexCallback);
 
 router.get('/myblog/content/:topic/:blogTitle/:blogFileName',  blogContentCallback);
 
+router.get('/myblog/content/:topic/:blogTitle/*',  blogContentDataCallback);
+
+// note:
+// the hostname is set to the hostname of the dev branch
+// therefore if the master branch is updated directly without
+// updating the dev branch, the changes maynot be reflected
+// unless you change the hostname to that of the master branch
+// or, update the dev branch to sync in the changes in master.
 
 function getHostName(req) {
 	let hostName = req.hostname;
@@ -31,13 +39,14 @@ function getHostName(req) {
 	}
 	return hostName;
 }
+
 async function getSiteMainFrame(req) {
 	let hostName = getHostName(req);
 	console.log(hostName);
 	let siteHeader = await siteInclude.getInclude(hostName, pathInclude, 'site_header.html');
 	let mainFrameHeader = await siteInclude.getInclude(hostName, pathInclude, 'main_frame_header.html');
 	let mainFrameContent = await siteInclude.getInclude(hostName, pathInclude, 'main_frame_content.html');
-	let myBlogIndex = await siteInclude.getInclude(hostName, pathInclude, 'my_blog_index.html');
+	let myBlogIndex = await siteInclude.getInclude(hostName, pathInclude, 'myblog_index.html');
 	let sidePanels = await siteInclude.getInclude(hostName, pathInclude, 'side_panels.html')
 	let siteFooter = await siteInclude.getInclude(hostName, pathInclude, 'site_footer.html')
 	return {
@@ -50,6 +59,23 @@ async function getSiteMainFrame(req) {
 	}
 }
 
+async function blogContentDataCallback(req, res) {
+	console.log('in blogContentDataCallback');
+	let hostName = getHostName(req);
+	console.log(hostName);
+	res.writeHead(200, {
+		'Content-Type': 'text/html'
+	});
+	let pathBlogData = path.join(pathMyBlog, req.params['topic'], req.params['blogTitle']);
+	let blogDataPath = req.params[0];
+	let blogContentData = await siteInclude.getInclude(hostName, pathBlogData, blogDataPath);
+	let pageString = blogContentData;
+	// replace linebreaks in the string with the html linebreak
+	pageString = blogContentData.replace(/(?:\r\n|\r|\n)/g, '<br>');
+	res.write(pageString);
+	res.end();
+
+}
 
 async function blogContentCallback(req, res) {
 	console.log('in blogContentCallback');
@@ -64,8 +90,14 @@ async function blogContentCallback(req, res) {
 	let mf = await getSiteMainFrame(req);
 	let blogContent = await siteInclude.getInclude(hostName, pathBlogHTML, blogFileName);
 	// console.log('blogContent is: ' + blogContent);
-	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels + 
-		'<div class="column_uneven_2_6_3_center">' + blogContent + mf.siteFooter;
+	let embedCodeString = await siteInclude.getInclude(hostName, pathInclude, 'myblog_embed.html');
+	console.log("embdedCodeString=" + embedCodeString);
+	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels
+		+ embedCodeString
+		+ '<div class="column_uneven_2_6_3_center">' + blogContent
+		+ '<div id="center_column_footer"></div>'
+		+ '</div>'
+		+ mf.siteFooter;
 	res.write(pageString);
 	res.end();
 

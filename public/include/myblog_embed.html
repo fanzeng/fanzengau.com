@@ -1,0 +1,33 @@
+<!--
+  Special syntaxes:
+  $$blah blah$$
+    Mathjax for latex math formulae.
+  \(blah blah\)
+    Mathjax for latex inline math expressions.
+-->
+<!-- load MathJax -->
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+</script>
+
+
+
+<!-- load Google code-prettify -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<!-- custom function to embed text from an url into dom element -->
+<!-- Google code-prettify is used -->
+<script type="text/javascript">
+    function embedText(self, url) {
+        let elemID = url.replace(/[^A-Za-z0-9]/g, '_');
+        $(self).parent().append(
+            '<pre id="' + elemID + '" class="prettyprint linenums"></pre>'
+        )
+        $(self).remove();
+        var req = new XMLHttpRequest();
+        req.open('GET', url);
+        req.onreadystatechange = function() {
+        $('#' + elemID)[0].innerHTML = req.responseText;
+        }
+        req.send();
+    }
+</script>

@@ -1,3 +1,9 @@
+a.blog_item {
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+}
+
 #docktop_bg {
   height: 60px;
   background-color: #4455fe;
@@ -14,7 +20,6 @@
   font-size: 25px;
   font-family: "Open Sans", sans-serif;
   margin-left: 50px;
-  background-color: #4455fe;
   color: #ff4a00;
 }
 
@@ -47,6 +52,10 @@ div.project_item {
   background-image: url("../resource/image/background/paper_white_2.jpg");
   padding: 15px;
   box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+div.blog_item {
+  margin-bottom: 5px;
 }
 
 span.platform_tool {
@@ -141,8 +150,3 @@ li.project_item {
   color: transparent;
   text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
 }
-
-pre.prettyprint {
-
-}
-
