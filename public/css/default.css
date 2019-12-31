@@ -9,9 +9,6 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
-div {
-}
-
 div.section {
   background-color: #fffffa;
   margin: 5px;
@@ -47,6 +44,10 @@ h1 {
 h2 {
     color: #910a00;
     margin: 5px;
+}
+
+p {
+  text-align: justify;
 }
 
 p, label {
