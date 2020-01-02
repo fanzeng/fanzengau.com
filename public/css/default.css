@@ -221,6 +221,11 @@ li.menu_horizontal_item a {
   text-decoration: none;
 }
 
+span.inline_code {
+  color: #000000;
+  background-color: #dddddd;
+}
+
 #content {
   top: 300px;
   width: 100%;
