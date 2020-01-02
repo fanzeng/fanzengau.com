@@ -1,7 +1,6 @@
-==================================================
+============================================================
 
 
-==================================================
 creating rsync test directories
 initial directory tree:
 .
@@ -16,13 +15,16 @@ initial directory tree:
 └── test_rsync.sh
 
 3 directories, 6 files
-no slash in src and no slash in dst
+--------------------------------------------------
+Case 1: no slash in src and no slash in dst
+rsync -av $src $dst
+--------------------------------------------------
 sending incremental file list
 src/
 src/a.txt
 src/b.txt
 
-sent 184 bytes  received 58 bytes  484.00 bytes/sec
+sent 181 bytes  received 58 bytes  478.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
@@ -40,10 +42,9 @@ directory tree after sync:
 └── test_rsync.sh
 
 4 directories, 8 files
-==================================================
+============================================================
 
 
-==================================================
 creating rsync test directories
 initial directory tree:
 .
@@ -58,12 +59,15 @@ initial directory tree:
 └── test_rsync.sh
 
 3 directories, 6 files
-slash in src and no slash in dst
+--------------------------------------------------
+Case 2: slash in src and no slash in dst
+rsync -av $src/ $dst
+--------------------------------------------------
 sending incremental file list
 a.txt
 b.txt
 
-sent 168 bytes  received 54 bytes  444.00 bytes/sec
+sent 165 bytes  received 54 bytes  438.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
@@ -80,10 +84,9 @@ directory tree after sync:
 └── test_rsync.sh
 
 3 directories, 8 files
-==================================================
+============================================================
 
 
-==================================================
 creating rsync test directories
 initial directory tree:
 .
@@ -98,13 +101,16 @@ initial directory tree:
 └── test_rsync.sh
 
 3 directories, 6 files
-no slash in src and slash in dst
+--------------------------------------------------
+Case 3: no slash in src and slash in dst
+rsync -av $src $dst/
+--------------------------------------------------
 sending incremental file list
 src/
 src/a.txt
 src/b.txt
 
-sent 184 bytes  received 58 bytes  484.00 bytes/sec
+sent 181 bytes  received 58 bytes  478.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
@@ -122,10 +128,9 @@ directory tree after sync:
 └── test_rsync.sh
 
 4 directories, 8 files
-==================================================
+============================================================
 
 
-==================================================
 creating rsync test directories
 initial directory tree:
 .
@@ -140,12 +145,15 @@ initial directory tree:
 └── test_rsync.sh
 
 3 directories, 6 files
-slash in src and dst
+--------------------------------------------------
+Case 4: slash in src and dst
+rsync -av $src/ $dst/
+--------------------------------------------------
 sending incremental file list
 a.txt
 b.txt
 
-sent 168 bytes  received 54 bytes  444.00 bytes/sec
+sent 165 bytes  received 54 bytes  438.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
@@ -162,10 +170,9 @@ directory tree after sync:
 └── test_rsync.sh
 
 3 directories, 8 files
-==================================================
+============================================================
 
 
-==================================================
 creating rsync test directories
 initial directory tree:
 .
@@ -180,13 +187,16 @@ initial directory tree:
 └── test_rsync.sh
 
 3 directories, 6 files
-slash in src and --delete specified
+--------------------------------------------------
+Case 5: slash in src and --delete specified
+rsync -av --delete $src/ $dst/
+--------------------------------------------------
 sending incremental file list
 deleting c.txt
 a.txt
 b.txt
 
-sent 168 bytes  received 63 bytes  462.00 bytes/sec
+sent 165 bytes  received 63 bytes  456.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .

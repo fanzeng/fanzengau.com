@@ -69,10 +69,9 @@ async function blogContentDataCallback(req, res) {
 	let pathBlogData = path.join(pathMyBlog, req.params['topic'], req.params['blogTitle']);
 	let blogDataPath = req.params[0];
 	let blogContentData = await siteInclude.getInclude(hostName, pathBlogData, blogDataPath);
-	let pageString = blogContentData;
 	// replace linebreaks in the string with the html linebreak
-	pageString = blogContentData.replace(/(?:\r\n|\r|\n)/g, '<br>');
-	res.write(pageString);
+	blogContentData = blogContentData.replace(/(?:\r\n|\r|\n)/g, '<br>');
+	res.write(blogContentData);
 	res.end();
 
 }
@@ -90,13 +89,15 @@ async function blogContentCallback(req, res) {
 	let mf = await getSiteMainFrame(req);
 	let blogContent = await siteInclude.getInclude(hostName, pathBlogHTML, blogFileName);
 	// console.log('blogContent is: ' + blogContent);
+	blogContent = blogContent.replace(/<c>(.+)<\/c>/g, '<span class="inline_code">$1</span>');
+
 	let embedCodeString = await siteInclude.getInclude(hostName, pathInclude, 'myblog_embed.html');
 	console.log("embdedCodeString=" + embedCodeString);
 	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels
-		+ embedCodeString
 		+ '<div class="column_uneven_2_6_3_center">' + blogContent
 		+ '<div id="center_column_footer"></div>'
 		+ '</div>'
+		+ embedCodeString
 		+ mf.siteFooter;
 	res.write(pageString);
 	res.end();
