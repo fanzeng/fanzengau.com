@@ -70,12 +70,20 @@
 		<p>
 			If we want to sync into the desired location in one go, 
 			we need to understand how the source and destination arguments
-			passed to rsync are interpreted. Below is a little test script I wrote to compare the four
+			passed to rsync are interpreted.
+		</p>
+		<p> Below is a little test script I wrote to compare the four
 			combinations of with/without a trailing slash at the end of source/destination arguments.
+		</p>
+		<p>
 			Everything happens in a test directory, which contains a src directory and a dst directory.
 			Inside src there are two blank files a.txt and b.txt. 
 			Inside dst there is a blank file c.txt.
+		</p>
+		<p>
 			The four variants of rsync commands are issued to sync src to dst.
+			An additional test of rsync with "--delete" specified that results in the deletion of c.txt
+			in dst is also included.
 		</p>
 		<p>
 			The test directory is reset to its inital status after each test of rsync.
@@ -99,7 +107,7 @@
 			When there is no slash at the end of src, rsync will place the entire src folder under the dst directory.
 			When there is a trailing slash at the end of src, rsync will sync the contents of src and place them
 			under the dst directory. The former case is where files in the destination directory can be deleted
-			if "--delete" flag is specified to rsync.
+			if "--delete" flag is specified to rsync, as shown in the example.
 		</p>
 	</div>
 

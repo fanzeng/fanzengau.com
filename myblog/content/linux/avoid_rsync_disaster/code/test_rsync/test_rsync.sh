@@ -4,8 +4,7 @@ src=$test_rsync_dir/src
 dst=$test_rsync_dir/dst
 
 function init {
-	printf "%50s\n\n\n" | tr " " "="
-	printf "%50s\n" | tr " " "="
+	printf "%60s\n\n\n" | tr " " "="
 	echo 'creating rsync test directories'
 	rm -r $test_rsync_dir 2>&1
 	mkdir -p $src
@@ -17,32 +16,59 @@ function init {
 	tree
 }
 
+case_num=0
+
+rsync_command='rsync -av $src $dst'
+((case_num++))
 init && \
-echo 'no slash in src and no slash in dst' && \
-rsync -av $src $dst && \
-echo 'directory tree after sync:'
+printf "%50s\n" | tr " " "-" && \
+echo "Case $case_num: no slash in src and no slash in dst" && \
+echo $rsync_command && \
+printf "%50s\n" | tr " " "-" && \
+eval $rsync_command && \
+echo 'directory tree after sync:' && \
 tree
 
+rsync_command='rsync -av $src/ $dst'
+((case_num++))
 init && \
-echo 'slash in src and no slash in dst' && \
-rsync -av $src/ $dst && \
-echo 'directory tree after sync:'
+printf "%50s\n" | tr " " "-" && \
+echo "Case $case_num: slash in src and no slash in dst" && \
+echo $rsync_command && \
+printf "%50s\n" | tr " " "-" && \
+eval $rsync_command && \
+echo 'directory tree after sync:' && \
 tree
 
+rsync_command='rsync -av $src $dst/'
+((case_num++))
 init && \
-echo 'no slash in src and slash in dst' && \
-rsync -av $src $dst/ && \
-echo 'directory tree after sync:'
+printf "%50s\n" | tr " " "-" && \
+echo "Case $case_num: no slash in src and slash in dst" && \
+echo $rsync_command && \
+printf "%50s\n" | tr " " "-" && \
+eval $rsync_command && \
+echo 'directory tree after sync:' && \
 tree
 
+rsync_command='rsync -av $src/ $dst/'
+((case_num++))
 init && \
-echo 'slash in src and dst' && \
-rsync -av $src/ $dst/ && \
-echo 'directory tree after sync:'
+printf "%50s\n" | tr " " "-" && \
+echo "Case $case_num: slash in src and dst" && \
+echo $rsync_command && \
+printf "%50s\n" | tr " " "-"
+eval $rsync_command && \
+echo 'directory tree after sync:' && \
 tree
 
+rsync_command='rsync -av --delete $src/ $dst/'
+((case_num++))
 init && \
-echo 'slash in src and --delete specified' && \
-rsync -av --delete $src/ $dst/ && \
-echo 'directory tree after sync:'
+printf "%50s\n" | tr " " "-" && \
+echo "Case $case_num: slash in src and --delete specified" && \
+echo $rsync_command && \
+printf "%50s\n" | tr " " "-" && \
+eval $rsync_command && \
+echo 'directory tree after sync:' && \
 tree
