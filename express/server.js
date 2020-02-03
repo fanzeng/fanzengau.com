@@ -95,8 +95,8 @@ async function blogContentCallback(req, res) {
 	console.log("embdedCodeString=" + embedCodeString);
 	let pageString = mf.siteHeader + mf.mainFrameHeader + mf.mainFrameContent + mf.sidePanels
 		+ '<div class="column_uneven_2_6_3_center">' + blogContent
-		+ '<div id="center_column_footer"></div>'
-		+ '</div>'
+		+ '<div id="center_column_footer"></div><article>'
+		+ '</article></div>'
 		+ embedCodeString
 		+ mf.siteFooter;
 	res.write(pageString);
