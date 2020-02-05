@@ -141,7 +141,7 @@
     To see why that is the case, try and simply the 2nd term
     $$
     \frac{1}{n}\Sigma_{i}\frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{j}y_{j}
-        = \frac{1}{n^3}\Sigma_{i}\Sigma_{j}x_{j}\Sigma_{j}y_{j}
+        = \frac{1}{n^3}\Sigma_{i}\Sigma_{j}x_{j}\Sigma_{j}y_{j} \\
         = \frac{1}{n^2}\Sigma_{j}x_{j}\Sigma_{j}y_{j} \quad ,
     $$
     during the process the summation over \(i\) (i.e. \(\Sigma_{i}\)) cancels one of the \(\frac{1}{n}\) because
@@ -201,12 +201,12 @@
           y_{0} \\
           \vdots \\
           y_{n-1} \\
-          \end{bmatrix}
+          \end{bmatrix}.
       $$
   </p>
 
   <p>
-    To fit in the least squares sense, we minimize
+    To fit the data in the least squares sense, we minimize
     $$
       (\mathbf{X}\mathbf{\beta}-\mathbf{y})^{T}(\mathbf{X}\beta-\mathbf{y})
     $$
@@ -215,7 +215,7 @@
     $$
       \frac{\partial}{\partial \mathbf{\beta}}(\mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{X}\mathbf{\beta} - y^{T}\mathbf{X}\mathbf{\beta} - \mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{y} + \mathbf{y}^{T}\mathbf{y}) = 0 \\
       \mathbf{\beta}^{T}(\mathbf{X}^{T}\mathbf{X}) + (\mathbf{X}^{T}\mathbf{X}\mathbf{\beta})^{T} - \mathbf{y}^{T}\mathbf{X} - (\mathbf{X}^{T}\mathbf{y})^{T} = 0 \\
-      \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y})
+      \Rightarrow \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y})
     $$
   </p>
   <p>
@@ -256,7 +256,7 @@
       y_{1} \\
       \vdots \\
       y_{n-1}
-    \end{bmatrix}
+    \end{bmatrix} \\
     = \begin{bmatrix}
       \Sigma_{i}y_{i} \\
       \Sigma_{i}x_{i}y_{i}
@@ -280,7 +280,7 @@
   </p>
   <p>
     $$
-      \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y})
+      \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y}) \\
         = det(\mathbf{X}^{T}\mathbf{X})^{-1}
         \begin{bmatrix}
           \Sigma_{i}x_{i}^{2} & -\Sigma_{i}x_{i} \\
@@ -289,7 +289,7 @@
         \begin{bmatrix}
           \Sigma_{i}y_{i} \\
           \Sigma_{i}x_{i}y_{i}
-        \end{bmatrix}
+        \end{bmatrix} \\
         = (n\Sigma_{i}x_{i}^{2} - (\Sigma_{i}x_{i})^{2})^{-1}
         \begin{bmatrix}
           \Sigma_{i}x_{i}^{2}\Sigma_{i}y_{i} - \Sigma_{i}x_{i}\Sigma_{i}x_{i}y_{i} \\
