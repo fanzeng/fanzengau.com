@@ -129,34 +129,47 @@
     can be shown to be equal to \(cov(x, y)\), i.e.:
     $$
     cov(x, y) = \frac{1}{n} \Sigma_{i}(x_{i} - \bar{x})(y_{i} - \bar{y}) \\
-      = \frac{1}{n} \Sigma_{i}(x_{i}y_{i} + \bar{x_{i}}\bar{y_{i}} - \bar{x_{i}}y_{i} - \bar{y_{i}}x_{i}) \\
+      = \frac{1}{n} \Sigma_{i}(x_{i}y_{i} + \bar{x}\bar{y} - \bar{x}y_{i} - \bar{y}x_{i}) \\
       = \frac{1}{n} \Sigma_{i}(
         x_{i}y_{i}
-        + \frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{j}y_{j}
+        + \frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{k}y_{k}
         - \frac{1}{n}\Sigma_{j}x_{j}y_{i}
-        - \frac{1}{n}\Sigma_{j}y_{j}x_{i}
+        - \frac{1}{n}\Sigma_{k}y_{k}x_{i}
       )
     $$
     It's got 4 terms after expansion, but the last 3 terms are actually equal in magnitude, so two of them will cancel out.
     To see why that is the case, try and simply the 2nd term
     $$
-    \frac{1}{n}\Sigma_{i}\frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{j}y_{j}
-        = \frac{1}{n^3}\Sigma_{i}\Sigma_{j}x_{j}\Sigma_{j}y_{j} \\
-        = \frac{1}{n^2}\Sigma_{j}x_{j}\Sigma_{j}y_{j} \quad ,
+    \frac{1}{n}\Sigma_{i}\frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{k}y_{k}
+        = \frac{1}{n^2}\Sigma_{j}x_{j}\Sigma_{k}y_{k} \quad ,
     $$
-    during the process the summation over \(i\) (i.e. \(\Sigma_{i}\)) cancels one of the \(\frac{1}{n}\) because
+    i.e., the summation over \(i\) (i.e. \(\Sigma_{i}\)) cancels one of the \(\frac{1}{n}\) because
     the summand does not contain the index  \(i\).
   </p>
   <p>
     Meanwhile we expand and verify the following equation:
     $$
-      \Sigma_{i}x_{i}\Sigma_{j}y_{j} = \Sigma_{i}\Sigma_{j}x_{i}y_{j}
+      \Sigma_{j}x_{j}\Sigma_{k}y_{k} = \Sigma_{j}\Sigma_{k}x_{j}y_{k}
     $$
-    Therefore,
+    which is equal to
+    $$
+      \Sigma_{j}\Sigma_{i}x_{j}y_{i}
+    $$
+    since changing the index of summation over \(y\) from \(k\) to \(i\) does not change its result.
+    Therefore the 2nd term,
+    $$
+    \frac{1}{n} \Sigma_{i}\frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{k}y_{k}
+      = \frac{1}{n^{2}} \Sigma_{i}\Sigma_{j}x_{j}y_{i}
+    $$
+    i.e., the 2nd term and 3rd term cancels out, and the 4th term is equal to
+    $$
+      - \frac{1}{n^2}\sum_{i}x_{i}\sum_{i}y_{i}
+    $$
+    so 
     $$
       cov(x, y) = \frac{1}{n}\sum_{i}x_{i}y_{i} - \frac{1}{n^2}\sum_{i}x_{i}\sum_{i}y_{i}
     $$
-    which is the (rescaled) numerator of \(\beta_{1}\).
+    which is equal to the (rescaled) numerator of \(\beta_{1}\).
   </p>
   <p>
     Putting the numerator and denominator together:
@@ -172,7 +185,8 @@
   Multiple linear regression allows more than one independent variables, i.e., it is simple linear regression
     generalized to the vector form:
     $$
-      \mathbf{X}\mathbf{\beta} = \mathbf{y}, \quad X \in \mathbb{R}^{n \times m}, \quad \mathbf{\beta}, y \in \mathbb{R}^{m}
+      \mathbf{X}\mathbf{\beta} = \mathbf{y}, \quad \mathbf{X} \in \mathbb{R}^{n \times m}, \\
+      \mathbf{\beta} \in \mathbb{R}^{m}, \quad y \in \mathbb{R}^{n}
     $$
   </p>
   <p>
@@ -192,7 +206,7 @@
       \mathbf{\beta} = \begin{bmatrix} 
           \beta_{0} \\
           \vdots \\
-          \beta_{n-1} \\
+          \beta_{m-1} \\
           \end{bmatrix},
     
       \\
@@ -202,7 +216,7 @@
           \vdots \\
           y_{n-1} \\
           \end{bmatrix}.
-      $$
+    $$
   </p>
 
   <p>
@@ -211,6 +225,7 @@
       (\mathbf{X}\mathbf{\beta}-\mathbf{y})^{T}(\mathbf{X}\beta-\mathbf{y})
     $$
   </p>
+  <p>
     Setting the partial derivative w.r.t. \(\mathbf{\beta}\) to 0:
     $$
       \frac{\partial}{\partial \mathbf{\beta}}(\mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{X}\mathbf{\beta} - y^{T}\mathbf{X}\mathbf{\beta} - \mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{y} + \mathbf{y}^{T}\mathbf{y}) = 0 \\
