@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+	<title>eartunes | Fan Zeng</title>
+	<link rel="stylesheet" type="text/css" href="/public/css/default.css">
+	<script type="text/javascript" src="/public/vendor/script/jquery.min.js"></script>
+
+</head>
+<body>
+	<h1>
+		eartunes
+	</h1>
+    <canvas class="visualizer_time" width="1000" height="100"></canvas> 
+    <canvas class="visualizer_freq" width="1000" height="100"></canvas> 
+	<div>
+		<button id="start" value="start">start</button>
+		<span id="measured_freq">measured frequency</span>
+	</div>
+	<script type="text/javascript" src="/node_modules/minifft/minifft.js"></script>
+	<script type="text/javascript" src="./script/index.js"></script>
+
+</body>
+</html>
