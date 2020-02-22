@@ -151,9 +151,9 @@ app.use('/public/vendor/', express.static(__dirname + '/../public/vendor/'));
 app.use('/public/script/', express.static(__dirname + '/../public/script/'));
 
 // eartunes
-app.use('/eartunes/', express.static(__dirname + '/../eartunes/'));
-app.use('/node_modules/minifft', express.static(__dirname + '/../node_modules/minifft/'));
-app.use('/eartunes/vendor/', express.static(__dirname + '/../public/vendor'));
+app.use('/eartunes/public/', express.static(__dirname + '/../eartunes/public/'));
+// app.use('/node_modules/minifft', express.static(__dirname + '/../node_modules/minifft/'));
+app.use('/eartunes/vendor/', express.static(__dirname + '/../eartunes/public/vendor'));
 // eartunes
 
 app.use(function(req, res, next) {
