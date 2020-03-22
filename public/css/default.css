@@ -84,14 +84,18 @@ a.menu_item {
 }
 
 button {
-   background: #eeeeee;
-   opacity: 0.95;
-   color: #ff4a00;
-   padding: 3px;
-   border-radius: 0px;
+  background: #eeeeee;
+  opacity: 0.95;
+  color: #ff4a00;
+  padding: 3px;
+  border-radius: 0px;
 }
 
-button:hover {
+button:disabled {
+ color: #555555;
+}
+
+button:enabled:hover {
   opacity: 1;
   transform: scale(1.1);
 }
