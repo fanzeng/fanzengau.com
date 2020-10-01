@@ -9,10 +9,12 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+div {
+}
+
 div.section {
   background-color: #fffffa;
   margin: 5px;
-  padding: 5px;
   border-radius: 4px;
   box-shadow: 2px 2px 2px;
   opacity: 0.9;
@@ -44,10 +46,6 @@ h1 {
 h2 {
     color: #910a00;
     margin: 5px;
-}
-
-p {
-  text-align: justify;
 }
 
 p, label {
@@ -84,18 +82,14 @@ a.menu_item {
 }
 
 button {
-  background: #eeeeee;
-  opacity: 0.95;
-  color: #ff4a00;
-  padding: 3px;
-  border-radius: 0px;
+   background: #eeeeee;
+   opacity: 0.95;
+   color: #ff4a00;
+   padding: 3px;
+   border-radius: 0px;
 }
 
-button:disabled {
- color: #555555;
-}
-
-button:enabled:hover {
+button:hover {
   opacity: 1;
   transform: scale(1.1);
 }
@@ -155,7 +149,6 @@ button:enabled:hover {
 
 table, th, td {
     border-collapse: collapse;
-    white-space: normal;
 }
 
 
@@ -183,7 +176,7 @@ tr:nth-child(odd) {
     top: 0;
     left: 0;
     right: 0;
-    margin: 0;
+    margin: 0px;
     z-index: 990;
 }
 
@@ -224,11 +217,6 @@ li.menu_horizontal_item a {
   text-align: center;
   padding: 8px 16px 2px 16px;
   text-decoration: none;
-}
-
-span.inline_code {
-  color: #000000;
-  background-color: #dddddd;
 }
 
 #content {

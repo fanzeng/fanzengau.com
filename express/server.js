@@ -148,9 +148,14 @@ app.use('/myblog/content/', express.static(__dirname + '/../myblog/content/'));
 app.use('/public/resource/', express.static(__dirname + '/../public/resource/'));
 app.use('/public/css/', express.static(__dirname + '/../public/css/'));
 app.use('/public/vendor/', express.static(__dirname + '/../public/vendor/'));
-app.use('/public/scripts/', express.static(__dirname + '/../public/scripts/'));
+app.use('/public/script/', express.static(__dirname + '/../public/script/'));
 
-console.log("__dirname + '/../public/include/ = " + __dirname + '/../public/include/');
+// eartunes
+app.use('/eartunes/public/', express.static(__dirname + '/../eartunes/public/'));
+// app.use('/node_modules/minifft', express.static(__dirname + '/../node_modules/minifft/'));
+app.use('/eartunes/vendor/', express.static(__dirname + '/../eartunes/public/vendor'));
+// eartunes
+
 app.use(function(req, res, next) {
 	const msg = 'Route: '+ req.url + ' Not found after matching with all app.use and router.use clauses in server.js';
 	console.log(msg);
