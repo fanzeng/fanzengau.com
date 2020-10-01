@@ -35,7 +35,7 @@ router.get('/myblog/content/:topic/:blogTitle/*',  blogContentDataCallback);
 function getHostName(req) {
 	let hostName = req.hostname;
 	if (hostName != "localhost") {
-		hostName = "fanzengau.com";
+		hostName = "epicbeaver.netlify.app";
 	}
 	return hostName;
 }
