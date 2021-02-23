@@ -35,7 +35,7 @@ async function getInclude(hostName, path_, name_) {
 	let portNumber;
 	let httpToUse;
 
-	if (hostName == 'localhost') {
+	if (hostName === 'localhost') {
 		portNumber = 3000;
 		httpToUse = http;
 	} else {
