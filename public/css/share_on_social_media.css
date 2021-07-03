@@ -1,7 +1,7 @@
 .share_on_social_media td {
-	width: 68px;
-	height: 68px;
-	vertical-align: bottom;
+  width: 68px;
+  height: 68px;
+  vertical-align: bottom;
 }
 
 .fb-share-button {
@@ -9,5 +9,5 @@
 }
 
 .share_on_social_media td.fb {
-	vertical-align: center;
+  vertical-align: center;
 }
