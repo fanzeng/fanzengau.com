@@ -1,8 +1,8 @@
 'use strict';
 
 const app = require('./express/server');
-
-app.listen(3000, () => console.log('Local server at 3000.'));
+const port = 3000;
+app.listen(port, () => console.log(`Local server at ${port}.`));
 
 // to start local server, use the following command:
 // npm run start:local
