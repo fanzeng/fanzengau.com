@@ -9,21 +9,20 @@ const path = require('path');
 const siteInclude = require('site-include');
 
 const pathInclude = '/public/include/';
-const pathMyBlog = '/myblog/content/';
+const pathMyBlog = '/public/myblog/content/';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.redirect('/.netlify/functions/server/index');
-});
-
-router.get('/myblog', myblogCallback);
 
 router.get('/index', indexCallback);
 
-router.get('/myblog/content/:topic/:blogTitle/:blogFileName', blogContentCallback);
+router.get('/myblog/content/:category/:blogTitle/data/*', blogContentDataCallback);
 
-router.get('/myblog/content/:topic/:blogTitle/*', blogContentDataCallback);
+router.get('/myblog/content/:category/:blogTitle/:blogFileName', blogContentCallback);
+
+router.get('/myblog', myblogIndexCallback);
+
+router.get('/', indexCallback);
 
 // note:
 // the hostname is set to the hostname of the dev branch
@@ -34,9 +33,9 @@ router.get('/myblog/content/:topic/:blogTitle/*', blogContentDataCallback);
 
 function getHostName(req) {
   let hostName = req.hostname;
-  if (hostName != "localhost") {
-    hostName = "epicbeaver.netlify.app";
-  }
+  // if (hostName != "localhost") {
+  //   hostName = "epicbeaver.netlify.app";
+  // }
   return hostName;
 }
 
@@ -64,7 +63,7 @@ async function blogContentDataCallback(req, res) {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
-  let pathBlogData = path.join(pathMyBlog, req.params['topic'], req.params['blogTitle']);
+  let pathBlogData = path.join(pathMyBlog, req.params['category'], req.params['blogTitle']);
   let blogDataPath = req.params[0];
   let blogContentData = await siteInclude.getInclude(hostName, pathBlogData, blogDataPath);
   // replace linebreaks in the string with the html linebreak
@@ -78,7 +77,7 @@ async function blogContentCallback(req, res) {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
-  let pathBlogHTML = path.join(pathMyBlog, req.params['topic'], req.params['blogTitle']);
+  let pathBlogHTML = path.join(pathMyBlog, req.params['category'], req.params['blogTitle']);
   let blogFileName = req.params['blogFileName'];
   let mf = await getSiteMainFrame(req);
   let blogContent = await siteInclude.getInclude(hostName, pathBlogHTML, blogFileName);
@@ -97,7 +96,7 @@ async function blogContentCallback(req, res) {
   res.end();
 }
 
-async function myblogCallback(req, res) {
+async function myblogIndexCallback(req, res) {
   res.writeHead(200, {
     'Content-Type': 'text/html'
   });
@@ -127,16 +126,12 @@ async function indexCallback(req, res) {
 }
 
 app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);
-app.use('/.netlify/functions/server/public/include/', express.static(__dirname + '/../public/include/'));
-app.use('/public/include/', express.static(__dirname + '/../public/include/'));
 
-app.use('/myblog/content/', express.static(__dirname + '/../myblog/content/'));
+// The following route is used when developing with localhost
+// Netlify will bypass the redirect for the public directory.
+app.use('/public', express.static(__dirname + '/../public'))
 
-app.use('/public/resource/', express.static(__dirname + '/../public/resource/'));
-app.use('/public/css/', express.static(__dirname + '/../public/css/'));
-app.use('/public/vendor/', express.static(__dirname + '/../public/vendor/'));
-app.use('/public/script/', express.static(__dirname + '/../public/script/'));
+app.use('/', router);
 
 // eartunes
 app.use('/eartunes/public/', express.static(__dirname + '/../eartunes/public/'));
