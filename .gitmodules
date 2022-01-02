@@ -1,0 +1,3 @@
+[submodule "submodules/eartunes"]
+	path = submodules/eartunes
+	url = https://github.com/fanzeng/eartunes
