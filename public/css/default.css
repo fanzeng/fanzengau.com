@@ -1,7 +1,7 @@
 body {
-    background: #eeeee0;
-    color: #00562b;
-    margin: 20px;
+  background: #eeeee0;
+  color: #00562b;
+  margin: 20px;
 }
 
 html {
@@ -20,7 +20,6 @@ div.section {
 
 div.section:hover {
   opacity: 1;
-  transform: scale(1.000);
 }
 
 div.foot{
@@ -30,20 +29,20 @@ div.foot{
 /*horizontal centered anchor tag*/
 div.center_h { 
   display: flex;
-  flex-flow: row || wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: baseline;
 }
 
 h1 {
-    color: #0047bc;
-    padding: 10px;
-    margin: 5px;
+  color: #0047bc;
+  padding: 10px;
+  margin: 5px;
 }
 
 h2 {
-    color: #910a00;
-    margin: 5px;
+  color: #910a00;
+  margin: 5px;
 }
 
 p {
@@ -51,9 +50,9 @@ p {
 }
 
 p, label {
-    color: #204020;
-    margin: 5px;
-    padding: 5px;
+  color: #204020;
+  margin: 5px;
+  padding: 5px;
 }
 
 a {
@@ -72,7 +71,7 @@ a:link {
 a:hover {
   opacity: 1;
   color: #0087dc;
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 a.menu_item {
@@ -97,70 +96,70 @@ button:disabled {
 
 button:enabled:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 .column_2 {
-    float: left;
-    width: 50%;
+  float: left;
+  width: 50%;
 }
 
 .column_3 {
-    float: left;
-    width: 33%;
+  float: left;
+  width: 33%;
 }
 
 .column_uneven_8_2_left {
-    position: relative;
-    float: left;
-    width: 80%;
+  position: relative;
+  float: left;
+  width: 80%;
 }
 
 .column_uneven_8_2_right {
-    position: relative;
-    float: right;
-    width: 20%;
+  position: relative;
+  float: right;
+  width: 20%;
 }
 
 .column_uneven_2_6_3_left {
-    position: fixed;
-    float: left;
-    width: 15%;
+  position: fixed;
+  float: left;
+  width: 15%;
 }
 
 .column_uneven_2_6_3_left_invisible {
-    visibility: hidden;
-    position: relative;
-    float: left;
-    width: 16%;
+  visibility: hidden;
+  position: relative;
+  float: left;
+  width: 16%;
 }
 
 .column_uneven_2_6_3_center {
-    position: relative;
-    float: left;
-    width: 60%;
+  position: relative;
+  float: left;
+  width: 60%;
 }
 
 .column_uneven_2_6_3_right {
-    position: fixed;
-    right: 0;
-    float: right;
-    width: 24%;
+  position: fixed;
+  right: 0;
+  float: right;
+  width: 24%;
 }
 
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 table, th, td {
-    border-collapse: collapse;
-    white-space: normal;
+  border-collapse: collapse;
+  white-space: normal;
 }
 
 
 th, td {
-    padding: 5px;
+  padding: 5px;
 }
 
 th {
@@ -168,23 +167,23 @@ th {
 }
 
 td:hover {
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 tr:nth-child(even) {
-    /*background-color: #edfeff;*/
+  /*background-color: #edfeff;*/
 }
 tr:nth-child(odd) {
-    /*background-color: #ffffff;*/
+  /*background-color: #ffffff;*/
 }
 
 .docktop_bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    z-index: 990;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 990;
 }
 
 .docktop_fg {
