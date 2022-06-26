@@ -134,11 +134,10 @@ app.use('/public', express.static(__dirname + '/../public'))
 app.use('/', router);
 
 // eartunes
-
 app.use('/submodules/eartunes/public/', express.static(__dirname + '/../submodules/eartunes/public/'));
-// app.use('/node_modules/minifft', express.static(__dirname + '/../node_modules/minifft/'));
-// app.use('/eartunes/vendor/', express.static(__dirname + '/../eartunes/public/vendor'));
-// eartunes
+
+// multimedia-toolbox
+app.use('/submodules/multimediatoolbox/', express.static(path.join(__dirname, '/../submodules/multimedia-toolbox/')));
 
 app.use(function (req, res, next) {
   const msg = 'Route: ' + req.url + ' Not found after matching with all app.use and router.use clauses in server.js';
