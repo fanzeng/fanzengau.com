@@ -130,7 +130,7 @@ app.use(bodyParser.json());
 // The following route is used when developing with localhost
 // Netlify will bypass the redirect for the public directory.
 // app.use('/public', express.static(__dirname + '/../public'))
-app.use('/public/resource/image/certificates/', express.static(__dirname + '/../public/resource/image/certificates/'))
+// app.use('/public/resource/image/certificates/', express.static(__dirname + '/../public/resource/image/certificates/'))
 
 app.use('/', router);
 
