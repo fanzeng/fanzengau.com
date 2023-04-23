@@ -4,211 +4,431 @@
 creating rsync test directories
 initial directory tree:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   └── .folder_hidden
+│   │       ├── .folder_hidden
+│   │       │   ├── h.txt
+│   │       │   └── i.txt
+│   │       ├── f.txt
+│   │       └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 6 files
+7 directories, 16 files
 --------------------------------------------------
 Case 1: no slash in src and no slash in dst
 rsync -av $src $dst
 --------------------------------------------------
 sending incremental file list
 src/
+src/.hidden_file
 src/a.txt
 src/b.txt
+src/.hidden_folder/
+src/.hidden_folder/.f_hidden
+src/.hidden_folder/d.txt
+src/.hidden_folder/e.txt
+src/.hidden_folder/.hidden_folder/
+src/.hidden_folder/.hidden_folder/f.txt
+src/.hidden_folder/.hidden_folder/g.txt
 
-sent 181 bytes  received 58 bytes  478.00 bytes/sec
+sent 648 bytes  received 188 bytes  1,672.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
 │   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   ├── .folder_hidden
+│   │   │   ├── .folder_hidden
+│   │   │   │   ├── h.txt
+│   │   │   │   └── i.txt
+│   │   │   ├── f.txt
+│   │   │   └── g.txt
 │   │   └── src
 │   │       ├── a.txt
-│   │       └── b.txt
+│   │       ├── b.txt
+│   │       ├── .hidden_file
+│   │       └── .hidden_folder
+│   │           ├── d.txt
+│   │           ├── e.txt
+│   │           ├── .f_hidden
+│   │           └── .hidden_folder
+│   │               ├── f.txt
+│   │               └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-4 directories, 8 files
+10 directories, 24 files
 ============================================================
 
 
 creating rsync test directories
 initial directory tree:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   └── .folder_hidden
+│   │       ├── .folder_hidden
+│   │       │   ├── h.txt
+│   │       │   └── i.txt
+│   │       ├── f.txt
+│   │       └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 6 files
+7 directories, 16 files
 --------------------------------------------------
 Case 2: slash in src and no slash in dst
 rsync -av $src/ $dst
 --------------------------------------------------
 sending incremental file list
+.hidden_file
 a.txt
 b.txt
+.hidden_folder/
+.hidden_folder/.f_hidden
+.hidden_folder/d.txt
+.hidden_folder/e.txt
+.hidden_folder/.hidden_folder/
+.hidden_folder/.hidden_folder/f.txt
+.hidden_folder/.hidden_folder/g.txt
 
-sent 165 bytes  received 54 bytes  438.00 bytes/sec
+sent 633 bytes  received 184 bytes  1,634.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
 │   │   ├── a.txt
 │   │   ├── b.txt
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   ├── .folder_hidden
+│   │   │   ├── .folder_hidden
+│   │   │   │   ├── h.txt
+│   │   │   │   └── i.txt
+│   │   │   ├── f.txt
+│   │   │   └── g.txt
+│   │   ├── .hidden_file
+│   │   └── .hidden_folder
+│   │       ├── d.txt
+│   │       ├── e.txt
+│   │       ├── .f_hidden
+│   │       └── .hidden_folder
+│   │           ├── f.txt
+│   │           └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 8 files
+9 directories, 24 files
 ============================================================
 
 
 creating rsync test directories
 initial directory tree:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   └── .folder_hidden
+│   │       ├── .folder_hidden
+│   │       │   ├── h.txt
+│   │       │   └── i.txt
+│   │       ├── f.txt
+│   │       └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 6 files
+7 directories, 16 files
 --------------------------------------------------
 Case 3: no slash in src and slash in dst
 rsync -av $src $dst/
 --------------------------------------------------
 sending incremental file list
 src/
+src/.hidden_file
 src/a.txt
 src/b.txt
+src/.hidden_folder/
+src/.hidden_folder/.f_hidden
+src/.hidden_folder/d.txt
+src/.hidden_folder/e.txt
+src/.hidden_folder/.hidden_folder/
+src/.hidden_folder/.hidden_folder/f.txt
+src/.hidden_folder/.hidden_folder/g.txt
 
-sent 181 bytes  received 58 bytes  478.00 bytes/sec
+sent 648 bytes  received 188 bytes  1,672.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
 │   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   ├── .folder_hidden
+│   │   │   ├── .folder_hidden
+│   │   │   │   ├── h.txt
+│   │   │   │   └── i.txt
+│   │   │   ├── f.txt
+│   │   │   └── g.txt
 │   │   └── src
 │   │       ├── a.txt
-│   │       └── b.txt
+│   │       ├── b.txt
+│   │       ├── .hidden_file
+│   │       └── .hidden_folder
+│   │           ├── d.txt
+│   │           ├── e.txt
+│   │           ├── .f_hidden
+│   │           └── .hidden_folder
+│   │               ├── f.txt
+│   │               └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-4 directories, 8 files
+10 directories, 24 files
 ============================================================
 
 
 creating rsync test directories
 initial directory tree:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   └── .folder_hidden
+│   │       ├── .folder_hidden
+│   │       │   ├── h.txt
+│   │       │   └── i.txt
+│   │       ├── f.txt
+│   │       └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 6 files
+7 directories, 16 files
 --------------------------------------------------
 Case 4: slash in src and dst
 rsync -av $src/ $dst/
 --------------------------------------------------
 sending incremental file list
+.hidden_file
 a.txt
 b.txt
+.hidden_folder/
+.hidden_folder/.f_hidden
+.hidden_folder/d.txt
+.hidden_folder/e.txt
+.hidden_folder/.hidden_folder/
+.hidden_folder/.hidden_folder/f.txt
+.hidden_folder/.hidden_folder/g.txt
 
-sent 165 bytes  received 54 bytes  438.00 bytes/sec
+sent 633 bytes  received 184 bytes  1,634.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
 │   │   ├── a.txt
 │   │   ├── b.txt
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   ├── .folder_hidden
+│   │   │   ├── .folder_hidden
+│   │   │   │   ├── h.txt
+│   │   │   │   └── i.txt
+│   │   │   ├── f.txt
+│   │   │   └── g.txt
+│   │   ├── .hidden_file
+│   │   └── .hidden_folder
+│   │       ├── d.txt
+│   │       ├── e.txt
+│   │       ├── .f_hidden
+│   │       └── .hidden_folder
+│   │           ├── f.txt
+│   │           └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 8 files
+9 directories, 24 files
 ============================================================
 
 
 creating rsync test directories
 initial directory tree:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
-│   │   └── c.txt
+│   │   ├── c.txt
+│   │   ├── .e_hidden
+│   │   └── .folder_hidden
+│   │       ├── .folder_hidden
+│   │       │   ├── h.txt
+│   │       │   └── i.txt
+│   │       ├── f.txt
+│   │       └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 6 files
+7 directories, 16 files
 --------------------------------------------------
 Case 5: slash in src and --delete specified
 rsync -av --delete $src/ $dst/
 --------------------------------------------------
 sending incremental file list
+deleting .folder_hidden/.folder_hidden/i.txt
+deleting .folder_hidden/.folder_hidden/h.txt
+deleting .folder_hidden/.folder_hidden/
+deleting .folder_hidden/g.txt
+deleting .folder_hidden/f.txt
+deleting .folder_hidden/
 deleting c.txt
+deleting .e_hidden
+.hidden_file
 a.txt
 b.txt
+.hidden_folder/
+.hidden_folder/.f_hidden
+.hidden_folder/d.txt
+.hidden_folder/e.txt
+.hidden_folder/.hidden_folder/
+.hidden_folder/.hidden_folder/f.txt
+.hidden_folder/.hidden_folder/g.txt
 
-sent 165 bytes  received 63 bytes  456.00 bytes/sec
+sent 625 bytes  received 377 bytes  2,004.00 bytes/sec
 total size is 0  speedup is 0.00
 directory tree after sync:
 .
-├── run_me.sh
-├── run_me.txt
 ├── test_rsync_dir
 │   ├── dst
 │   │   ├── a.txt
-│   │   └── b.txt
+│   │   ├── b.txt
+│   │   ├── .hidden_file
+│   │   └── .hidden_folder
+│   │       ├── d.txt
+│   │       ├── e.txt
+│   │       ├── .f_hidden
+│   │       └── .hidden_folder
+│   │           ├── f.txt
+│   │           └── g.txt
 │   └── src
 │       ├── a.txt
-│       └── b.txt
+│       ├── b.txt
+│       ├── .hidden_file
+│       └── .hidden_folder
+│           ├── d.txt
+│           ├── e.txt
+│           ├── .f_hidden
+│           └── .hidden_folder
+│               ├── f.txt
+│               └── g.txt
+├── test_rsync.log
 └── test_rsync.sh
 
-3 directories, 7 files
+7 directories, 18 files
