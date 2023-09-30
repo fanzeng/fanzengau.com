@@ -1,10 +1,10 @@
 export function Footer() {
   return <>
     <div>
-      <a class="back_to_top" href="#">Back to top</a>
+      <a className="back_to_top" href="#">Back to top</a>
     </div>
 
-    <footer class="foot">
+    <footer className="foot">
       <p>All rights reserved. fanzengau.com</p>
     </footer>
   </>

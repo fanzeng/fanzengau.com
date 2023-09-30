@@ -1,4 +1,37 @@
+import { useEffect, useState } from "react";
+import testRsyncDotShFile from './code/test_rsync/test_rsync.sh';
+import runMeDotShFile from './code/test_rsync/run_me.sh';
+import runMeDotTxtFile from './code/test_rsync/run_me.txt';
+
 export function AvoidRsyncDisaster() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
+
+  const fetchFileAndSetState = (file, setStateFn) => {
+    return () => {
+      fetch(file)
+        .then(r => r.text())
+        .then(r => {
+          r = r.replace(/[\r?\n]/g, '<br>');
+          setStateFn(r);
+        });
+    }
+  }
+  let [testRsyncDotSh, setTestRsyncDotSh] = useState('Loading');
+  let [runMeDotSh, setrunMeDotSh] = useState('Loading');
+  let [runMeDotTxt, setrunMeDotTxt] = useState('Loading');
+
+  useEffect(fetchFileAndSetState(testRsyncDotShFile, setTestRsyncDotSh), []);
+  useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
+  useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
+
   return <>
     <title>Avoid rsync Disaster</title>
     <header class="section">
@@ -94,15 +127,21 @@ export function AvoidRsyncDisaster() {
       </p>
       <div>
         <p>test_rsync.sh</p>
-        <iframe onload='embedText(this, "data/code/test_rsync/test_rsync.sh")'></iframe>
+        <code id="afdsf" className="prettyprint linenums">
+          <div dangerouslySetInnerHTML={{ __html: testRsyncDotSh }} />
+        </code>
       </div>
       <div>
         <p>run_me.sh</p>
-        <iframe onload='embedText(this, "data/code/test_rsync/run_me.sh")'></iframe>
+        <code id="afdsf" className="prettyprint linenums">
+          <div dangerouslySetInnerHTML={{ __html: runMeDotSh }} />
+        </code>
       </div>
       <div>
         <p>run_me.txt</p>
-        <iframe onload='embedText(this, "data/code/test_rsync/run_me.txt")'></iframe>
+        <code id="afdsf" className="prettyprint linenums">
+          <div dangerouslySetInnerHTML={{ __html: runMeDotTxt }} />
+        </code>
       </div>
       <p>
         We can see from the output, a trailing slash at the end of src does make a difference,
