@@ -2,18 +2,9 @@ import { useEffect, useState } from "react";
 import testRsyncDotShFile from './code/test_rsync/test_rsync.sh';
 import runMeDotShFile from './code/test_rsync/run_me.sh';
 import runMeDotTxtFile from './code/test_rsync/run_me.txt';
+import { GoogleCodePrettify } from "../../../google-code-pretiffy/GoogleCodePrettify";
 
 export function AvoidRsyncDisaster() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    }
-  }, []);
-
   const fetchFileAndSetState = (file, setStateFn) => {
     return () => {
       fetch(file)
@@ -33,6 +24,7 @@ export function AvoidRsyncDisaster() {
   useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
 
   return <>
+    <GoogleCodePrettify />
     <title>Avoid rsync Disaster</title>
     <header class="section">
       <h1>
