@@ -1,7 +1,31 @@
+import { useState, useEffect } from "react";
 import { MathJax } from "better-react-mathjax";
+import { GoogleCodePrettify } from "../../../google-code-pretiffy/GoogleCodePrettify";
+import solutionDotJavaFile from './code/Solution.java';
+import runMeDotShFile from './code/run_me.sh';
+import runMeDotTxtFile from './code/run_me.txt';
 
 export function ComputeNormalDistributionFromScratchByIntegration() {
+  const fetchFileAndSetState = (file, setStateFn) => {
+    return () => {
+      fetch(file)
+        .then(r => r.text())
+        .then(r => {
+          r = r.replace(/[\r?\n]/g, '<br>');
+          setStateFn(r);
+        });
+    }
+  }
+  let [solutionDotJava, setSolutionDotJava] = useState('Loading');
+  let [runMeDotSh, setrunMeDotSh] = useState('Loading');
+  let [runMeDotTxt, setrunMeDotTxt] = useState('Loading');
+
+  useEffect(fetchFileAndSetState(solutionDotJavaFile, setSolutionDotJava), []);
+  useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
+  useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
+
   return <>
+    <GoogleCodePrettify />
     <title>
       Compute Normal Distrubution from Scratch by Integration
     </title>
@@ -26,15 +50,21 @@ export function ComputeNormalDistributionFromScratchByIntegration() {
       <p>Code example in Java:</p>
       <div>
         <p>Solution.java</p>
-        <iframe onload='embedText(this, "data/code/Solution.java")'></iframe>
+        <code id="afdsf" className="prettyprint linenums">
+          <div dangerouslySetInnerHTML={{ __html: solutionDotJava }} />
+        </code>
       </div>
       <div>
         <p>run_me.sh</p>
-        <iframe onload='embedText(this, "data/code/run_me.sh")'></iframe>
+        <code id="afdsf" className="prettyprint linenums">
+          <div dangerouslySetInnerHTML={{ __html: runMeDotSh }} />
+        </code>
       </div>
       <div>
         <p>run_me.txt</p>
-        <iframe onload='embedText(this, "data/code/run_me.txt")'></iframe>
+        <code id="afdsf" className="prettyprint linenums">
+          <div dangerouslySetInnerHTML={{ __html: runMeDotTxt }} />
+        </code>
       </div>
     </div>
     <div class="section">
