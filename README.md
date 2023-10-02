@@ -1,9 +1,11 @@
 # fanzengau.com
 
-Start local server
-in terminal, go to project root and
+# in client/fanzengau-app
+# build
+npm run build
+# start
+npm run start
 
-  npm run start:local
-  
-in browser, visit
-http://localhost:3000
+# deploy
+cp -r ../../submodules/ build/
+./node_modules/.bin/netlify deploy --prod
