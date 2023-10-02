@@ -26,12 +26,12 @@ export function AvoidRsyncDisaster() {
   return <>
     <GoogleCodePrettify />
     <title>Avoid rsync Disaster</title>
-    <header class="section">
+    <header className="section">
       <h1>
         Avoid rsync Disaster
       </h1>
     </header>
-    <div class="section">
+    <div className="section">
       <h3>Does trailing slash ("/") make a difference?</h3>
       <p>
         Often times a trailing slash ("/") does not make a difference

@@ -6,9 +6,9 @@ export function SideColumnLeft() {
   }
   const iconResized = importImages(require.context('../resource/icon/resized', false, /\.(png|jpe?g|svg)$/));
   return <>
-    <div class="column_uneven_2_6_3_left_invisible"><br /></div>
-    <div class="column_uneven_2_6_3_left">
-      <div class="section">
+    <div className="column_uneven_2_6_3_left_invisible"><br /></div>
+    <div className="column_uneven_2_6_3_left">
+      <div className="section">
         <h2>Find out more</h2>
         <div>
           <a href="https://www.linkedin.com/in/fanzengau/"><img src={iconResized['icon_linkedin.png']}

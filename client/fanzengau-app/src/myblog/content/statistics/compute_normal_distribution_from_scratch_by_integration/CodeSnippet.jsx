@@ -23,7 +23,7 @@ export function CodeSnippet() {
   useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
   return <>
-    <div class="section">
+    <div className="section">
       <p>Code example in Java:</p>
       <div>
         <p>Solution.java</p>

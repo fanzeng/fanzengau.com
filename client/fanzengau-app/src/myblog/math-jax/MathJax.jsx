@@ -11,6 +11,7 @@ export function MathJax() {
     script.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML";
     script.async = true;
     document.body.appendChild(script);
+    console.log('MathJax rendered.')
     return () => {
       document.body.removeChild(script);
     }
