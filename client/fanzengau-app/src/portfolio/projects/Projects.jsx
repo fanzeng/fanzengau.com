@@ -1,3 +1,7 @@
+import { TryIt } from "../../try-it/TryIt";
+import { MultimediaToolBox } from "./multimedia-toolbox/MultiMediaToolBox";
+import { UndergroundLocalization } from "./underground-localization/UndergroundLocalization";
+
 export function Projects() {
 
   const importImages = r => {
@@ -12,7 +16,6 @@ export function Projects() {
   const multimediaToolboxImages = importImages(require.context('../../resource/image/projects/multimedia_toolbox', false, /\.(png|jpe?g|svg)$/));
   const underwaterVehicleImages = importImages(require.context('../../resource/image/projects/underwater_vehicle', false, /\.(png|jpe?g|svg)$/));
   const surfaceDiffusionSimImages = importImages(require.context('../../resource/image/projects/surface_diffusion_sim', false, /\.(png|jpe?g|svg)$/));
-
 
   return <>
     <div className="section">
@@ -56,51 +59,10 @@ export function Projects() {
       </div>
       <ul>
         <li className="project_item">
-          <nav className="intra_page_link" id="underground_localization"></nav>
-          <div className="project_item">
-            <h3>Underground Localization</h3>
-            <span className="platform_tool">
-              <img className="icon_skills" src={iconResized['icon_linux.png']} alt="Linux" />
-              <img className="icon_skills_wide" src={iconResized['icon_ros.png']} alt="ROS" />
-              <img className="icon_skills" src={iconResized['icon_opencv.png']} alt="OpenCV" />
-              <img className="icon_skills" src={iconResized['icon_python.png']} alt="Python" />
-              <img className="icon_skills_wide" src={iconResized['icon_bash.png']} alt="bash" />
-            </span>
-            <h4 className="engraved">Low cost camera-based positioning system</h4>
-            <div>
-              <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/videoseries?list=PLUjd4WCrI1uglVuKXfPZbSsYu3kTxTtgu" frameborder="0"
-                allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-            <br /><span className="moreinfo_span_outer"><span className="moreinfo_span_inner">More</span></span><br />
-            <div className="moreinfo_content">
-              Advance Queensland project for localizing underground mining vehicles with &lt;1m accuracy.<br />
-            </div>
-          </div>
+          <UndergroundLocalization iconResized={iconResized} />
         </li>
         <li className="project_item">
-          <nav className="intra_page_link" id="multimedia_toolbox"></nav>
-          <div className="project_item">
-            <h3>Multimedia Toolbox</h3>
-            <span className="platform_tool">
-              <img className="icon_skills" src={iconResized['icon_html.png']} alt="HTML" />
-              <img className="icon_skills" src={iconResized['icon_css.png']} alt="CSS" />
-              <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
-              <img className="icon_skills" src={iconResized['icon_php.png']} alt="PHP" />
-            </span>
-            <h4 className="engraved">A toolbox that makes video and process images</h4>
-            <ol>
-              <li>video_creator</li>
-              create video by uploading individual frames and specifying various parameters.
-            </ol>
-            <br /><span className="moreinfo_span_outer"><span className="moreinfo_span_inner">Try it</span></span><br />
-            <div className="moreinfo_content tryit_content">
-              <p>
-
-                <a href="/submodules/multimedia-toolbox/index.html">Multimedia Toolbox</a>
-              </p>
-            </div>
-          </div>
+          <MultimediaToolBox iconResized={iconResized} />
         </li>
         <li className="project_item">
           <nav className="intra_page_link" id="eartunes"></nav>
