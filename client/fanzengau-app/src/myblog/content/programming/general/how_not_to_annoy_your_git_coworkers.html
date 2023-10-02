@@ -1,0 +1,84 @@
+<title>
+  How (Not) to Annoy Your git Coworkers
+</title>
+<header class="section">
+  <h2>How (Not) to Annoy Your git Coworkers</h2>
+</header>
+<div>
+  <p>
+    Merging. The dreadful terms for new drivers, and yes, new Git users.
+    Working in a big team is hard,
+    but there are some rules of thumb for keeping everyone happy,
+    as I humbly summarize below.
+    Feel free to use them the other way around of course
+    if you enjoy the feeling of being smashed on the head by a keyboard.
+    Basically, everything boils down to: Make it nice and easy for your fellow programmers
+    by reducing as much as possible the need for them to adapt to your changes. If a merge conflict can be avoided,
+    it's best to try and avoid it.
+
+  </p>
+</div>
+<div>
+  <p>Do's</p>
+  <li>
+    <h3>
+      Make good use of commit messages
+    </h3>
+    Compulsory commit messages may seem annoying, but it is a bless when you are in a big team and everyone is actively
+    making changes to the code base. There are plenty of tutorials on how to form nice commit messages and how to avoid
+    stating the obvious. Here I just want to highlight the point that when you do have to change something taken by everyone
+    else as granted, please tell them about it in the commit message. Even you will thank yourself three months later.
+    For example, if you changed a path that some one might have been using, or renamed a public interface, 
+    or a file that people have been using in their codes, as soon as they pull your commit, their code is
+    going to break. It is good manner to let them know this in advance and provide them instructions on how to fix it, 
+    if you can't fix it in your commit already.
+    It is good practice to tidy up codes and combine redundant stuff from time to time, but when you do so,
+    finish up with adequate announcements. Whenever you are deprecating stuff, think about how it's
+    going to impact others, is it going to affect only yourself, or is it going to require everyone to update their
+    setups? If the latter is true, a good commit message could be like "Heads up: If you pull this commit, please set
+    the following environment variable ...".
+  </li>
+</div>
+<div>
+  <p>
+    Don'ts
+  </p>
+  <li>
+    <h3>
+      Don't break master.
+    </h3>
+    Master should always compile. Unit tests on master should always pass. Period. No playing around on master branch
+    since you can do whatever you like in your own branch.
+  </li>
+  <li>
+    <h3>
+      Don't hard code your paths.
+    </h3>
+    Your platform, your username might not suit everyone.
+    Don't require your peer coders to change your customized paths every time they pull your stuff. Use config files,
+    command line variables, use platform agnostic paths so that slashes tilt in the correct way.
+    Don't merge into master a unit test that requires a local file on your computer. When you develop, write code as if
+    it's going to be tested in a different environment, e.g. a docker container. If you're on Linux, think about whether
+    some one can run it on Windows or MAC, and vice versa.
+  </li>
+
+  <li>
+    <h3>
+      Don't unnecessarily introduce dependencies.
+    </h3>
+
+    If you find a cool library that you'd like to use, think about whether it can be added without much pain, for
+    example, can it be installed in a local directory or run within a sand box. It might be as easy for you to install
+    something as it being a complete nightmare for other people. Some may already be using other stuff that's in
+    conflict with your new toy, some may not have root previleges to install at all. When you try out a new version of a
+    library, it might run just seamlessly, but the guy sitting next to you may not be as lucky.
+  </li>
+  <li>
+    Don't change behavior of things that others may be using. If you really have to, don't do it too often, only do it
+    when absolute necessary. And you should be responsible for fixing everything you break. Keep in mind whenever you
+    make major changes there is high chance you're breaking every else's code.
+  </li>
+  <li>
+    Reduce git history rewrites. Git is invented to prevent accidental loss of work.
+  </li>
+</div>

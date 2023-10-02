@@ -1,0 +1,48 @@
+<h3>Use a UI instead of CLI to show your error message.</h3>
+<p>
+  If something is missing / wrong and your program cannot launch successfully,
+  depending on your user demographics,
+  but it's generally better to use a graphical user interface to display
+  the error message and show them how to fix it,
+  than vomiting in ther terminal,
+  especially when people are expecting to see a graphical UI.
+  A friendly interace will improve the user's perception of the usability of the software.
+</p>
+<h3>Dependency minimumism</h3>
+<p>
+  Remember, the more dependencies your program has,
+  the more likely that some one is going to run into dependency issues and thus not able to use your program.
+  It is also more likely that your program will break in the future,
+  because e.g. some function in some library you use has been deprecated,
+  or, your libraries are all kind enough to not touch the legacy
+  public interface, but they can't control their third party dependencies, can they?
+</p>
+<p>
+  For example, a project depends on a particular version of CUDA,
+  which does not play very well in the backwards-compatibility game,
+  and people with the latest Nvidia GPU may not have the old version of CUDA.
+  It can be very possible that such a repository can go obselete
+  when more and more people upgrades their CUDA
+  and lose the ability to compile the project.
+  Same goes with OpenCV, if a project supports only a lower version of OpenCV,
+  then people with higher versions might encounter errors and give up on using the repository.
+</p>
+<h3>Check for edge cases and producing warnings</h3>
+<p>
+  It's most likely better to fail with an meaningful error message
+  than to run seamingly well with hidden bugs.
+  If you really don't have time, at least type 4 letters, "TODO".
+</p>
+<h3>Get a unique name</h3>
+<p>
+  This applies to nearly all commerical products. A good name of a software (company)
+  should be not only easy to remember, but also unique. Famous examples include
+  "Alibaba" and "Amazon". For one thing, you don't need to spell it out to people hearing it
+  for the first time. More importantly, notice the name does not necessarity have to
+  directly relate to what the business is about. Some not-as-good example would include those
+  exactly violate the "uniqe" principle in order to show the user what they do.
+  For instance, a very useful math package for matrix manipulation is called "Eigen".
+  Its name tells you what it's designed for, but it makes it harder to search
+  things related to it on the internet. Try search how a vector is implemented in
+  this package by googling "eigen vector".
+</p>
