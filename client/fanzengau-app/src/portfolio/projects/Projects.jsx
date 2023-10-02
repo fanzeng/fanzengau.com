@@ -1,6 +1,10 @@
 import { TryIt } from "../../try-it/TryIt";
+import { Eartunes } from "./eartunes/Eartunes";
+import { Holdem } from "./holdem/Holdem";
 import { MultimediaToolBox } from "./multimedia-toolbox/MultiMediaToolBox";
+import { SurfaceDiffusionSim } from "./surface-diffusion-sim/SurfaceDiffusionSim";
 import { UndergroundLocalization } from "./underground-localization/UndergroundLocalization";
+import { UnderwaterVehicle } from "./underwater-vehicle/UnderwaterVehicle";
 
 export function Projects() {
 
@@ -65,99 +69,17 @@ export function Projects() {
           <MultimediaToolBox iconResized={iconResized} />
         </li>
         <li className="project_item">
-          <nav className="intra_page_link" id="eartunes"></nav>
-          <div className="project_item">
-            <h3>eartunes</h3>
-            <span className="platform_tool">
-              <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
-            </span>
-            <h4 className="engraved">single page app to aid music instrument tuning</h4>
-            <p>
-              I developed this app to assist piano tuning. <br />
-              Simply play the note and the app will tell you the direction and amount of adjustment. <br />
-              No need for beat counting any more. <br />
-              Works especially well within the temperament octave. <br />
-            </p>
-
-            <br /><span className="moreinfo_span_outer"><span className="moreinfo_span_inner">Try it</span></span><br />
-            <div className="moreinfo_content tryit_content">
-              <p>
-                In order to use the app, you would need to agree to turn on your microphone
-                when your browser asks for your permission.
-                It runs locally in your browser and nothing will be recorded.
-                Note: Please make sure you know what you're doing before any DIY tuning.<br />
-                Enjoy!
-                <a href="/submodules/eartunes/public/index.html">click here to try eartunes</a>
-              </p>
-              <p>
-                source:
-                <a href="https://github.com/fanzeng/eartunes.git"><img src={iconResized['icon_github.png']}
-                  height="32" width="32" alt="Github" /></a>
-              </p>
-            </div>
-          </div>
+          <Eartunes iconResized={iconResized} />
         </li>
         <li className="project_item">
-          <nav className="intra_page_link" id="texas_holdem"></nav>
-          <div className="project_item">
-            <h3>Texas Holdem</h3>
-            <span className="platform_tool">
-              <img className="icon_skills" src={iconResized['icon_i-code-java.png']} alt="I Code Java" border="0" />
-            </span>
-            <h4 className="engraved">The simplest mini app to practice Texas Holdem</h4>
-            <br /><span className="moreinfo_span_outer"><span className="moreinfo_span_inner">Try it</span></span><br />
-            <div className="moreinfo_content tryit_content">
-              <p>
-                To try it out, please download "Holdem.jar", which is executable on a system with Java Runtime
-                Environment (JRE) installed.
-                If double click does not work, try "java -jar Holdem.jar" in termainal/PowerShell.
-              </p>
-              <a href="https://github.com/fanzeng/Holdem/blob/master/dist/Holdem.jar?raw=true">Holdem.jar</a>
-              <br />
-              <p>
-                The above program displays cards as text. If you'd like to see graphics, please extract the
-                following zip into the same folder as Holdem.jar
-              </p>
-              <a href="https://github.com/fanzeng/Holdem/blob/master/resource.zip?raw=true">resource.zip</a>
-            </div>
-          </div>
+          <Holdem iconResized={iconResized} />
         </li>
         <li className="project_item">
-          <nav className="intra_page_link" id="underwater_vehicle"></nav>
-          <div className="project_item" id="underwater_vehicle">
-            <h3>6 DOF underwater vehicle</h3>
-            <span className="platform_tool">
-              <img className="icon_skills" src={iconResized['icon_c.png']} alt="C" />
-            </span>
-            <h4 className="engraved">AUV built in 3 weeks</h4>
-            <div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/254dBi0Ic1c" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <br /><span className="moreinfo_span_outer"><span className="moreinfo_span_inner">More</span></span><br />
-            <div className="moreinfo_content">
-              <p>I designed and realised a with Arduino and STM32F407. The vehicle can be freely operated with
-                user input from a gamepad. The underwater vehicle is just above 10 kg in weight and so portable
-                that a little girl can handle it.</p><br />
-            </div>
-          </div>
+          <UnderwaterVehicle iconResized={iconResized} />
         </li>
         <li className="project_item">
-          <nav className="intra_page_link" id="surface_diffusion_sim"></nav>
-          <div className="project_item">
-            <h3>Surface Diffusion Simulator</h3>
-            <span className="platform_tool">
-              <img className="icon_skills" src={iconResized['icon_matlab.png']} alt="Matlab" />
-            </span>
-            <h4 className="engraved">PDE solver for interface front propagation</h4>
-            <br /><span className="moreinfo_span_outer"><span className="moreinfo_span_inner">Try it</span></span><br />
-            <div className="moreinfo_content tryit_content">
-              <a href="https://github.com/fanzeng/surfaceDiffusionSim.git"><img
-                src={iconResized['icon_github.png']} height="32" width="32" alt="Github" /></a>
-            </div>
-          </div>
+          <SurfaceDiffusionSim iconResized={iconResized} />
         </li>
-
       </ul>
     </div>
   </>
