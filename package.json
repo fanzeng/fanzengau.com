@@ -15,10 +15,11 @@
   },
   "scripts": {
     "compile": "html-includes --src public --dest functions",
+    "build:client": "cd client/fanzengau-app && npm install && npm run build",
     "start:local": "npx nodemon server-local.js",
     "start:lambda": "netlify-lambda serve express",
     "build:lambda": "netlify-lambda build express && npm run compile",
-    "prod": "npm run build:lambda;"
+    "prod": "npm run build:client && npm run build:lambda"
   },
   "author": "",
   "license": "ISC",
