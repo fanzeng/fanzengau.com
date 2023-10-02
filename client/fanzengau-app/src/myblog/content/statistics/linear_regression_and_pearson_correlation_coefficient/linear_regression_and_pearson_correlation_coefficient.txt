@@ -1,0 +1,316 @@
+<title> 
+  Linear Regression and Pearson Correlation Coefficient  
+</title>
+<header class="section">
+  <h2> 
+    Linear Regression and Pearson Correlation Coefficient  
+  </h2>
+</header>
+<div class="section">
+  <h3>Simple linear regression</h3>
+  <p>
+    Simple linear regression assumes there is only one independent variable, and the linear relationship
+    takes the following form:
+  </p>
+  <p>
+    $$ \beta_{0} + x_{i}\beta_{1} = y_{i}, \quad i = 0, 2, ..., n-1 $$
+  </p>
+  <p>
+    \(x_{i}\) are the independent variables and \(y_{i}\) are the dependent variables. The \(\beta_{0}\) and \(\beta_{1}\)
+    are the coefficients we'd like to fit.
+  </p>
+  <p>
+    Here we will apply least squares for the regression, we'd like to minimize
+    $$
+      S = \sum_{i}(y_{i} - (\beta_{0} + \beta_{1}x_{i}))^2
+    $$
+  </p>
+  <p>
+    Setting the partial derivate of \(S\) w.r.t \(\beta_{0}\) to 0:
+    $$
+      \frac{\partial S}{\partial \beta_{0}} = -2\sum_{i}(y_{i} - (\beta_{0} + \beta_{1}x_{i})) = 0
+    $$
+  </p>
+  <p>
+    Solving \(\beta_{0}\) in terms of \(\beta_{1}\):
+    $$
+      \beta_{0} = \frac{1}{n}(\sum_{i}y_{i} - \sum_{i}x_{i}\beta_{1})
+    $$
+  </p>
+  <p>
+    Setting the partial derivative of \(S\) w.r.t \(\beta_{1}\) to 0:
+    $$
+      \frac{\partial S}{\partial \beta_{1}} = 2\sum_{i}x_{i}(y_{i} - (\beta_{0} + \beta_{1}x_{i})) = 0
+    $$
+  </p>
+  <p>
+    Plugging in and eliminating \(\beta_{0}\) (in which the summing index has been changed to \(j\)):
+    $$
+      \frac{\partial S}{\partial \beta_{1}} = 2\sum_{i}x_{i}(y_{i} - (\frac{1}{n}(\sum_{j}y_{j} - \sum_{j}x_{j}\beta_{1}) + \beta_{1}x_{i})) = 0
+    $$
+  </p>
+  <p>
+    Eliminate the constant 2 at front and expand the above:
+    $$
+      \sum_{i}x_{i}y_{i} - \frac{1}{n}\sum_{i}x_{i}(\sum_{j}y_{j} - \sum_{j}x_{j}\beta_{1}) - \sum_{i}x_{i}\beta_{1}x_{i} = 0
+    $$
+  </p>
+  <p>
+    which simplifies to:
+    $$
+      \sum_{i}x_{i}y_{i} - \frac{1}{n}\sum_{i}x_{i}\sum_{j}y_{j} + \frac{1}{n}\sum_{i}x_{i} \sum_{j}x_{j}\beta_{1} - \sum_{i}x_{i}\beta_{1}x_{i} = 0
+    $$
+  </p>
+  <p>
+    which is equivalent to:
+    $$
+      \sum_{i}x_{i}y_{i} - \frac{1}{n}\sum_{i}x_{i}\sum_{i}y_{i} + \frac{1}{n}(\sum_{i}x_{i})^2\beta_{1} - \sum_{i}x_{i}^2\beta_{1} = 0
+    $$
+  </p>
+  <p>
+    multiply by \(n\) and separate the terms with and without \(\beta_{1}\):
+    $$
+      ((\sum_{i}x_{i})^2 - n\sum_{i}x_{i}^2)\beta_{1} = \sum_{i}x_{i}\sum_{i}y_{i} - n\sum_{i}x_{i}y_{i}
+    $$
+  </p>
+  <p>
+    From which we get the regression slope \(\beta_{1}\):
+    $$
+      \beta_{1} = \frac{n\sum_{i}x_{i}y_{i} - \sum_{i}x_{i}\sum_{i}y_{i}} {n\sum_{i}x_{i}^2 - (\sum_{i}x_{i})^2}
+    $$
+  </p>
+</div>
+<div class="section">
+  <h3>How is the fitted slope related to Pearson correlation coefficient</h3>
+  <p>
+    Pearson correlation coeffifcient
+    $$
+    \rho = \frac{cov(x, y)} {\sigma_{x}\sigma_{y}}
+    $$
+  </p>
+  <p>
+    the covariance in the expression can be calculated using 
+    $$
+    cov(x, y) = \frac{1}{n} \Sigma_{i}(x_{i} - \bar{x})(y_{i} - \bar{y})
+    $$
+  </p>
+  <p>
+    where \(\bar{x}\) and \(\bar{y}\) are mean of \(x\) and \(y\)
+    $$
+    \bar{x} = \frac{1}{n} \Sigma_{i}x_{i}, \quad \bar{y} = \frac{1}{n} \Sigma_{i}y_{i}
+    $$
+  </p>
+  <p>
+    Next we'll show
+    $$
+      \beta_{1} = \rho\frac{\sigma_{y}}{\sigma_{x}}
+    $$
+    i.e., the fitted slope is equal to Pearson correlation coefficient times the ratio of standard deviation
+    of the dependent variable and that of the independent variable.
+  </p>
+  <p>
+    First we divide both the numerator and denominator of the expression of \(\beta_{1}\) by \(n^2\), which of course
+    does not change its value.
+  </p>
+  <p>
+    The resultant denominator is equal to the variance of \(x\)
+    $$
+      \frac{1}{n}\sum_{i}x_{i}^2 - \frac{1}{n^2}(\sum_{i}x_{i})^2 \\
+        = E[x^2] - E[x]^2 \\
+        = Var(x) \\
+        = \sigma_{x}^2
+    $$
+  </p>
+  <p>
+    The resultant numerator
+    $$
+    \frac{1}{n}\sum_{i}x_{i}y_{i} - \frac{1}{n^2}\sum_{i}x_{i}\sum_{i}y_{i}
+    $$
+    can be shown to be equal to \(cov(x, y)\), i.e.:
+    $$
+    cov(x, y) = \frac{1}{n} \Sigma_{i}(x_{i} - \bar{x})(y_{i} - \bar{y}) \\
+      = \frac{1}{n} \Sigma_{i}(x_{i}y_{i} + \bar{x}\bar{y} - \bar{x}y_{i} - \bar{y}x_{i}) \\
+      = \frac{1}{n} \Sigma_{i}(
+        x_{i}y_{i}
+        + \frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{k}y_{k}
+        - \frac{1}{n}\Sigma_{j}x_{j}y_{i}
+        - \frac{1}{n}\Sigma_{k}y_{k}x_{i}
+      )
+    $$
+    It's got 4 terms after expansion, but the last 3 terms are actually equal in magnitude, so two of them will cancel out.
+    To see why that is the case, try and simply the 2nd term
+    $$
+    \frac{1}{n}\Sigma_{i}\frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{k}y_{k}
+        = \frac{1}{n^2}\Sigma_{j}x_{j}\Sigma_{k}y_{k} \quad ,
+    $$
+    i.e., the summation over \(i\) (i.e. \(\Sigma_{i}\)) cancels one of the \(\frac{1}{n}\) because
+    the summand does not contain the index  \(i\).
+  </p>
+  <p>
+    Meanwhile we expand and verify the following equation:
+    $$
+      \Sigma_{j}x_{j}\Sigma_{k}y_{k} = \Sigma_{j}\Sigma_{k}x_{j}y_{k}
+    $$
+    which is equal to
+    $$
+      \Sigma_{j}\Sigma_{i}x_{j}y_{i}
+    $$
+    since changing the index of summation over \(y\) from \(k\) to \(i\) does not change its result.
+    Therefore the 2nd term,
+    $$
+    \frac{1}{n} \Sigma_{i}\frac{1}{n}\Sigma_{j}x_{j} \frac{1}{n}\Sigma_{k}y_{k}
+      = \frac{1}{n^{2}} \Sigma_{i}\Sigma_{j}x_{j}y_{i}
+    $$
+    i.e., the 2nd term and 3rd term cancels out, and the 4th term is equal to
+    $$
+      - \frac{1}{n^2}\sum_{i}x_{i}\sum_{i}y_{i}
+    $$
+    so 
+    $$
+      cov(x, y) = \frac{1}{n}\sum_{i}x_{i}y_{i} - \frac{1}{n^2}\sum_{i}x_{i}\sum_{i}y_{i}
+    $$
+    which is equal to the (rescaled) numerator of \(\beta_{1}\).
+  </p>
+  <p>
+    Putting the numerator and denominator together:
+    $$
+      \beta_{1} = cov(x, y)/\sigma_{x}^2 \\
+        = \rho\frac{\sigma_{y}}{\sigma_{x}}
+    $$
+  </p>
+</div>
+<div class="section">
+  <h3>Multiple linear regression</h3>
+  <p>
+  Multiple linear regression allows more than one independent variables, i.e., it is simple linear regression
+    generalized to the vector form:
+    $$
+      \mathbf{X}\mathbf{\beta} = \mathbf{y}, \quad \mathbf{X} \in \mathbb{R}^{n \times m}, \\
+      \mathbf{\beta} \in \mathbb{R}^{m}, \quad y \in \mathbb{R}^{n}
+    $$
+  </p>
+  <p>
+    Each row of the matrix \(\mathbf{X}\) is one snapshot of all independent variables, 
+    and each column is made up of all samples of one individual independent variable.
+    To accommodate the bias term \(\beta_{0}\), the 0th column of \(\mathbf{X}\) is a column of 1, and the actual samples start from the 1st column.
+
+    $$
+      \mathbf{X} = \begin{bmatrix} 
+          1 & x_{0,1}   & x_{0,2}   & \dots & x_{0,m-1} \\
+          1 & \vdots    & \ddots    &       & x_{1,m-1} \\
+          1 & x_{n-1,1} & x_{n-1,2} & \dots & x_{n-1,m-1} \\
+          \end{bmatrix},
+    
+      \\
+    
+      \mathbf{\beta} = \begin{bmatrix} 
+          \beta_{0} \\
+          \vdots \\
+          \beta_{m-1} \\
+          \end{bmatrix},
+    
+      \\
+    
+      \mathbf{y} = \begin{bmatrix} 
+          y_{0} \\
+          \vdots \\
+          y_{n-1} \\
+          \end{bmatrix}.
+    $$
+  </p>
+
+  <p>
+    To fit the data in the least squares sense, we minimize
+    $$
+      (\mathbf{X}\mathbf{\beta}-\mathbf{y})^{T}(\mathbf{X}\beta-\mathbf{y})
+    $$
+  </p>
+  <p>
+    Setting the partial derivative w.r.t. \(\mathbf{\beta}\) to 0:
+    $$
+      \frac{\partial}{\partial \mathbf{\beta}}(\mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{X}\mathbf{\beta} - y^{T}\mathbf{X}\mathbf{\beta} - \mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{y} + \mathbf{y}^{T}\mathbf{y}) = 0 \\
+      \mathbf{\beta}^{T}(\mathbf{X}^{T}\mathbf{X}) + (\mathbf{X}^{T}\mathbf{X}\mathbf{\beta})^{T} - \mathbf{y}^{T}\mathbf{X} - (\mathbf{X}^{T}\mathbf{y})^{T} = 0 \\
+      \Rightarrow \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y})
+    $$
+  </p>
+  <p>
+    It would only make sense if simple linear regression is a special case of the above. Let's verify:
+    $$
+    \mathbf{X} = \begin{bmatrix}
+    1 & x_{0} \\
+    1 & x_{1} \\
+    \vdots & \vdots \\
+    1 & x_{n-1}
+    \end{bmatrix},
+        
+    \\
+    
+    \mathbf{X}^{T}\mathbf{X}=\begin{bmatrix}
+    1 & \cdots & 1 \\
+    x_{0} & \cdots & x_{n-1} \\
+    \end{bmatrix}    
+    \begin{bmatrix}
+      1 & x_{0} \\
+      1 & x_{1} \\
+      \vdots & \vdots \\
+      1 & x_{n-1}
+    \end{bmatrix}
+    = \begin{bmatrix}
+      n & \Sigma_{i}x_{i} \\
+      \Sigma_{i}x_{i} & \Sigma_{i}x_{i}^{2}
+    \end{bmatrix},
+
+    \\
+
+    \mathbf{X}^{T}\mathbf{y}=\begin{bmatrix}
+    1 & \cdots & 1 \\
+    x_{0} & \cdots & x_{n-1} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+      y_{0} \\
+      y_{1} \\
+      \vdots \\
+      y_{n-1}
+    \end{bmatrix} \\
+    = \begin{bmatrix}
+      \Sigma_{i}y_{i} \\
+      \Sigma_{i}x_{i}y_{i}
+    \end{bmatrix}
+    $$
+  </p>
+  <p>
+    We can invert \(\mathbf{X}^{T}\mathbf{X}\) by calculating its determinant and adjugate:
+    $$
+      det(\mathbf{X}^{T}\mathbf{X}) = n\Sigma_{i}x_{i}^{2} - (\Sigma_{i}x_{i})^{2}, \\
+      (\mathbf{X}^{T}\mathbf{X})^{*} = \begin{bmatrix}
+        \Sigma_{i}x_{i}^{2} & -\Sigma_{i}x_{i} \\
+        -\Sigma_{i}x_{i} & n
+      \end{bmatrix} \\
+      (\mathbf{X}^{T}\mathbf{X})^{-1} = det(\mathbf{X}^{T}\mathbf{X})^{-1}
+      \begin{bmatrix}
+        \Sigma_{i}x_{i}^{2} & -\Sigma_{i}x_{i} \\
+        -\Sigma_{i}x_{i} & n
+      \end{bmatrix}
+    $$
+  </p>
+  <p>
+    $$
+      \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y}) \\
+        = det(\mathbf{X}^{T}\mathbf{X})^{-1}
+        \begin{bmatrix}
+          \Sigma_{i}x_{i}^{2} & -\Sigma_{i}x_{i} \\
+          -\Sigma_{i}x_{i} & n
+        \end{bmatrix}
+        \begin{bmatrix}
+          \Sigma_{i}y_{i} \\
+          \Sigma_{i}x_{i}y_{i}
+        \end{bmatrix} \\
+        = (n\Sigma_{i}x_{i}^{2} - (\Sigma_{i}x_{i})^{2})^{-1}
+        \begin{bmatrix}
+          \Sigma_{i}x_{i}^{2}\Sigma_{i}y_{i} - \Sigma_{i}x_{i}\Sigma_{i}x_{i}y_{i} \\
+          -\Sigma_{i}x_{i}\Sigma_{i}y_{i} + n\Sigma_{i}x_{i}y_{i}
+        \end{bmatrix}
+    $$
+    We can see the result is the same as derived using simple linear regression, as expected.
+  </p>
+</div>

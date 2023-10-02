@@ -1,5 +1,8 @@
+import { MathJax } from "../math-jax/MathJax";
+
 export function Myblog() {
   return <>
+    <MathJax />
     <div style={{ margin: '5px' }}>
       <div class="blog_item">
         <a class="blog_item"

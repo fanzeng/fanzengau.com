@@ -119,19 +119,19 @@ export function AvoidRsyncDisaster() {
       </p>
       <div>
         <p>test_rsync.sh</p>
-        <code id="afdsf" className="prettyprint linenums">
+        <code className="prettyprint linenums">
           <div dangerouslySetInnerHTML={{ __html: testRsyncDotSh }} />
         </code>
       </div>
       <div>
         <p>run_me.sh</p>
-        <code id="afdsf" className="prettyprint linenums">
+        <code className="prettyprint linenums">
           <div dangerouslySetInnerHTML={{ __html: runMeDotSh }} />
         </code>
       </div>
       <div>
         <p>run_me.txt</p>
-        <code id="afdsf" className="prettyprint linenums">
+        <code className="prettyprint linenums">
           <div dangerouslySetInnerHTML={{ __html: runMeDotTxt }} />
         </code>
       </div>
