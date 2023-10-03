@@ -8,7 +8,7 @@ export function LinearRegressionAndPearsonCorrelationCoefficient() {
   useEffect(() => {
     setTimeout(() => {
       const nodes = document.getElementsByClassName('data');
-      if (typeof nodes == Array) {
+      if (Array.isArray(nodes)) {
         nodes.forEach(node => {
           window.MathJax.typesetClear([node]);
           window.MathJax.typesetPromise([node]);

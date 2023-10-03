@@ -22,12 +22,16 @@ export function AvoidRsyncDisaster() {
   useEffect(fetchFileAndSetState(testRsyncDotShFile, setTestRsyncDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
-  useEffect(function() { 
-    setTimeout(() => {
-      console.log(window.PR)
-      window.PR.prettyPrint();
-    }, 500);
-  },[testRsyncDotShFile, runMeDotShFile, runMeDotTxtFile]);
+  useEffect(function() {
+    const intv = setInterval(() => {
+      if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === 'function') {
+        if (testRsyncDotSh != 'Loading' && runMeDotSh != 'Loading' && runMeDotTxt != 'Loading') {
+          window.PR.prettyPrint();
+          clearInterval(intv);
+        }
+      }
+    }, 50);
+  }, [testRsyncDotSh, runMeDotSh, runMeDotTxt]);
   return <>
     <GoogleCodePrettify />
     <title>Avoid rsync Disaster</title>

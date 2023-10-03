@@ -22,12 +22,16 @@ export function CodeSnippet() {
   useEffect(fetchFileAndSetState(solutionDotJavaFile, setSolutionDotJava), []);
   useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
-  useEffect(function() { 
-    setTimeout(() => {
-      console.log(window.PR)
-      window.PR.prettyPrint();
-    }, 500);
-  },[solutionDotJavaFile, runMeDotShFile, runMeDotTxtFile]);
+  useEffect(function() {
+    const intv = setInterval(() => {
+      if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === 'function') {
+        if (solutionDotJava != 'Loading' && runMeDotSh != 'Loading' && runMeDotTxt != 'Loading') {
+          window.PR.prettyPrint();
+          clearInterval(intv);
+        }
+      }
+    }, 50);
+  }, [solutionDotJava, runMeDotSh, runMeDotTxt]);
   return <>
     <div className="section">
       <p>Code example in Java:</p>
