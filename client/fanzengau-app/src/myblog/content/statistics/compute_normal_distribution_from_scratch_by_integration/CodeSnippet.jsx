@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { GoogleCodePrettify } from "../../../google-code-pretiffy/GoogleCodePrettify";
 import solutionDotJavaFile from './code/Solution.java';
 import runMeDotShFile from './code/run_me.sh';
 import runMeDotTxtFile from './code/run_me.txt';
@@ -10,6 +9,7 @@ export function CodeSnippet() {
       fetch(file)
         .then(r => r.text())
         .then(r => {
+          console.log('r=', r)
           r = r.replace(/[\r?\n]/g, '<br>');
           setStateFn(r);
         });
@@ -22,6 +22,12 @@ export function CodeSnippet() {
   useEffect(fetchFileAndSetState(solutionDotJavaFile, setSolutionDotJava), []);
   useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
+  useEffect(function() { 
+    setTimeout(() => {
+      console.log(window.PR)
+      window.PR.prettyPrint();
+    }, 500);
+  },[solutionDotJavaFile, runMeDotShFile, runMeDotTxtFile]);
   return <>
     <div className="section">
       <p>Code example in Java:</p>

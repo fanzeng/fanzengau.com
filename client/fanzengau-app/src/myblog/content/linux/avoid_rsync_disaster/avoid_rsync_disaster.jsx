@@ -22,7 +22,12 @@ export function AvoidRsyncDisaster() {
   useEffect(fetchFileAndSetState(testRsyncDotShFile, setTestRsyncDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotShFile, setrunMeDotSh), []);
   useEffect(fetchFileAndSetState(runMeDotTxtFile, setrunMeDotTxt), []);
-
+  useEffect(function() { 
+    setTimeout(() => {
+      console.log(window.PR)
+      window.PR.prettyPrint();
+    }, 500);
+  },[testRsyncDotShFile, runMeDotShFile, runMeDotTxtFile]);
   return <>
     <GoogleCodePrettify />
     <title>Avoid rsync Disaster</title>

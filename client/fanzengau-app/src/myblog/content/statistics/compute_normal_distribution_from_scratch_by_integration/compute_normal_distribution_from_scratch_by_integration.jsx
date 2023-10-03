@@ -8,10 +8,20 @@ import raw2 from './compute_normal_distribution_from_scratch_by_integration_2.tx
 export function ComputeNormalDistributionFromScratchByIntegration() {
   let [data1, setData1] = useState('Loading');
   let [data2, setData2] = useState('Loading');
-  let [renderMathJax, setRenderMathJax] = useState(false);
 
   useEffect(() => {
-    setRenderMathJax(true);
+    setTimeout(() => {
+      const nodes = document.getElementsByClassName('data');
+      if (typeof nodes == Array) {
+        nodes.forEach(node => {
+          window.MathJax.typesetClear([node]);
+          window.MathJax.typesetPromise([node]);
+        });
+      } else {
+        window.MathJax.typesetClear([nodes]);
+        window.MathJax.typesetPromise([nodes]);
+      }
+    }, 30);
   }, [data1, data2]);
 
   fetch(raw1)
@@ -19,7 +29,7 @@ export function ComputeNormalDistributionFromScratchByIntegration() {
     .then(text => {
       setData1(text);
     });
-    fetch(raw2)
+  fetch(raw2)
     .then(r => r.text())
     .then(text => {
       setData2(text);
@@ -27,9 +37,9 @@ export function ComputeNormalDistributionFromScratchByIntegration() {
   return <>
     <GoogleCodePrettify />
 
-    <div dangerouslySetInnerHTML={{ __html: data1 }}></div>
-    <CodeSnippet/>
-    <div dangerouslySetInnerHTML={{ __html: data2 }}></div>
-    {renderMathJax && <MathJax />}
+    <div className="data" dangerouslySetInnerHTML={{ __html: data1 }} />
+    <CodeSnippet />
+    <div className="data" dangerouslySetInnerHTML={{ __html: data2 }} />
+    <MathJax />
   </>
 }

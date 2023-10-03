@@ -4,10 +4,20 @@ import raw from './linear_regression_and_pearson_correlation_coefficient.txt';
 
 export function LinearRegressionAndPearsonCorrelationCoefficient() {
   let [data, setData] = useState('Loading');
-  let [renderMathJax, setRenderMathJax] = useState(false);
 
   useEffect(() => {
-    setRenderMathJax(true);
+    setTimeout(() => {
+      const nodes = document.getElementsByClassName('data');
+      if (typeof nodes == Array) {
+        nodes.forEach(node => {
+          window.MathJax.typesetClear([node]);
+          window.MathJax.typesetPromise([node]);
+        });
+      } else {
+        window.MathJax.typesetClear([nodes]);
+        window.MathJax.typesetPromise([nodes]);
+      }
+    }, 30);
   }, [data]);
 
   fetch(raw)
@@ -16,7 +26,7 @@ export function LinearRegressionAndPearsonCorrelationCoefficient() {
       setData(text);
     });
   return <>
-    <div dangerouslySetInnerHTML={{ __html: data }}></div>
-    {renderMathJax && <MathJax />}
+  <MathJax/>
+    <div className="data" dangerouslySetInnerHTML={{__html: data}} />
   </>
 }

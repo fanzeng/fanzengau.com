@@ -1,6 +1,5 @@
 import { useContext, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import { MathJaxContext, MathJax } from 'better-react-mathjax'
 
 import './css/fanzeng.css'
 import './css/fanzengau.css'
