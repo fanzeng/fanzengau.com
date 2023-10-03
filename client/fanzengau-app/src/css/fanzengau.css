@@ -293,3 +293,13 @@ li.project_item {
   color: transparent;
   text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
 }
+
+
+@media (max-width: 800px) {
+  .hide-if-mobile {
+    display: none;
+  }
+  .full-width-if-mobile {
+    width: 100%;
+  }
+}

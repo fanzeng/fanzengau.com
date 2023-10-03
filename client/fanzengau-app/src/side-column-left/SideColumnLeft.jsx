@@ -7,7 +7,7 @@ export function SideColumnLeft() {
   const iconResized = importImages(require.context('../resource/icon/resized', false, /\.(png|jpe?g|svg)$/));
   return <>
     <div className="column_uneven_2_6_3_left_invisible"><br /></div>
-    <div className="column_uneven_2_6_3_left">
+    <div className="column_uneven_2_6_3_left hide-if-mobile">
       <div className="section">
         <h2>Find out more</h2>
         <div>

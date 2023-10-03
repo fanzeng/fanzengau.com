@@ -30,7 +30,7 @@ function App() {
         </header>
         <SideColumnLeft />
 
-        <div className='column_uneven_2_6_3_center'>
+        <div className='column_uneven_2_6_3_center full-width-if-mobile'>
           <Routes>
             <Route path='/' element={<Portfolio />}></Route>
             <Route path='/myblog' element={<Myblog />}></Route>

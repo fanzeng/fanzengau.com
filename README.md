@@ -7,5 +7,4 @@ npm run build
 npm run start
 
 # deploy
-cp -r ../../submodules/ build/
-./node_modules/.bin/netlify deploy --prod
+cp -r ../../submodules/ build/ && ./node_modules/.bin/netlify deploy --prod
