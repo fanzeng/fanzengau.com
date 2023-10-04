@@ -1,7 +1,7 @@
 export function SideColumnLeft() {
   const importImages = r => {
     let images = {};
-    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
+    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
     return images;
   }
   const iconResized = importImages(require.context('../resource/icon/resized', false, /\.(png|jpe?g|svg)$/));

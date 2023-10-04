@@ -54,10 +54,12 @@
   <p>
     Plugging in the expression of \(p_{y_{i}}\) into \(L_{i}\):
     $$
+    \displaylines{
       \frac{\partial L_{i}}{\partial f_{k}}
       = -\frac{\partial}{\partial f_{k}} log(\frac{e^{f_{y_{i}}}}{\Sigma_{j}e^{f_{j}}}) \\
       = -\frac{\Sigma_{j}e^{f_{j}}}{e^{f_{y_{i}}}}
         \frac{\partial}{\partial f_{k}} \frac{e^{f_{y_{i}}}}{\Sigma_{j}e^{f_{j}}}
+    }
     $$
   </p>
   <p>
@@ -66,18 +68,22 @@
     provided by the network for each class, they don't compose each other. Thus,
     when \(k = y_{i}\),
     $$
+    \displaylines{
       \frac{\partial}{\partial f_{k}} \frac{e^{f_{y_{i}}}}{\Sigma_{j}e^{f_{j}}} \\
       = \frac{\partial}{\partial f_{k}} \frac{e^{f_{k}}}{\Sigma_{j}e^{f_{j}}} \\
 
       = \frac{1}{(\Sigma_{j}e^{f_{j}})^{2}}(e^{f_{k}}\Sigma_{j}e^{f_{j}} - e^{f_{k}}e^{f_{k}})
+    }
     $$
     the only part of the summation that contributes to the partial derivative is the part when \(j=k\).
   </p>
   <p>
     When \(k \neq y_{i}\),
     $$
+    \displaylines{
       \frac{\partial}{\partial f_{k}} \frac{e^{f_{y_{i}}}}{\Sigma_{j}e^{f_{j}}} \\
       = \frac{1}{(\Sigma_{j}e^{f_{j}})^{2}}(0 - e^{f_{y_{i}}}e^{f_{k}})
+    }
     $$
     The 1st term is 0 since \(y_{i} \neq k\).
     For the 2nd term, the only part of the summation that contributes to the partial derivative is the part when \(j=k\).
@@ -85,6 +91,7 @@
   <p>
     Plugging back into the expression of \(\frac{\partial L_{i}}{\partial f_{k}}\): When \(k = y_{i}\),
     $$
+    \displaylines{
       \frac{\partial L_{i}}{\partial f_{k}} 
       = -\frac{\Sigma_{j}e^{f_{j}}}{e^{f_{y_{i}}}}
         \frac{1}{(\Sigma_{j}e^{f_{j}})^{2}}(e^{f_{k}}\Sigma_{j}e^{f_{j}} - e^{2f_{k}}) \\
@@ -92,16 +99,19 @@
       = - \frac{1}{(\Sigma_{j}e^{f_{j}})}(\Sigma_{j}e^{f_{j}} - e^{f_{y_{i}}}) \\
       = \frac{1}{(\Sigma_{j}e^{f_{j}})}(e^{f_{y_{i}} - \Sigma_{j}e^{f_{j}}}) \\
       = p_{k} - 1 
+    }
     $$
   </p>
   <p>
     And when \(k \neq y_{i}\),
     $$
+    \displaylines{
       \frac{\partial L_{i}}{\partial f_{k}} 
       = -\frac{\Sigma_{j}e^{f_{j}}}{e^{f_{y_{i}}}}
         \frac{1}{(\Sigma_{j}e^{f_{j}})^{2}}( - e^{f_{y_{i}}}e^{f_{k}}) \\
       = \frac{e^{f_{k}}}{\Sigma_{j}e^{f_{j}}} \\
       = p_{k}
+    }
     $$
   </p>
 </div>

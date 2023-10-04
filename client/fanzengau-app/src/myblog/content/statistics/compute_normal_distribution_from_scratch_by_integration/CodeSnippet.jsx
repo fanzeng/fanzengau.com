@@ -25,7 +25,7 @@ export function CodeSnippet() {
   useEffect(function() {
     const intv = setInterval(() => {
       if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === 'function') {
-        if (solutionDotJava != 'Loading' && runMeDotSh != 'Loading' && runMeDotTxt != 'Loading') {
+        if (solutionDotJava !== 'Loading' && runMeDotSh !== 'Loading' && runMeDotTxt !== 'Loading') {
           window.PR.prettyPrint();
           clearInterval(intv);
         }

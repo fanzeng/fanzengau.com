@@ -1,8 +1,5 @@
-import { GoogleCodePrettify } from "../../../google-code-pretiffy/GoogleCodePrettify";
-
 export function LinuxCheatSheet() {
   return <>
-    <GoogleCodePrettify />
     <title>Linux Cheat Sheet</title>
     <header className="section">
       <h1>Linux Cheat Sheet</h1>

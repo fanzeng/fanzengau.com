@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { GoogleCodePrettify } from "../../../google-code-pretiffy/GoogleCodePrettify";
 import { MathJax } from "../../../math-jax/MathJax";
 import raw1 from './compute_normal_distribution_from_scratch_by_integration_1.txt';
 import { CodeSnippet } from "./CodeSnippet";
@@ -35,8 +34,6 @@ export function ComputeNormalDistributionFromScratchByIntegration() {
       setData2(text);
     });
   return <>
-    <GoogleCodePrettify />
-
     <div className="data" dangerouslySetInnerHTML={{ __html: data1 }} />
     <CodeSnippet />
     <div className="data" dangerouslySetInnerHTML={{ __html: data2 }} />

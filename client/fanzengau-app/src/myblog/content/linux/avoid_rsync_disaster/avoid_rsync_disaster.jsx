@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { GoogleCodePrettify } from "../../../google-code-pretiffy/GoogleCodePrettify";
 import testRsyncDotShFile from './code/test_rsync/test_rsync.sh';
 import runMeDotShFile from './code/test_rsync/run_me.sh';
 import runMeDotTxtFile from './code/test_rsync/run_me.txt';
@@ -25,7 +24,7 @@ export function AvoidRsyncDisaster() {
   useEffect(function() {
     const intv = setInterval(() => {
       if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === 'function') {
-        if (testRsyncDotSh != 'Loading' && runMeDotSh != 'Loading' && runMeDotTxt != 'Loading') {
+        if (testRsyncDotSh !== 'Loading' && runMeDotSh !== 'Loading' && runMeDotTxt !== 'Loading') {
           window.PR.prettyPrint();
           clearInterval(intv);
         }
@@ -33,7 +32,6 @@ export function AvoidRsyncDisaster() {
     }, 50);
   }, [testRsyncDotSh, runMeDotSh, runMeDotTxt]);
   return <>
-    <GoogleCodePrettify />
     <title>Avoid rsync Disaster</title>
     <header className="section">
       <h1>

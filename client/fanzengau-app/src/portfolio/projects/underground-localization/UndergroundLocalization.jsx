@@ -23,8 +23,8 @@ export function UndergroundLocalization(props) {
       <h4 className="engraved">Low cost camera-based positioning system</h4>
       <div>
         <iframe width="560" height="315"
-          src="https://www.youtube.com/embed/videoseries?list=PLUjd4WCrI1uglVuKXfPZbSsYu3kTxTtgu" frameborder="0"
-          allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          src="https://www.youtube.com/embed/videoseries?list=PLUjd4WCrI1uglVuKXfPZbSsYu3kTxTtgu"
+          allow="autoplay; encrypted-media" allowFullScreen></iframe>
       </div>
       <TryIt btnText="More">
         <TryItContent />

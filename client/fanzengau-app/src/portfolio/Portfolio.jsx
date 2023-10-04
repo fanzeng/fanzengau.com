@@ -1,3 +1,4 @@
+import './portfolio.css'
 import { Certificates } from './certificates/Certificates';
 import { Projects } from "./projects/Projects";
 export function Portfolio() {
@@ -30,7 +31,7 @@ export function Portfolio() {
         <h2>
           My skills
         </h2>
-        <table>
+        <table id="skill_table">
           <tr>
             <th>I speak</th>
             <td><img className="icon_skills" src={iconResized['icon_cpp.png']} alt="C++" /><br />C++</td>

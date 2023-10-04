@@ -20,8 +20,8 @@ export function UnderwaterVehicle(props) {
       </span>
       <h4 className="engraved">AUV built in 3 weeks</h4>
       <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/254dBi0Ic1c" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/254dBi0Ic1c"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
       <TryIt btnText="More">
         <TryItContent />

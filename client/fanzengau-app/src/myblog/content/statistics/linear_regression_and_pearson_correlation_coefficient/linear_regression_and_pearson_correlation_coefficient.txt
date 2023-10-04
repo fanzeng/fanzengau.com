@@ -115,10 +115,12 @@
   <p>
     The resultant denominator is equal to the variance of \(x\)
     $$
+    \displaylines{
       \frac{1}{n}\sum_{i}x_{i}^2 - \frac{1}{n^2}(\sum_{i}x_{i})^2 \\
         = E[x^2] - E[x]^2 \\
         = Var(x) \\
         = \sigma_{x}^2
+    }
     $$
   </p>
   <p>
@@ -128,6 +130,7 @@
     $$
     can be shown to be equal to \(cov(x, y)\), i.e.:
     $$
+    \displaylines{
     cov(x, y) = \frac{1}{n} \Sigma_{i}(x_{i} - \bar{x})(y_{i} - \bar{y}) \\
       = \frac{1}{n} \Sigma_{i}(x_{i}y_{i} + \bar{x}\bar{y} - \bar{x}y_{i} - \bar{y}x_{i}) \\
       = \frac{1}{n} \Sigma_{i}(
@@ -136,6 +139,7 @@
         - \frac{1}{n}\Sigma_{j}x_{j}y_{i}
         - \frac{1}{n}\Sigma_{k}y_{k}x_{i}
       )
+    }
     $$
     It's got 4 terms after expansion, but the last 3 terms are actually equal in magnitude, so two of them will cancel out.
     To see why that is the case, try and simply the 2nd term
@@ -174,8 +178,10 @@
   <p>
     Putting the numerator and denominator together:
     $$
+    \displaylines{
       \beta_{1} = cov(x, y)/\sigma_{x}^2 \\
         = \rho\frac{\sigma_{y}}{\sigma_{x}}
+    }
     $$
   </p>
 </div>
@@ -185,8 +191,10 @@
   Multiple linear regression allows more than one independent variables, i.e., it is simple linear regression
     generalized to the vector form:
     $$
+    \displaylines{
       \mathbf{X}\mathbf{\beta} = \mathbf{y}, \quad \mathbf{X} \in \mathbb{R}^{n \times m}, \\
       \mathbf{\beta} \in \mathbb{R}^{m}, \quad y \in \mathbb{R}^{n}
+    }
     $$
   </p>
   <p>
@@ -195,6 +203,7 @@
     To accommodate the bias term \(\beta_{0}\), the 0th column of \(\mathbf{X}\) is a column of 1, and the actual samples start from the 1st column.
 
     $$
+    \displaylines{
       \mathbf{X} = \begin{bmatrix} 
           1 & x_{0,1}   & x_{0,2}   & \dots & x_{0,m-1} \\
           1 & \vdots    & \ddots    &       & x_{1,m-1} \\
@@ -216,6 +225,7 @@
           \vdots \\
           y_{n-1} \\
           \end{bmatrix}.
+    }
     $$
   </p>
 
@@ -228,14 +238,17 @@
   <p>
     Setting the partial derivative w.r.t. \(\mathbf{\beta}\) to 0:
     $$
+    \displaylines{
       \frac{\partial}{\partial \mathbf{\beta}}(\mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{X}\mathbf{\beta} - y^{T}\mathbf{X}\mathbf{\beta} - \mathbf{\beta}^{T}\mathbf{X}^{T}\mathbf{y} + \mathbf{y}^{T}\mathbf{y}) = 0 \\
       \mathbf{\beta}^{T}(\mathbf{X}^{T}\mathbf{X}) + (\mathbf{X}^{T}\mathbf{X}\mathbf{\beta})^{T} - \mathbf{y}^{T}\mathbf{X} - (\mathbf{X}^{T}\mathbf{y})^{T} = 0 \\
       \Rightarrow \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y})
+    }
     $$
   </p>
   <p>
     It would only make sense if simple linear regression is a special case of the above. Let's verify:
     $$
+    \displaylines{
     \mathbf{X} = \begin{bmatrix}
     1 & x_{0} \\
     1 & x_{1} \\
@@ -276,11 +289,13 @@
       \Sigma_{i}y_{i} \\
       \Sigma_{i}x_{i}y_{i}
     \end{bmatrix}
+    }
     $$
   </p>
   <p>
     We can invert \(\mathbf{X}^{T}\mathbf{X}\) by calculating its determinant and adjugate:
     $$
+    \displaylines{
       det(\mathbf{X}^{T}\mathbf{X}) = n\Sigma_{i}x_{i}^{2} - (\Sigma_{i}x_{i})^{2}, \\
       (\mathbf{X}^{T}\mathbf{X})^{*} = \begin{bmatrix}
         \Sigma_{i}x_{i}^{2} & -\Sigma_{i}x_{i} \\
@@ -291,10 +306,12 @@
         \Sigma_{i}x_{i}^{2} & -\Sigma_{i}x_{i} \\
         -\Sigma_{i}x_{i} & n
       \end{bmatrix}
+    }
     $$
   </p>
   <p>
     $$
+    \displaylines{
       \mathbf{\beta} = (\mathbf{X}^{T}\mathbf{X})^{-1}(\mathbf{X}^{T}\mathbf{y}) \\
         = det(\mathbf{X}^{T}\mathbf{X})^{-1}
         \begin{bmatrix}
@@ -310,6 +327,7 @@
           \Sigma_{i}x_{i}^{2}\Sigma_{i}y_{i} - \Sigma_{i}x_{i}\Sigma_{i}x_{i}y_{i} \\
           -\Sigma_{i}x_{i}\Sigma_{i}y_{i} + n\Sigma_{i}x_{i}y_{i}
         \end{bmatrix}
+    }
     $$
     We can see the result is the same as derived using simple linear regression, as expected.
   </p>
