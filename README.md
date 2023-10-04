@@ -4,8 +4,7 @@ master
 
 
 dev
-master
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e210e9b2-2861-4b4f-9632-aeca29c0670b/deploy-status?branch=master)](https://app.netlify.com/sites/fanzengau/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e210e9b2-2861-4b4f-9632-aeca29c0670b/deploy-status?branch=dev)](https://app.netlify.com/sites/fanzengau/deploys)
 
 
 # in client/fanzengau-app
