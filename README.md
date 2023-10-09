@@ -16,3 +16,7 @@ cp -r ../../submodules/ build/ && ./node_modules/.bin/netlify deploy --prod
 
 # install netlify-cli
 npm install netlify-cli --save-dev
+
+# update multimedia-toolbox client submodule
+# build the client in that repo and run in root of this repo
+cp ../multimedia-toolbox/client/dist/multimedia-toolbox/* submodules/multimedia-toolbox/
