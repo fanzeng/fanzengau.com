@@ -3,6 +3,11 @@
   publish = "build"
 
 [[redirects]]
+  from = "/submodules/multimedia-toolbox/*"
+  to = "/submodules/multimedia-toolbox/:splat"
+  status = 200
+
+[[redirects]]
   from = "/submodules/*"
   to = "/submodules/:splat"
   status = 200
