@@ -4,7 +4,7 @@
 
 [[redirects]]
   from = "/submodules/multimedia-toolbox/*"
-  to = "/submodules/multimedia-toolbox/:splat"
+  to = "/submodules/multimedia-toolbox/"
   status = 200
 
 [[redirects]]

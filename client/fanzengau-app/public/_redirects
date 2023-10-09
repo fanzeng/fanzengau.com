@@ -1,3 +1,3 @@
-/submodules/multimedia-toolbox/* /submodules/multimedia-toolbox/:splat 200
+/submodules/multimedia-toolbox/* /submodules/multimedia-toolbox/ 200
 /submodules/* /submodules/:splat 200
 /* /index.html 200
