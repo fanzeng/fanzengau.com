@@ -4,7 +4,7 @@
 
 [[redirects]]
   from = "/submodules/*"
-  to = "/submodules/*"
+  to = "/submodules/:splat"
   status = 200
 
 [[redirects]]

@@ -1,2 +1,2 @@
-/submodules/* /submodules/* 200
+/submodules/* /submodules/:splat 200
 /* /index.html 200
