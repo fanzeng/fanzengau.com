@@ -4,7 +4,7 @@ export function SurfaceDiffusionSim(props) {
   const iconResized = props.iconResized;
   const TryItContent = () => {
     return (
-      <div className="moreinfo_content tryit_content">
+      <div className="moreinfo_content">
         <a href="https://github.com/fanzeng/surfaceDiffusionSim.git"><img
           src={iconResized['icon_github.png']} height="32" width="32" alt="Github" /></a>
       </div>
@@ -18,7 +18,7 @@ export function SurfaceDiffusionSim(props) {
         <img className="icon_skills" src={iconResized['icon_matlab.png']} alt="Matlab" />
       </span>
       <h4 className="engraved">PDE solver for interface front propagation</h4>
-      <TryIt>
+      <TryIt btnText="More">
         <TryItContent />
       </TryIt>
     </div>

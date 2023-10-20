@@ -14,10 +14,10 @@ export function MultimediaToolBox(props) {
     <div className="project_item">
       <h3>Multimedia Toolbox</h3>
       <span className="platform_tool">
-        <img className="icon_skills" src={iconResized['icon_html.png']} alt="HTML" />
-        <img className="icon_skills" src={iconResized['icon_css.png']} alt="CSS" />
-        <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
         <img className="icon_skills" src={iconResized['icon_php.png']} alt="PHP" />
+        <img className="icon_skills_wide" src={iconResized['icon_laravel.png']} alt="Laravel" />
+        <img className="icon_skills" src={iconResized['icon_react.png']} alt="React" />
+        <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
       </span>
       <h4 className="engraved">A toolbox that makes video and process images</h4>
       <ol>

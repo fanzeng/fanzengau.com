@@ -34,17 +34,12 @@ export function Portfolio() {
         <table id="skill_table">
           <tr>
             <th>I speak</th>
-            <td><img className="icon_skills" src={iconResized['icon_cpp.png']} alt="C++" /><br />C++</td>
+            <td><img className="icon_skills" src={iconResized['icon_golang.png']} alt="Golang" /><br />Go</td>
             <td><img className="icon_skills" src={iconResized['icon_python.png']} alt="Python" /><br />Python</td>
-            <td>
-              <a href="https://www.oracle.com/java/">
-                <img _fcksavedurl="https://www.oracle.com/java/" />
-                <img _fcksavedurl="https://www.oracle.com/java/" />
-                <img className="icon_skills" src={iconResized['icon_i-code-java.png']} alt="I Code Java" border="0" /><br />
-              </a>Java
-            </td>
-            <td><img className="icon_skills" src={iconResized['icon_html.png']} alt="HTML" /><br />HTML</td>
-            <td><img className="icon_skills" src={iconResized['icon_css.png']} alt="CSS" /><br />CSS</td>
+            <td><img className="icon_skills" src={iconResized['icon_java.png']} alt="Java" border="0" /><br />Java</td>
+            <td><img className="icon_skills" src={iconResized['icon_cpp.png']} alt="C++" /><br />C++</td>
+            {/* <td><img className="icon_skills" src={iconResized['icon_html.png']} alt="HTML" /><br />HTML</td>
+            <td><img className="icon_skills" src={iconResized['icon_css.png']} alt="CSS" /><br />CSS</td> */}
             <td><img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" /><br />JavaScript</td>
             <td><img className="icon_skills" src={iconResized['icon_php.png']} alt="PHP" /><br />PHP</td>
             <td><img className="icon_skills" src={iconResized['icon_sql.png']} alt="SQL" /><br />SQL</td>
@@ -62,11 +57,15 @@ export function Portfolio() {
               <img className="icon_skills" src={iconResized['icon_tensorflow.png']}
                 alt="Tensorflow" /><br />Tensorflow
             </td>
+            <td>
+              <img className="icon_skills" src={iconResized['icon_pytorch.png']}
+                alt="pytorch" /><br />PyTorch
+            </td>
           </tr>
           <tr>
             <th>I web</th>
             <td><img className="icon_skills_wide" src={iconResized['icon_nodejs.png']} alt="NodeJS" /><br />NodeJS</td>
-            <td><img className="icon_skills" src={iconResized['icon_angular.png']} alt="Angular" /><br />AngularJS</td>
+            <td><img className="icon_skills" src={iconResized['icon_angular.png']} alt="AngularJS" /><br />AngularJS</td>
             <td><img className="icon_skills" src={iconResized['icon_angular.png']} alt="Angular" /><br />Angular</td>
             <td><img className="icon_skills" src={iconResized['icon_react.png']} alt="React" /><br />React</td>
           </tr>
@@ -81,6 +80,7 @@ export function Portfolio() {
               </a><br />Ruby
             </td>
             <td><img className="icon_skills_wide" src={iconResized['icon_rails.png']} alt="Rails" /><br />Rails</td>
+            <td><img className="icon_skills_wide" src={iconResized['icon_laravel.png']} alt="Laravel" /><br />Laravel</td>
           </tr>
         </table>
       </div>
