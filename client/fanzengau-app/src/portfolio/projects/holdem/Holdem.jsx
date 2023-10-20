@@ -5,7 +5,10 @@ export function Holdem(props) {
   const TryItContent = () => {
     return (
       <div className="moreinfo_content tryit_content">
-        <a href="/submodules/holdem/index.html">Try the webapp</a>
+        <a href="/submodules/holdem/index.html">Try the web app</a>
+          Please click on the link to try the web app.
+          The server side container would spin down if there's no traffic, so you might need to wait a while and refresh for it to work.
+        <hr />
         <p>
           If you prefer to run the app on your local computer, please download "Holdem.jar", which is executable on a system with Java Runtime
           Environment (JRE) installed.

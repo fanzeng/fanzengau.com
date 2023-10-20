@@ -3,7 +3,11 @@ import { TryIt } from "../../../try-it/TryIt";
 export function MultimediaToolBox(props) {
   const iconResized = props.iconResized;
   const TryItContent = () => {
-    return <a href="/submodules/multimedia-toolbox/index.html">Multimedia Toolbox</a>;
+    return <>
+      <a href="/submodules/multimedia-toolbox/index.html">Multimedia Toolbox</a>
+        Please click on the link to try the web app.
+        The server side container would spin down if there's no traffic, so you might need to wait a while and refresh for it to work.
+    </>
   }
   return <>
     <nav className="intra_page_link" id="multimedia_toolbox"></nav>
