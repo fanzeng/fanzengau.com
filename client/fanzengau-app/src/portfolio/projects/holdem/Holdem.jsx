@@ -5,8 +5,9 @@ export function Holdem(props) {
   const TryItContent = () => {
     return (
       <div className="moreinfo_content tryit_content">
+        <a href="/submodules/holdem/index.html">Try the webapp</a>
         <p>
-          To try it out, please download "Holdem.jar", which is executable on a system with Java Runtime
+          If you prefer to run the app on your local computer, please download "Holdem.jar", which is executable on a system with Java Runtime
           Environment (JRE) installed.
           If double click does not work, try "java -jar Holdem.jar" in termainal/PowerShell.
         </p>
