@@ -29,7 +29,9 @@ export function Holdem(props) {
     <div className="project_item">
       <h3>Texas Holdem</h3>
       <span className="platform_tool">
-        <img className="icon_skills" src={iconResized['icon_i-code-java.png']} alt="I Code Java" border="0" />
+        <img className="icon_skills" src={iconResized['icon_java.png']} alt="Java" border="0" />
+        <img className="icon_skills" src={iconResized['icon_spring.png']} alt="Spring" border="0" />
+        <img className="icon_skills" src={iconResized['icon_react.png']} alt="React" border="0" />
       </span>
       <h4 className="engraved">The simplest mini app to practice Texas Holdem</h4>
       <TryIt>

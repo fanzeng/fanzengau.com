@@ -205,7 +205,8 @@ span.platform_tool {
   display:inline-block;
   background-color: #cccccc;
   color: rgba(0,0,0,0.5);
-  border: groove 5px #666666;
+  border: groove 2px #666666;
+  padding: 10px;
 }
 
 span.moreinfo_span_outer {

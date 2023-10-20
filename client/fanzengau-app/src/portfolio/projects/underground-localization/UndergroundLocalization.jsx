@@ -16,6 +16,7 @@ export function UndergroundLocalization(props) {
       <span className="platform_tool">
         <img className="icon_skills" src={iconResized['icon_linux.png']} alt="Linux" />
         <img className="icon_skills_wide" src={iconResized['icon_ros.png']} alt="ROS" />
+        <img className="icon_skills" src={iconResized['icon_cpp.png']} alt="C++" />
         <img className="icon_skills" src={iconResized['icon_opencv.png']} alt="OpenCV" />
         <img className="icon_skills" src={iconResized['icon_python.png']} alt="Python" />
         <img className="icon_skills_wide" src={iconResized['icon_bash.png']} alt="bash" />
