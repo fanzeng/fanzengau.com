@@ -35,14 +35,14 @@ export function Projects() {
               </a>
             </td>
             <td>
-              <a href="#multimedia_toolbox">
-                <img className="img_project"
-                  src={multimediaToolboxImages['project_multimedia_toolbox.png']} alt="" />
+              <a href="#texas_holdem">
+                <img className="img_project" src={holdemImages['project_holdem.png']} alt="" />
               </a>
             </td>
             <td>
-              <a href="#texas_holdem">
-                <img className="img_project" src={holdemImages['project_holdem.png']} alt="" />
+              <a href="#multimedia_toolbox">
+                <img className="img_project"
+                  src={multimediaToolboxImages['project_multimedia_toolbox.png']} alt="" />
               </a>
             </td>
             <td>
@@ -65,13 +65,13 @@ export function Projects() {
           <UndergroundLocalization iconResized={iconResized} />
         </li>
         <li className="project_item">
+          <Holdem iconResized={iconResized} />
+        </li>
+        <li className="project_item">
           <MultimediaToolBox iconResized={iconResized} />
         </li>
         <li className="project_item">
           <Eartunes iconResized={iconResized} />
-        </li>
-        <li className="project_item">
-          <Holdem iconResized={iconResized} />
         </li>
         <li className="project_item">
           <UnderwaterVehicle iconResized={iconResized} />
