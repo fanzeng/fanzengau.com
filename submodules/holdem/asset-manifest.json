@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/submodules/holdem/static/css/main.61dcb7ca.css",
-    "main.js": "/submodules/holdem/static/js/main.d798018e.js",
+    "main.js": "/submodules/holdem/static/js/main.2735336a.js",
     "static/js/787.f502e993.chunk.js": "/submodules/holdem/static/js/787.f502e993.chunk.js",
     "static/media/back_cards-07.png": "/submodules/holdem/static/media/back_cards-07.0cd006865dc2c34a6b20.png",
     "static/media/honor_heart-14.png": "/submodules/holdem/static/media/honor_heart-14.db21634c34014edfc5b2.png",
@@ -71,11 +71,11 @@
     "static/media/logo.svg": "/submodules/holdem/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/submodules/holdem/index.html",
     "main.61dcb7ca.css.map": "/submodules/holdem/static/css/main.61dcb7ca.css.map",
-    "main.d798018e.js.map": "/submodules/holdem/static/js/main.d798018e.js.map",
+    "main.2735336a.js.map": "/submodules/holdem/static/js/main.2735336a.js.map",
     "787.f502e993.chunk.js.map": "/submodules/holdem/static/js/787.f502e993.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.61dcb7ca.css",
-    "static/js/main.d798018e.js"
+    "static/js/main.2735336a.js"
   ]
 }
