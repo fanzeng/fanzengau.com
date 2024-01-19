@@ -20,7 +20,7 @@ export function Holdem(props) {
           The above program displays cards as text. If you'd like to see graphics, please extract the
           following zip into the same folder as Holdem.jar
         </p>
-        <a href="https://github.com/fanzeng/Holdem/blob/master/resource.zip?raw=true">resource.zip</a>
+        <a href="https://github.com/fanzeng/Holdem/blob/master/holdem/app/resource.zip?raw=true">resource.zip</a>
       </div>
     );
   };
