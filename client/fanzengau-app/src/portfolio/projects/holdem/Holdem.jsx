@@ -10,16 +10,10 @@ export function Holdem(props) {
           The server side container would spin down if there's no traffic, so you might need to wait a while and refresh for it to work.
         <hr />
         <p>
-          If you prefer to run the app on your local computer, please download "Holdem.zip", which contains executables on a system with Java Runtime
+          To try out the desktop version, please download and extract "Holdem.zip", and run the app inside the "bin" directory on a system with Java Runtime
           Environment (JRE) installed.
         </p>
         <a href="https://github.com/fanzeng/Holdem/blob/master/dist/Holdem.zip?raw=true">Holdem.zip</a>
-        <br />
-        <p>
-          The above program displays cards as text. If you'd like to see graphics, please extract the
-          following zip into the same folder as the application.
-        </p>
-        <a href="https://github.com/fanzeng/Holdem/blob/master/holdem/app/resource.zip?raw=true">resource.zip</a>
       </div>
     );
   };
