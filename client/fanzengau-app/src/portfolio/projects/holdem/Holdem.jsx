@@ -13,7 +13,7 @@ export function Holdem(props) {
           If you prefer to run the app on your local computer, please download "Holdem.zip", which contains executables on a system with Java Runtime
           Environment (JRE) installed.
         </p>
-        <a href="https://github.com/fanzeng/Holdem/blob/master/dist/Holdem.zip?raw=true">Holdem.jar</a>
+        <a href="https://github.com/fanzeng/Holdem/blob/master/dist/Holdem.zip?raw=true">Holdem.zip</a>
         <br />
         <p>
           The above program displays cards as text. If you'd like to see graphics, please extract the
