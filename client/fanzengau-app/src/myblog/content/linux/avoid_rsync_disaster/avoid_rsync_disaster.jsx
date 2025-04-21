@@ -10,6 +10,7 @@ export function AvoidRsyncDisaster() {
         .then(r => r.text())
         .then(r => {
           r = r.replace(/[\r?\n]/g, '<br>');
+          r = r.replace(/[ ]/g, '&nbsp;');
           setStateFn(r);
         });
     }

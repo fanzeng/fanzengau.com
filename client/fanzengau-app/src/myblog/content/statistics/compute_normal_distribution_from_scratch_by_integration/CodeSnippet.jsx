@@ -11,6 +11,7 @@ export function CodeSnippet() {
         .then(r => {
           console.log('r=', r)
           r = r.replace(/[\r?\n]/g, '<br>');
+          r = r.replace(/[ ]/g, '&nbsp;');
           setStateFn(r);
         });
     }

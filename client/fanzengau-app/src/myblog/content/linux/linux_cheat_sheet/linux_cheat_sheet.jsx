@@ -35,13 +35,12 @@ export function LinuxCheatSheet() {
       <h2>Files</h2>
       <h3>zip a directory</h3>
       <pre className="prettyprint linenums">zip -r result.zip dir_to_zip</pre>
-      <p>Not to be confused with
-        <pre className="prettyprint linenums">gzip -r</pre>
-        it will traverse recursively all sub-directories and create a zip for every file.</p>
-      <p>If you have accidentally executed that, just run
-        <pre className="prettyprint linenums">gunzip -r</pre>
-        to reverse it.
-      </p>
+      <p>Not to be confused with</p>
+      <pre className="prettyprint linenums">gzip -r</pre>
+      <p>it will traverse recursively all sub-directories and create a zip for every file.</p>
+      <p>If you have accidentally executed that, just run</p>
+      <pre className="prettyprint linenums">gunzip -r</pre>
+      <p>to reverse it.</p>
       <h3>create a symbolic link</h3>
       <pre className="prettyprint linenums">ln -s the_file_the_symbolic_link_should_point_to the_symbolic_link_itself</pre>
     </div>
