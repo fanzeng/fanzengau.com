@@ -1,6 +1,7 @@
 import { Eartunes } from "./eartunes/Eartunes";
 import { Holdem } from "./holdem/Holdem";
 import { MultimediaToolBox } from "./multimedia-toolbox/MultiMediaToolBox";
+import { Novelgo } from "./novelgo/Novelgo";
 import { SurfaceDiffusionSim } from "./surface-diffusion-sim/SurfaceDiffusionSim";
 import { UndergroundLocalization } from "./underground-localization/UndergroundLocalization";
 import { UnderwaterVehicle } from "./underwater-vehicle/UnderwaterVehicle";
@@ -16,6 +17,7 @@ export function Projects() {
 
   const aqipImages = importImages(require.context('../../resource/image/projects/aqip', false, /\.(png|jpe?g|svg)$/));
   const holdemImages = importImages(require.context('../../resource/image/projects/holdem', false, /\.(png|jpe?g|svg)$/));
+  const novelgoImages = importImages(require.context('../../resource/image/projects/novelgo', false, /\.(png|jpe?g|svg)$/));
   const multimediaToolboxImages = importImages(require.context('../../resource/image/projects/multimedia_toolbox', false, /\.(png|jpe?g|svg)$/));
   const underwaterVehicleImages = importImages(require.context('../../resource/image/projects/underwater_vehicle', false, /\.(png|jpe?g|svg)$/));
   const surfaceDiffusionSimImages = importImages(require.context('../../resource/image/projects/surface_diffusion_sim', false, /\.(png|jpe?g|svg)$/));
@@ -37,6 +39,12 @@ export function Projects() {
             <td>
               <a href="#texas_holdem">
                 <img className="img_project" src={holdemImages['project_holdem.png']} alt="" />
+              </a>
+            </td>
+            <td>
+              <a href="#novelgo">
+                <img className="img_project"
+                  src={novelgoImages['project_novelgo.png']} alt="" />
               </a>
             </td>
             <td>
@@ -66,6 +74,9 @@ export function Projects() {
         </li>
         <li className="project_item">
           <Holdem iconResized={iconResized} />
+        </li>
+        <li className="project_item">
+          <Novelgo iconResized={iconResized} />
         </li>
         <li className="project_item">
           <MultimediaToolBox iconResized={iconResized} />
