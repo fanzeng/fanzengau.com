@@ -8,6 +8,11 @@
   status = 200
 
 [[redirects]]
+  from = "/submodules/novelgo/*"
+  to = "/submodules/novelgo/"
+  status = 200
+
+[[redirects]]
   from = "/submodules/*"
   to = "/submodules/:splat"
   status = 200
