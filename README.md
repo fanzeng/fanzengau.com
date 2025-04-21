@@ -17,10 +17,14 @@ cp -r ../../submodules/ build/ && ./node_modules/.bin/netlify deploy --prod
 # install netlify-cli
 npm install netlify-cli --save-dev
 
-# update multimedia-toolbox client submodule
-+ build the client in that repo and run in root of this repo: `cp ../multimedia-toolbox/client/dist/multimedia-toolbox/* submodules/multimedia-toolbox/`
-+ in `/home/fan/Codes/personal/fanzengau.com/submodules/multimedia-toolbox/index.html`, change `<base href="/">` to  `<base href="/submodules/multimedia-toolbox/">`
-
 # update holem client submodule
 + build and redeploy the server side container if necessary
 + build the client in that repo and run in root of this repo: `cp -r ../Holdem/client/holdem-app/build/* submodules/holdem/`
+
+# update novelgo client submodule
++ build and redeploy the server side container if necessary
++ build the client in that repo and run in root of this repo: `cp -r ../novelgo/client/novelgo-app/dist/* submodules/novelgo/`
+
+# update multimedia-toolbox client submodule
++ build the client in that repo and run in root of this repo: `cp ../multimedia-toolbox/client/dist/multimedia-toolbox/* submodules/multimedia-toolbox/`
++ in `/home/fan/Codes/personal/fanzengau.com/submodules/multimedia-toolbox/index.html`, change `<base href="/">` to  `<base href="/submodules/multimedia-toolbox/">`
