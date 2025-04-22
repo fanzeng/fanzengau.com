@@ -18,7 +18,7 @@ export function Novelgo(props) {
         <img className="icon_skills" src={iconResized['icon_vue.png']} alt="Vue" />
         <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
       </span>
-      <h4 className="engraved">Novel Go games written in Go</h4>
+      <h4>Novel Go games written in Go</h4>
       <TryIt>
         <TryItContent />
       </TryIt>

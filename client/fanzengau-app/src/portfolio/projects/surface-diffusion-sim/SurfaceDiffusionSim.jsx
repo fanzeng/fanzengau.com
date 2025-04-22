@@ -17,7 +17,7 @@ export function SurfaceDiffusionSim(props) {
       <span className="platform_tool">
         <img className="icon_skills" src={iconResized['icon_matlab.png']} alt="Matlab" />
       </span>
-      <h4 className="engraved">PDE solver for interface front propagation</h4>
+      <h4>PDE solver for interface front propagation</h4>
       <TryIt btnText="More">
         <TryItContent />
       </TryIt>

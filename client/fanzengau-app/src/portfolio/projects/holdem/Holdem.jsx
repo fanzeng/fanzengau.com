@@ -26,7 +26,7 @@ export function Holdem(props) {
         <img className="icon_skills" src={iconResized['icon_spring.png']} alt="Spring" border="0" />
         <img className="icon_skills" src={iconResized['icon_react.png']} alt="React" border="0" />
       </span>
-      <h4 className="engraved">The simplest mini app to practice Texas Holdem</h4>
+      <h4>The simplest mini app to practice Texas Holdem</h4>
       <TryIt>
         <TryItContent />
       </TryIt>

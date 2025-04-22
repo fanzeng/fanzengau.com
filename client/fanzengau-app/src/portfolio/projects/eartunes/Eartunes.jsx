@@ -28,7 +28,7 @@ export function Eartunes(props) {
       <span className="platform_tool">
         <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
       </span>
-      <h4 className="engraved">single page app to aid music instrument tuning</h4>
+      <h4>single page app to aid music instrument tuning</h4>
       <p>
         I developed this app to assist piano tuning. <br />
         Simply play the note and the app will tell you the direction and amount of adjustment. <br />

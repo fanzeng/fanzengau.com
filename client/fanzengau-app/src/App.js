@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 import './css/fanzeng.css'
 import './css/fanzengau.css'
 import './css/fanzengau.css'
 import './css/share_on_social_media.css'
-import './css/atelier-dune-light.css'
 import './vendor/fontawesome/css/fontawesome.min.css'
 import './vendor/fontawesome/css/brands.min.css'
 import { Portfolio } from './portfolio/Portfolio'
@@ -20,6 +20,24 @@ import { GradientOfCategoricalCrossEntropy } from './myblog/content/machine_lear
 import { Myblog } from './myblog/myblogApp/myblog';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    if (darkModeMediaQuery.matches) {
+      import ('./css/atelier-dune-dark.min.css');
+    } else {
+      import ('./css/atelier-dune-light.min.css');
+    }
+    const handleChange = (e) => {
+      setIsDarkMode(e.matches);
+    };
+    darkModeMediaQuery.addEventListener('change', handleChange);
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', handleChange);
+    };
+  }, [isDarkMode]);
+
   return (
     <div className="App">
       <BrowserRouter>

@@ -18,7 +18,7 @@ export function UnderwaterVehicle(props) {
       <span className="platform_tool">
         <img className="icon_skills" src={iconResized['icon_c.png']} alt="C" />
       </span>
-      <h4 className="engraved">AUV built in 3 weeks</h4>
+      <h4>AUV built in 3 weeks</h4>
       <div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/254dBi0Ic1c"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>

@@ -192,7 +192,7 @@ div.tryit_content {
 }
 
 div.project_item {
-  background-image: url("../resource/image/background/paper_white_2.jpg");
+  background-color: #dddddd;
   padding: 15px;
   box-shadow: 5px 5px 5px #aaaaaa;
 }
@@ -286,21 +286,17 @@ li.project_item {
 
 }
 
-.engraved {
-  background-color: #444444;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: rgba(245,245,245,0.3) 3px 5px 1px;
-}
-
-
 @media (max-width: 800px) {
   .hide-if-mobile {
     display: none;
   }
   .full-width-if-mobile {
     width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  div.project_item, th {
+    background-color: #180138;
   }
 }
