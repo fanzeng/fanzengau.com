@@ -21,7 +21,7 @@ export function UndergroundLocalization(props) {
         <img className="icon_skills" src={iconResized['icon_python.png']} alt="Python" />
         <img className="icon_skills_wide" src={iconResized['icon_bash.png']} alt="bash" />
       </span>
-      <h4 className="engraved">Low cost camera-based positioning system</h4>
+      <h4>Low cost camera-based positioning system</h4>
       <div>
         <iframe width="560" height="315"
           src="https://www.youtube.com/embed/videoseries?list=PLUjd4WCrI1uglVuKXfPZbSsYu3kTxTtgu"

@@ -33,6 +33,11 @@ h2 {
   margin: 5px;
 }
 
+h3 {
+  color: #910a00;
+  margin: 5px;
+}
+
 p, label {
   color: #204020;
   margin: 5px;
@@ -81,4 +86,23 @@ button:disabled {
 button:enabled:hover {
   opacity: 1;
   transform: scale(1.01);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #080012;
+    color: #cccccc;
+  }
+  p {
+    color: #cccccc;
+  }
+  div.section {
+    background-color: #0d001f;
+  }
+  a:link {
+    color: #aaaaff;
+  }
+  a:visited {
+    color: #c802eb;
+  }
 }

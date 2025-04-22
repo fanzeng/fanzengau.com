@@ -19,7 +19,7 @@ export function MultimediaToolBox(props) {
         <img className="icon_skills" src={iconResized['icon_react.png']} alt="React" />
         <img className="icon_skills" src={iconResized['icon_js.png']} alt="JavaScript" />
       </span>
-      <h4 className="engraved">A toolbox that makes video and process images</h4>
+      <h4>A toolbox that makes video and process images</h4>
       <ol>
         <li>video_creator</li>
         create video by uploading individual frames and specifying various parameters.
