@@ -24,22 +24,88 @@ function App() {
 
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    if (darkModeMediaQuery.matches) {
-      import ('./css/atelier-dune-dark.min.css');
-    } else {
-      import ('./css/atelier-dune-light.min.css');
-    }
+
     const handleChange = (e) => {
-      setIsDarkMode(e.matches);
+      if (e.matches) {
+        setIsDarkMode(true);
+        import('./css/atelier-dune-dark.min.css');
+      } else {
+        setIsDarkMode(false);
+        import('./css/atelier-dune-light.min.css');
+      }
     };
+
+    // Initial check and setup
+    if (darkModeMediaQuery.matches) {
+      setIsDarkMode(true);
+      import('./css/atelier-dune-dark.min.css');
+    } else {
+      setIsDarkMode(false);
+      import('./css/atelier-dune-light.min.css');
+    }
+
     darkModeMediaQuery.addEventListener('change', handleChange);
+
     return () => {
       darkModeMediaQuery.removeEventListener('change', handleChange);
     };
-  }, [isDarkMode]);
+  }, []);
+
+  const wakeServer = async (url, payload = null) => {
+    try {
+      const options = {
+        method: payload ? 'POST' : 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Origin': 'https://fanzengau.com',
+        },
+      };
+
+      if (payload) {
+        options.body = JSON.stringify(payload);
+      }
+
+      const response = await fetch(url, options);
+
+      if (!response.ok) {
+        console.error(`Failed to wake the server at ${url}:`, response.statusText);
+      } else {
+        console.log(`Server at ${url} woke successfully:`, await response.json());
+      }
+    } catch (error) {
+      console.error(`Error waking the server at ${url}:`, error);
+    }
+  };
+
+  useEffect(() => {
+    const serversToWake = [
+      {
+        url: 'https://novelgo-app.onrender.com/games',
+        payload: {
+          Settings: {
+            BoardWidth: 5,
+            BoardHeight: 5,
+            CyclicLogic: true,
+            GameMode: 'ComputerOpponent',
+          },
+          Gameplay: {},
+        },
+      },
+      {
+        url: 'https://holdem-app.onrender.com/new-game',
+        payload: {},
+      },
+      {
+        url: 'https://multimedia-toolbox-server.onrender.com/video-recipes',
+        payload: {},
+      },
+    ];
+
+    serversToWake.forEach(({ url, payload }) => wakeServer(url, payload));
+  }, []);
 
   return (
-    <div className="App">
+    <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <BrowserRouter>
 
         <header className="App-header">

@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/submodules/holdem/static/css/main.c894ebd7.css",
-    "main.js": "/submodules/holdem/static/js/main.63055259.js",
+    "main.js": "/submodules/holdem/static/js/main.5d3afb7b.js",
     "static/js/787.f502e993.chunk.js": "/submodules/holdem/static/js/787.f502e993.chunk.js",
     "static/media/gambling-chip.png": "/submodules/holdem/static/media/gambling-chip.f4a6fd7e08e58b8ebd16.png",
     "index.html": "/submodules/holdem/index.html",
     "main.c894ebd7.css.map": "/submodules/holdem/static/css/main.c894ebd7.css.map",
-    "main.63055259.js.map": "/submodules/holdem/static/js/main.63055259.js.map",
+    "main.5d3afb7b.js.map": "/submodules/holdem/static/js/main.5d3afb7b.js.map",
     "787.f502e993.chunk.js.map": "/submodules/holdem/static/js/787.f502e993.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c894ebd7.css",
-    "static/js/main.63055259.js"
+    "static/js/main.5d3afb7b.js"
   ]
 }
