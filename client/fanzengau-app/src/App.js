@@ -24,19 +24,32 @@ function App() {
 
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    if (darkModeMediaQuery.matches) {
-      import ('./css/atelier-dune-dark.min.css');
-    } else {
-      import ('./css/atelier-dune-light.min.css');
-    }
+
     const handleChange = (e) => {
-      setIsDarkMode(e.matches);
+      if (e.matches) {
+        setIsDarkMode(true);
+        import('./css/atelier-dune-dark.min.css');
+      } else {
+        setIsDarkMode(false);
+        import('./css/atelier-dune-light.min.css');
+      }
     };
+
+    // Initial check and setup
+    if (darkModeMediaQuery.matches) {
+      setIsDarkMode(true);
+      import('./css/atelier-dune-dark.min.css');
+    } else {
+      setIsDarkMode(false);
+      import('./css/atelier-dune-light.min.css');
+    }
+
     darkModeMediaQuery.addEventListener('change', handleChange);
+
     return () => {
       darkModeMediaQuery.removeEventListener('change', handleChange);
     };
-  }, [isDarkMode]);
+  }, []);
 
   const wakeServer = async (url, payload = null) => {
     try {
@@ -92,7 +105,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <BrowserRouter>
 
         <header className="App-header">
