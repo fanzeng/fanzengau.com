@@ -9,7 +9,6 @@ export function TryIt({ children, btnText }) {
         {btnText ?? 'Try it'}
       </span>
     </span>
-    <br />
     {
       showTryItContent ? children : null
     }
