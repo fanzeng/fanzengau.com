@@ -38,6 +38,59 @@ function App() {
     };
   }, [isDarkMode]);
 
+  const wakeServer = async (url, payload = null) => {
+    try {
+      const options = {
+        method: payload ? 'POST' : 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Origin': 'https://fanzengau.com',
+        },
+      };
+
+      if (payload) {
+        options.body = JSON.stringify(payload);
+      }
+
+      const response = await fetch(url, options);
+
+      if (!response.ok) {
+        console.error(`Failed to wake the server at ${url}:`, response.statusText);
+      } else {
+        console.log(`Server at ${url} woke successfully:`, await response.json());
+      }
+    } catch (error) {
+      console.error(`Error waking the server at ${url}:`, error);
+    }
+  };
+
+  useEffect(() => {
+    const serversToWake = [
+      {
+        url: 'https://novelgo-app.onrender.com/games',
+        payload: {
+          Settings: {
+            BoardWidth: 5,
+            BoardHeight: 5,
+            CyclicLogic: true,
+            GameMode: 'ComputerOpponent',
+          },
+          Gameplay: {},
+        },
+      },
+      {
+        url: 'https://holdem-app.onrender.com/new-game',
+        payload: {},
+      },
+      {
+        url: 'https://multimedia-toolbox-server.onrender.com/video-recipes',
+        payload: {},
+      },
+    ];
+
+    serversToWake.forEach(({ url, payload }) => wakeServer(url, payload));
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
