@@ -1,4 +1,4 @@
-export function LinuxCheatSheet() {
+export default function LinuxCheatSheet() {
   return <>
     <title>Linux Cheat Sheet</title>
     <header className="section">

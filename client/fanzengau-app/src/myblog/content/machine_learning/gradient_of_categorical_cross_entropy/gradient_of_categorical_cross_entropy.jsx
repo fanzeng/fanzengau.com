@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MathJax } from "../../../math-jax/MathJax";
 import raw from './gradient_of_categorical_cross_entropy.txt';
 
-export function GradientOfCategoricalCrossEntropy() {
+export default function GradientOfCategoricalCrossEntropy() {
   let [data, setData] = useState('Loading');
 
   useEffect(() => {

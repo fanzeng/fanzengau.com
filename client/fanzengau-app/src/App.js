@@ -1,23 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-import './css/fanzeng.css'
-import './css/fanzengau.css'
-import './css/fanzengau.css'
-import './css/share_on_social_media.css'
-import './vendor/fontawesome/css/fontawesome.min.css'
-import './vendor/fontawesome/css/brands.min.css'
-import { Portfolio } from './portfolio/Portfolio'
+import './css/fanzeng.css';
+import './css/fanzengau.css';
+import './css/share_on_social_media.css';
+import './vendor/fontawesome/css/fontawesome.min.css';
+import './vendor/fontawesome/css/brands.min.css';
+import { Portfolio } from './portfolio/Portfolio';
 import { Header } from './header/Header';
 import { Footer } from './footer/Footer';
-import { SideColumnLeft } from './side-column-left/SideColumnLeft'
-import { SideColumnRight } from './side-column-right/SideColumnRight'
-import { AvoidRsyncDisaster } from './myblog/content/linux/avoid_rsync_disaster/avoid_rsync_disaster'
-import { LinuxCheatSheet } from './myblog/content/linux/linux_cheat_sheet/linux_cheat_sheet';
-import { ComputeNormalDistributionFromScratchByIntegration } from './myblog/content/statistics/compute_normal_distribution_from_scratch_by_integration/compute_normal_distribution_from_scratch_by_integration';
-import { LinearRegressionAndPearsonCorrelationCoefficient } from './myblog/content/statistics/linear_regression_and_pearson_correlation_coefficient/linear_regression_and_pearson_correlation_coefficient'
-import { GradientOfCategoricalCrossEntropy } from './myblog/content/machine_learning/gradient_of_categorical_cross_entropy/gradient_of_categorical_cross_entropy'
+import { SideColumnLeft } from './side-column-left/SideColumnLeft';
+import { SideColumnRight } from './side-column-right/SideColumnRight';
 import { Myblog } from './myblog/myblogApp/myblog';
+
+// Dynamically import all JSX files from the myblog/content directory
+const importBlogComponents = (requireContext) => {
+  return requireContext.keys().map((key) => {
+    const Component = requireContext(key).default;
+    const path = `/myblog/content${key.replace('./', '').replace('.jsx', '')}`;
+    return { path, Component };
+  });
+};
+
+const blogRoutes = importBlogComponents(
+  require.context('./myblog/content', true, /\.jsx$/) // Only include JSX files
+);
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -107,21 +114,22 @@ function App() {
   return (
     <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <BrowserRouter>
-
         <header className="App-header">
           <Header />
         </header>
         <SideColumnLeft />
 
-        <div className='column_uneven_2_6_3_center full-width-if-mobile'>
+        <div className="column_uneven_2_6_3_center full-width-if-mobile">
           <Routes>
-            <Route path='/' element={<Portfolio />}></Route>
-            <Route path='/myblog' element={<Myblog />}></Route>
-            <Route path='/myblog/content/linux/avoid_rsync_disaster/avoid_rsync_disaster' element={<AvoidRsyncDisaster />}></Route>
-            <Route path='/myblog/content/linux/linux_cheat_sheet/linux_cheat_sheet' element={<LinuxCheatSheet />}></Route>
-            <Route path='/myblog/content/statistics/compute_normal_distribution_from_scratch_by_integration/compute_normal_distribution_from_scratch_by_integration' element={<ComputeNormalDistributionFromScratchByIntegration />}></Route>
-            <Route path='/myblog/content/statistics/linear_regression_and_pearson_correlation_coefficient/linear_regression_and_pearson_correlation_coefficient' element={<LinearRegressionAndPearsonCorrelationCoefficient />}></Route>
-            <Route path='/myblog/content/machine_learning/gradient_of_categorical_cross_entropy/gradient_of_categorical_cross_entropy' element={<GradientOfCategoricalCrossEntropy />}></Route>
+            <Route path="/" element={<Portfolio />} />
+            <Route path="/myblog" element={
+              <div className='myblog main-content-myblog'>
+                <Myblog />
+              </div>
+            } />
+            {blogRoutes.map(({ path, Component }, index) => (
+              <Route key={index} path={path} element={<Component />} />
+            ))}
           </Routes>
           <Footer />
         </div>

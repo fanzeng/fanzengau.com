@@ -91,10 +91,13 @@ button:enabled:hover {
 @media (prefers-color-scheme: dark) {
   body {
     background: #080012;
-    color: #cccccc;
+    color: #aaaaaa;
+  }
+  h2, h3 {
+    color: #bbbbbb;
   }
   p {
-    color: #cccccc;
+    color: #aaaaaa;
   }
   div.section {
     background-color: #0d001f;
