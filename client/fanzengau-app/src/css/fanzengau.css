@@ -318,4 +318,5 @@ li.project_item {
 .main-content-myblog {
   transform: scale(1.2);
   transform-origin: top left;
+  margin: 50px;
 }
