@@ -15,11 +15,24 @@ export function Myblog() {
     const nestedBlogs = {};
     blogs.forEach(({ title, url, pathParts }) => {
       let currentLevel = nestedBlogs;
-      pathParts.slice(1, -1).forEach((part) => {
+      const dirName = pathParts[pathParts.length - 2];
+      const fileNameWithoutExtension = pathParts[pathParts.length - 1].replace('.jsx', '');
+
+      pathParts.slice(1, -1).forEach((part, index) => {
         if (!currentLevel[part]) currentLevel[part] = {};
         currentLevel = currentLevel[part];
+
+        // Stop descending further if the directory matches the file name
+        if (index === pathParts.length - 3 && part === fileNameWithoutExtension) {
+          currentLevel.title = dirName.replace(/_/g, ' ');
+          currentLevel.url = url;
+        }
       });
-      currentLevel[pathParts[pathParts.length - 1]] = { title, url };
+
+      // Add the file as a leaf node only if it's not part of a matching directory
+      if (dirName !== fileNameWithoutExtension) {
+        currentLevel[pathParts[pathParts.length - 1]] = { title, url };
+      }
     });
 
     return nestedBlogs;
@@ -35,7 +48,7 @@ export function Myblog() {
       <ul>
         {Object.entries(nestedBlogs).map(([key, value]) => {
           if (value.url) {
-            // Leaf node (blog file)
+            // Leaf node (directory with matching .jsx file or blog file)
             return (
               <li key={value.url}>
                 <Link to={value.url}>{value.title}</Link>
@@ -44,7 +57,7 @@ export function Myblog() {
           } else {
             // Directory (nested blogs)
             return (
-              <li style={{fontSize: 15}} key={key}>
+              <li style={{ fontSize: 15 }} key={key}>
                 <strong>{key.replace(/_/g, ' ')}</strong>
                 {renderNestedBlogs(value)}
               </li>
