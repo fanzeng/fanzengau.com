@@ -3,7 +3,7 @@ import solutionDotJavaFile from './code/Solution.java';
 import runMeDotShFile from './code/run_me.sh';
 import runMeDotTxtFile from './code/run_me.txt';
 
-export function CodeSnippet() {
+export default function CodeSnippet() {
   const fetchFileAndSetState = (file, setStateFn) => {
     return () => {
       fetch(file)

@@ -3,7 +3,7 @@ import testRsyncDotShFile from './code/test_rsync/test_rsync.sh';
 import runMeDotShFile from './code/test_rsync/run_me.sh';
 import runMeDotTxtFile from './code/test_rsync/run_me.txt';
 
-export function AvoidRsyncDisaster() {
+export default function AvoidRsyncDisaster() {
   const fetchFileAndSetState = (file, setStateFn) => {
     return () => {
       fetch(file)

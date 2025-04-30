@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { MathJax } from "../../../math-jax/MathJax";
 import raw1 from './compute_normal_distribution_from_scratch_by_integration_1.txt';
-import { CodeSnippet } from "./CodeSnippet";
+import CodeSnippet from "./CodeSnippet";
 import raw2 from './compute_normal_distribution_from_scratch_by_integration_2.txt';
 
-export function ComputeNormalDistributionFromScratchByIntegration() {
+export default function ComputeNormalDistributionFromScratchByIntegration() {
   let [data1, setData1] = useState('Loading');
   let [data2, setData2] = useState('Loading');
 
