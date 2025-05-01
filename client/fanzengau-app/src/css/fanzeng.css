@@ -9,7 +9,7 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
-div.code {
+div.code_block {
   background-color: #dddddd;
   margin: 5px;
   padding: 5px;
@@ -102,7 +102,7 @@ button:enabled:hover {
   p {
     color: #aaaaaa;
   }
-  div.code {
+  div.code_block {
     background-color: #0d001f;
   }
   a:link {
