@@ -10,6 +10,20 @@ export function Certificates({certificateImages}) {
     <div>
       <div className="certificates-grid">
         <div className="certificate-item">
+          <a href="https://www.credly.com/badges/5d0e8980-b755-4695-b8ba-33ad66dfeeb3">
+            <img src={certificateImages['GCP_Cert_Cloud_Architect.png']} height="200" width="260" alt="GCP Certificate of Cloud Architect"/>
+          </a>
+          <a href="https://www.credly.com/badges/5d0e8980-b755-4695-b8ba-33ad66dfeeb3" className="certificate-name">Certified Professional Cloud Architect</a>
+        </div>
+        <div className="certificate-item">
+          <a href="https://www.credly.com/badges/608259ed-a4f8-4f13-8fbf-ad81d56345f4">
+            <img src={certificateImages['GCP_Cert_MLE.png']} height="200" width="260" alt="GCP Certificate of Machine Learning Engineer"/>
+          </a>
+          <a href="https://www.credly.com/badges/608259ed-a4f8-4f13-8fbf-ad81d56345f4" className="certificate-name">Certified Professional Machine Learning Engineer</a>
+        </div>
+      </div>
+      <div className="certificates-grid">
+        <div className="certificate-item">
           <img src={certificateImages['ScrumAlliance_CSM_Certificate.png']} height="200" width="260"
             alt="ScrumAlliance CSM Certificate" />
           <a href="#" className="certificate-name">ScrumAlliance CSM Certificate</a>
