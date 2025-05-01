@@ -42,6 +42,7 @@ p, label {
   color: #204020;
   margin: 5px;
   padding: 5px;
+  line-height: 1.5;
 }
 
 a {
@@ -106,6 +107,6 @@ button:enabled:hover {
     color: #aaaaff;
   }
   a:visited {
-    color: #c802eb;
+    color: #6a007c;
   }
 }
