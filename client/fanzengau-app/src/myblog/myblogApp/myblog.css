@@ -1,0 +1,37 @@
+.blogContainer {
+  margin: 10px;
+  color: #333;
+}
+
+.blogList {
+  list-style-type: none;
+  padding-left: 1px;
+}
+
+.blogItem {
+  margin: 3px 0;
+}
+
+a.blogLink {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 16px;
+  color: #007bff;
+  transition: color 0.1s ease;
+}
+
+.blogLink:hover {
+  color: #0056b3;
+}
+
+.blogCategory {
+  margin: 8px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.blogCategory > strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #555;
+}

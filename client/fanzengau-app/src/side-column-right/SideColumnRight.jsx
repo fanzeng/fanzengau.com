@@ -9,7 +9,7 @@ export function SideColumnRight() {
           <h2>
             <Link to="/myblog" style={{ margin: '0px', padding: '0px' }}>My blogs</Link>
           </h2>
-          <div className="my_blog side-column-myblog">
+          <div className="my_blog">
             <Myblog />
           </div>
         </div>

@@ -11,7 +11,7 @@ export function Portfolio() {
   const certificateImages = importImages(require.context('../resource/image/certificates', false, /\.(png|jpe?g|svg)$/));
 
   return <>
-    <div id="content">
+    <div className="main_content">
 
       <title>Fan Zeng's website. Welcome</title>
       <div className="section">

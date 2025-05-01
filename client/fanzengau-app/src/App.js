@@ -123,7 +123,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Portfolio />} />
             <Route path="/myblog" element={
-              <div className='myblog main-content-myblog'>
+              <div className='myblog main_content'>
+                <h1>My blogs</h1>
                 <Myblog />
               </div>
             } />
