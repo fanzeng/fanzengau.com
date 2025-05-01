@@ -9,12 +9,15 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
-div.section {
-  background-color: #fffffa;
+div.code {
+  background-color: #dddddd;
   margin: 5px;
   padding: 5px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 2px;
+}
+
+div.section, h1, h2 {
+  margin: 5px;
+  padding: 5px;
   opacity: 0.9;
 }
 
@@ -25,17 +28,16 @@ div.section:hover {
 h1 {
   color: #0047bc;
   padding: 10px;
-  margin: 5px;
 }
 
 h2 {
   color: #910a00;
-  margin: 5px;
 }
 
 h3 {
   color: #910a00;
   margin: 5px;
+  padding: 5px;
 }
 
 p, label {
@@ -100,7 +102,7 @@ button:enabled:hover {
   p {
     color: #aaaaaa;
   }
-  div.section {
+  div.code {
     background-color: #0d001f;
   }
   a:link {

@@ -38,19 +38,19 @@ export default function CodeSnippet() {
       <p>Code example in Java:</p>
       <div>
         <p>Solution.java</p>
-        <code className="prettyprint linenums">
+        <code className="prettyprint">
           <div dangerouslySetInnerHTML={{ __html: solutionDotJava }} />
         </code>
       </div>
       <div>
         <p>run_me.sh</p>
-        <code className="prettyprint linenums">
+        <code className="prettyprint">
           <div dangerouslySetInnerHTML={{ __html: runMeDotSh }} />
         </code>
       </div>
       <div>
         <p>run_me.txt</p>
-        <code className="prettyprint linenums">
+        <code className="prettyprint">
           <div dangerouslySetInnerHTML={{ __html: runMeDotTxt }} />
         </code>
       </div>

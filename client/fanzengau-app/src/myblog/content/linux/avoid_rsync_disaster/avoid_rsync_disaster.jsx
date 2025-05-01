@@ -125,21 +125,21 @@ export default function AvoidRsyncDisaster() {
       <p>
         Huge thanks to @ThirtySomething for adding the hidden file cases.
       </p>
-      <div>
+      <div className="code">
         <p>test_rsync.sh</p>
-        <code className="prettyprint linenums">
+        <code className="prettyprint">
           <div dangerouslySetInnerHTML={{ __html: testRsyncDotSh }} />
         </code>
       </div>
       <div>
         <p>run_me.sh</p>
-        <code className="prettyprint linenums">
+        <code className="prettyprint">
           <div dangerouslySetInnerHTML={{ __html: runMeDotSh }} />
         </code>
       </div>
       <div>
         <p>run_me.txt</p>
-        <code className="prettyprint linenums">
+        <code className="prettyprint">
           <div dangerouslySetInnerHTML={{ __html: runMeDotTxt }} />
         </code>
       </div>

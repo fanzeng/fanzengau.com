@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './myblog.css';
+import './myblog.css';
 
 export function Myblog() {
   const importBlogs = (requireContext) => {
@@ -64,5 +64,9 @@ export function Myblog() {
     );
   };
 
-  return <div className={styles.blogContainer}>{renderNestedBlogs(blogs)}</div>;
+  return <div className="main_content">
+    <div className="section">
+        {renderNestedBlogs(blogs)}
+      </div>
+    </div>;
 }
