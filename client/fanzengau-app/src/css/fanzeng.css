@@ -9,16 +9,30 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 
+div.column_uneven_2_6_3_left,
+div.column_uneven_2_6_3_center,
+div.column_uneven_2_6_3_right {
+  background-color: #fffffd;
+}
+
 div.code_block {
   background-color: #dddddd;
   margin: 5px;
   padding: 5px;
 }
 
-div.section, h1, h2 {
+pre {
   margin: 5px;
   padding: 5px;
+}
+
+div.section, h1, h2 {
   opacity: 0.9;
+}
+
+h1, h2 {
+  margin: 5px;
+  padding: 5px;
 }
 
 div.section:hover {
@@ -96,6 +110,11 @@ button:enabled:hover {
     background: #080012;
     color: #aaaaaa;
   }
+  div.column_uneven_2_6_3_left,
+  div.column_uneven_2_6_3_center,
+  div.column_uneven_2_6_3_right {
+    background-color: #080008;
+  }
   h2, h3 {
     color: #bbbbbb;
   }
@@ -104,6 +123,7 @@ button:enabled:hover {
   }
   div.code_block {
     background-color: #0d001f;
+    opacity: 0.6;
   }
   a:link {
     color: #aaaaff;

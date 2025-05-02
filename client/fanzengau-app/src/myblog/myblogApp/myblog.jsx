@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom';
 import './myblog.css';
 
 export function Myblog() {
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   const importBlogs = (requireContext) => {
     const blogs = requireContext.keys().map((key) => {
       const pathParts = key.split('/');
       const fileName = pathParts[pathParts.length - 1];
-      const title = fileName.replace(/_/g, ' ').replace('.jsx', '');
+      const title = capitalizeFirstLetter(fileName.replace(/_/g, ' ').replace('.jsx', ''));
       const url = `/myblog/content${key.replace('./', '').replace('.jsx', '')}`;
       return { title, url, pathParts };
     });
@@ -22,7 +26,7 @@ export function Myblog() {
         currentLevel = currentLevel[part];
 
         if (index === pathParts.length - 3 && part === fileNameWithoutExtension) {
-          currentLevel.title = dirName.replace(/_/g, ' ');
+          currentLevel.title = capitalizeFirstLetter(dirName.replace(/_/g, ' '));
           currentLevel.url = url;
         }
       });
@@ -54,7 +58,7 @@ export function Myblog() {
           } else {
             return (
               <li key={key} className="blogCategory">
-                <strong>{key.replace(/_/g, ' ')}</strong>
+                <strong>{capitalizeFirstLetter(key.replace(/_/g, ' '))}</strong>
                 {renderNestedBlogs(value)}
               </li>
             );
