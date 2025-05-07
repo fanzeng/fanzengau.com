@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export function CodeBlock({ file, title }) {
   const [content, setContent] = useState("Loading");
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     fetch(file)
@@ -9,21 +10,22 @@ export function CodeBlock({ file, title }) {
       .then((text) => {
         text = text.replace(/[\r?\n]/g, "<br>").replace(/[ ]/g, "&nbsp;");
         setContent(text);
+        setIsLoaded(true); // Mark this CodeBlock as loaded
       });
   }, [file]);
 
   useEffect(() => {
-    const intv = setInterval(() => {
-      if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === "function") {
-        if (content !== "Loading") {
+    if (isLoaded) {
+      const intv = setInterval(() => {
+        if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === "function") {
           window.PR.prettyPrint();
           clearInterval(intv);
         }
-      }
-    }, 50);
+      }, 50);
 
-    return () => clearInterval(intv); // Cleanup interval on unmount
-  }, [content]);
+      return () => clearInterval(intv); // Cleanup interval on unmount
+    }
+  }, [isLoaded]);
 
   return (
     <div className="code_block">
