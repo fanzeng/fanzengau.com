@@ -16,31 +16,25 @@
 </div>
 
 <h3>Why comments</h3>
-So why do everyone says we need comments. The reason is simple: To save time in the future.
+So why does everyone say we need comments. The reason is simple: To save time in the future.
 
 If our code is any good, it is (hopefully) going to be used. And if it's used, someone would likely want to improve it.
 This means at some stage, some lucky person (could be yourself) will have to try and understand the code you write today
 in order to apply the envisioned changes. It is not suggested at all to modify code unless you completely understand it
 or the author explicitly said so (e.g. "This chunk of code doesn't do anything really, feel free to delete it").
 
-Typically one would spend most of her day deciphering existing code, so that she can apply the updates in just a
-fraction of a minute before going home. This doesn't feel like productive, and when big boss walks past, you don't want
-him to ask: "Why aren't you typing on your keyboard? I didn't hire you to stare at your screen!?"
-
-Thus, we write down our programming thoughts to minimize our screen-staring time.
-
 <h3>Then why not comment</h3>
 Because comments lie. Because everytime you change code, you will need to remember to change the associated comments.
 Well it sounds all right if we just apply a little bit of discipline, right? Except, you don't always know all the
 comments that should be changed when you change code (sadly, no IDE is smart enought to tell you that either when this
 article is written). For instance, you change the behavior of a function, and respectfully update the comments above it.
-However, there are callers of this function who may have comments that are invalidated as well. Note, if you code in the
+However, there are callers of this function who may have comments that are invalidated as well. (Note, if you code in the
 right way, you shouldn't induce the need to change existing callers of a function as you modify it, especially when you
-are not the only user of your code.
+are not the only user of your code.)
 
 A secondary reasoning has to do with information entropy. Too much unnecessary comments weigh down the significance of
 those really important ones. People will pay more attention to your comments if you only comment when absolutely
-necessary, they know they'll be in trouble if they don't.
+necessary.
 
 In a word, bad comments are worse than no comment. Let's review some cases where comments are not welcome.
 
@@ -121,5 +115,5 @@ do it. It usually happens after a prolonged period of deliberation (read: premed
   comment before you commit the crime. Reason: You phone can ring and you will forget.
 </li>
 <li>
-  You are reading this article. Please leave a comment with your thoughts.
+  You are reading this article. Please leave a "comment" with your thoughts.
 </li>
