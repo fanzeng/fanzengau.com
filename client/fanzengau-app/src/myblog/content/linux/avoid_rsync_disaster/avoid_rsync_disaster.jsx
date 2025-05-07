@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import testRsyncDotShFile from './code/test_rsync/test_rsync.sh';
-import runMeDotShFile from './code/test_rsync/run_me.sh';
-import runMeDotTxtFile from './code/test_rsync/run_me.txt';
+import { CodeBlock } from "../../../components/CodeBlock";
+import testRsyncDotShFile from "./code/test_rsync/test_rsync.sh";
+import runMeDotShFile from "./code/test_rsync/run_me.sh";
+import runMeDotTxtFile from "./code/test_rsync/run_me.txt";
 
 export default function AvoidRsyncDisaster() {
   const fetchFileAndSetState = (file, setStateFn) => {
@@ -125,23 +126,11 @@ export default function AvoidRsyncDisaster() {
       <p>
         Huge thanks to @ThirtySomething for adding the hidden file cases.
       </p>
-      <div className="code_block">
-        <p>test_rsync.sh</p>
-        <code className="prettyprint">
-          <div dangerouslySetInnerHTML={{ __html: testRsyncDotSh }} />
-        </code>
-      </div>
-      <div className="code_block">
-        <p>run_me.sh</p>
-        <code className="prettyprint">
-          <div dangerouslySetInnerHTML={{ __html: runMeDotSh }} />
-        </code>
-      </div>
-      <div className="code_block">
-        <p>run_me.txt</p>
-        <code className="prettyprint">
-          <div dangerouslySetInnerHTML={{ __html: runMeDotTxt }} />
-        </code>
+      <div className="section">
+        <h3>Code Examples:</h3>
+        <CodeBlock file={testRsyncDotShFile} title="test_rsync.sh" />
+        <CodeBlock file={runMeDotShFile} title="run_me.sh" />
+        <CodeBlock file={runMeDotTxtFile} title="run_me.txt" />
       </div>
       <p>
         We can see from the output, a trailing slash at the end of src does make a difference,

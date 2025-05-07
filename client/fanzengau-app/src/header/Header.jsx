@@ -31,15 +31,15 @@ export function Header() {
           <li className="menu_horizontal_item">
             <Link to="/#about">About</Link>
           </li>
-          <li className="menu_horizontal_item">
+          {/* <li className="menu_horizontal_item">
             <Link to="/#skills">Skills</Link>
-          </li>
+          </li> */}
           <li className="menu_horizontal_item">
             <Link to="/#projects">Projects</Link>
           </li>
-          <li className="menu_horizontal_item">
+          {/* <li className="menu_horizontal_item">
             <Link to="/#certificates">Certificates</Link>
-          </li>
+          </li> */}
           <li className="menu_horizontal_item">
             <Link to="/#contact">Contact</Link>
           </li>
