@@ -1,4 +1,5 @@
 import { CodeBlock } from "../../../components/CodeBlock";
+import { PrettyPrintWrapper } from "../../../components/PrettyPrintWrapper";
 import testRsyncDotShFile from "./code/test_rsync/test_rsync.sh";
 import runMeDotShFile from "./code/test_rsync/run_me.sh";
 import runMeDotTxtFile from "./code/test_rsync/run_me.txt";
@@ -98,9 +99,11 @@ export default function AvoidRsyncDisaster() {
         </p>
         <div className="section">
           <h3>Code Examples:</h3>
-          <CodeBlock file={testRsyncDotShFile} title="test_rsync.sh" />
-          <CodeBlock file={runMeDotShFile} title="run_me.sh" />
-          <CodeBlock file={runMeDotTxtFile} title="run_me.txt" />
+          <PrettyPrintWrapper>
+            <CodeBlock file={testRsyncDotShFile} title="test_rsync.sh" />
+            <CodeBlock file={runMeDotShFile} title="run_me.sh" />
+            <CodeBlock file={runMeDotTxtFile} title="run_me.txt" />
+          </PrettyPrintWrapper>
         </div>
         <p>
           We can see from the output, a trailing slash at the end of src does make a difference,
