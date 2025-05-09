@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
 
-export function CodeBlock({ file, title }) {
+export function CodeBlock({ file, title, setIsLoaded }) {
   const [content, setContent] = useState("Loading");
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    let isMounted = true; // Prevent state updates if the component unmounts
+
     fetch(file)
       .then((response) => response.text())
       .then((text) => {
-        text = text.replace(/[\r?\n]/g, "<br>").replace(/[ ]/g, "&nbsp;");
-        setContent(text);
-        setIsLoaded(true); // Mark this CodeBlock as loaded
-      });
-  }, [file]);
-
-  useEffect(() => {
-    if (isLoaded) {
-      const intv = setInterval(() => {
-        if (window?.PR?.prettyPrint && typeof window.PR.prettyPrint === "function") {
-          window.PR.prettyPrint();
-          clearInterval(intv);
+        if (isMounted) {
+          text = text.replace(/[\r?\n]/g, "<br>").replace(/[ ]/g, "&nbsp;");
+          setContent(text);
+          if (setIsLoaded) {
+            console.log(`CodeBlock for ${title} loaded`);
+            setIsLoaded();
+          }
         }
-      }, 50);
+      })
+      .catch((error) => {
+        console.error(`Failed to load file: ${file}`, error);
+      });
 
-      return () => clearInterval(intv); // Cleanup interval on unmount
-    }
-  }, [isLoaded]);
+    return () => {
+      isMounted = false;
+    };
+  }, [file, title]);
 
   return (
     <div className="code_block">

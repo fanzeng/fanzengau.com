@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import "./Header.css";
 
 export function Header() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (location.hash) {
@@ -12,6 +14,14 @@ export function Header() {
       }
     }
   }, [location]);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <>
@@ -27,28 +37,38 @@ export function Header() {
         </div>
       </div>
       <nav className="menu">
-        <ul id="menu_horizontal">
+        <button
+          className="hamburger"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          ☰
+        </button>
+        <ul
+          id="menu_horizontal"
+          className={menuOpen ? "menu_open" : "menu_closed"}
+        >
           <li className="menu_horizontal_item">
-            <Link to="/#about">About</Link>
-          </li>
-          {/* <li className="menu_horizontal_item">
-            <Link to="/#skills">Skills</Link>
-          </li> */}
-          <li className="menu_horizontal_item">
-            <Link to="/#projects">Projects</Link>
-          </li>
-          {/* <li className="menu_horizontal_item">
-            <Link to="/#certificates">Certificates</Link>
-          </li> */}
-          <li className="menu_horizontal_item">
-            <Link to="/#contact">Contact</Link>
+            <Link to="/#about" onClick={closeMenu}>About</Link>
           </li>
           <li className="menu_horizontal_item">
-            <Link to="/myblog">Blog</Link>
+            <Link to="/myblog" onClick={closeMenu}>Blog</Link>
+          </li>
+          <li className="menu_horizontal_item">
+            <Link to="/#skills" onClick={closeMenu}>Skills</Link>
+          </li>
+          <li className="menu_horizontal_item">
+            <Link to="/#projects" onClick={closeMenu}>Projects</Link>
+          </li>
+          <li className="menu_horizontal_item">
+            <Link to="/#certificates" onClick={closeMenu}>Certificates</Link>
+          </li>
+          <li className="menu_horizontal_item">
+            <Link to="/#contact" onClick={closeMenu}>Contact</Link>
           </li>
         </ul>
       </nav>
-      <div style={{ height: "80px" }}></div>
+      <div id="top_place_holder"></div>
     </>
   );
 }
