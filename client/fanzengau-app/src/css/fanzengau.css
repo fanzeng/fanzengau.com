@@ -2,7 +2,6 @@ div.foot{
   font-size: small;
 }
 
-/*horizontal centered anchor tag*/
 div.center_h { 
   display: flex;
   flex-flow: row wrap;
@@ -125,6 +124,34 @@ li.menu_horizontal_item a {
   text-align: center;
   padding: 8px 16px 2px 16px;
   text-decoration: none;
+}
+
+#top_place_holder {
+  height: 80px;
+}
+
+@media (max-width: 768px) {
+  #menu_horizontal {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+
+  #menu_horizontal.menu_open {
+    height: 180px;
+    display: flex;
+  }
+
+  #menu_horizontal.menu_closed {
+    display: none;
+  }
+
+  li.menu_horizontal_item {
+    margin: 0 10px;
+    float: none;
+  }
+  #top_place_holder {
+    height: 40px;
+  }
 }
 
 span.inline_code {
