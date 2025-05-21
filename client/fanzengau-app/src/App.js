@@ -32,24 +32,30 @@ function App() {
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const handleChange = (e) => {
-      if (e.matches) {
-        setIsDarkMode(true);
-        import('./css/atelier-dune-dark.min.css');
-      } else {
-        setIsDarkMode(false);
-        import('./css/atelier-dune-light.min.css');
+    const setThemeCss = (isDark) => {
+      console.log('isDark =', isDark);
+      const id = 'theme-css';
+      let link = document.getElementById(id);
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = id;
+        document.head.appendChild(link);
       }
+      link.href = isDark
+        ? '/css/atelier-dune-dark.min.css'
+        : '/css/atelier-dune-light.min.css';
+    };
+
+    const handleChange = (e) => {
+      console.log('isDarkMode =', e.matches);
+      setIsDarkMode(e.matches);
+      setThemeCss(e.matches);
     };
 
     // Initial check and setup
-    if (darkModeMediaQuery.matches) {
-      setIsDarkMode(true);
-      import('./css/atelier-dune-dark.min.css');
-    } else {
-      setIsDarkMode(false);
-      import('./css/atelier-dune-light.min.css');
-    }
+    setIsDarkMode(darkModeMediaQuery.matches);
+    setThemeCss(darkModeMediaQuery.matches);
 
     darkModeMediaQuery.addEventListener('change', handleChange);
 
